@@ -1,5 +1,13 @@
 (() => {
   const STORAGE_KEY = 'malaga-family-trip-2026-data-v1';
+  const CHECKLIST_KEY = 'malaga-family-trip-2026-checklist-v1';
+  const PRE_TRIP_TASKS = [
+    { id: 'iphone-backup', label: 'גיבוי אייפון' },
+    { id: 'kids-shopping', label: 'רשימת קניות לילדים', note: 'מידות וגובה' },
+    { id: 'internet-sim', label: 'סים אינטרנט' },
+    { id: 'travel-insurance', label: 'ביטוח נסיעות' },
+    { id: 'flight-netflix', label: 'נטפליקס לטיסה', note: 'להוריד תכנים מראש' }
+  ];
   const clone = value => JSON.parse(JSON.stringify(value));
   let state = loadState();
   let editorOpen = false;
@@ -19,6 +27,37 @@
 
   function saveState() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function loadChecklist() {
+    try {
+      return JSON.parse(localStorage.getItem(CHECKLIST_KEY) || '{}');
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function checklistCard() {
+    const completed = loadChecklist();
+    const done = PRE_TRIP_TASKS.filter(task => completed[task.id]).length;
+    return `
+      <section class="section">
+        <div class="section-head">
+          <div><h2>צ׳ק־ליסט לפני הטיסה</h2><p>משימות קטנות שכדאי לסגור בזמן</p></div>
+          <span class="checklist-count">${done}/${PRE_TRIP_TASKS.length} הושלמו</span>
+        </div>
+        <article class="card checklist-card">
+          ${PRE_TRIP_TASKS.map(task => `
+            <label class="checklist-item ${completed[task.id] ? 'completed' : ''}">
+              <input type="checkbox" data-checklist-id="${esc(task.id)}" ${completed[task.id] ? 'checked' : ''}>
+              <span class="checkmark" aria-hidden="true">✓</span>
+              <span class="checklist-copy">
+                <b>${esc(task.label)}</b>
+                ${task.note ? `<small>${esc(task.note)}</small>` : ''}
+              </span>
+            </label>`).join('')}
+        </article>
+      </section>`;
   }
 
   function esc(value = '') {
@@ -159,6 +198,8 @@
           </article>
         </div>
       </section>
+
+      ${checklistCard()}
 
       ${rental?.warning ? `<section class="section"><div class="alert-card"><div class="alert-icon">!</div><div><h3>${esc(rental.alertTitle || 'חשוב לפני הנסיעה')}</h3><p>${esc(rental.warning)}</p><button class="text-link" data-go="info">לפרטים השימושיים ←</button></div></div></section>` : ''}
 
@@ -333,6 +374,13 @@
     }));
     app.querySelectorAll('[data-action]').forEach(el => el.addEventListener('click', handleAction));
     app.querySelectorAll('[data-editor-tab]').forEach(el => el.addEventListener('click', () => { editorTab = el.dataset.editorTab; render(); }));
+    app.querySelectorAll('[data-checklist-id]').forEach(input => input.addEventListener('change', () => {
+      const completed = loadChecklist();
+      completed[input.dataset.checklistId] = input.checked;
+      localStorage.setItem(CHECKLIST_KEY, JSON.stringify(completed));
+      render();
+      showToast(input.checked ? 'המשימה סומנה כהושלמה' : 'המשימה נפתחה מחדש');
+    }));
 
     const select = document.getElementById('editor-day-select');
     if (select) select.addEventListener('change', () => { editingDayId = select.value; render(); });
@@ -423,7 +471,7 @@
         refreshing = true;
         window.location.reload();
       });
-      navigator.serviceWorker.register('/sw.js?v=2', { updateViaCache: 'none' })
+      navigator.serviceWorker.register('/sw.js?v=3', { updateViaCache: 'none' })
         .then(registration => registration.update())
         .catch(console.warn);
     }
