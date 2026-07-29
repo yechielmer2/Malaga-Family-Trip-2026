@@ -416,6 +416,16 @@
   window.addEventListener('hashchange', render);
   window.addEventListener('DOMContentLoaded', () => {
     if (!location.hash) location.hash = 'home'; else render();
-    if ('serviceWorker' in navigator && location.protocol !== 'file:') navigator.serviceWorker.register('/sw.js').catch(console.warn);
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      let refreshing = false;
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (refreshing) return;
+        refreshing = true;
+        window.location.reload();
+      });
+      navigator.serviceWorker.register('/sw.js?v=2', { updateViaCache: 'none' })
+        .then(registration => registration.update())
+        .catch(console.warn);
+    }
   });
 })();
