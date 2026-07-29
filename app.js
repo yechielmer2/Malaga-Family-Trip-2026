@@ -255,6 +255,12 @@
     </article>`;
   }
 
+  function navLeg(l) {
+    const wazeHref = l.waze || l.href || '';
+    const mapsHref = l.maps || '';
+    return `<div class="nav-link"><span class="nav-logo">📍</span><span><b>${esc(l.label)}</b><small>${esc(l.sub || 'ניווט ליעד')}</small></span><span class="nav-actions">${wazeHref ? `<a class="btn btn-dark btn-small" href="${esc(wazeHref)}" target="_blank" rel="noopener">Waze</a>` : ''}${mapsHref ? `<a class="btn btn-ghost btn-small" href="${esc(mapsHref)}" target="_blank" rel="noopener">מפה</a>` : ''}</span></div>`;
+  }
+
   function dayPage(id) {
     const day = state.days.find(d => d.id === id);
     if (!day) return appShell('<div class="empty">היום המבוקש לא נמצא.</div>');
@@ -284,7 +290,7 @@
         </article>
         <div class="grid">
           <article class="card"><div class="mini-label">חשוב לדעת</div><h3>טיפים ליום הזה</h3><ul class="tip-list">${day.tips.map(t => `<li>${esc(t)}</li>`).join('')}</ul></article>
-          ${day.navigation.legs.length ? `<article class="card"><div class="mini-label">עצירות</div><h3>ניווט לכל יעד</h3><div class="nav-links" style="margin-top:12px">${day.navigation.legs.map(l => `<a class="nav-link" href="${esc(l.href)}" target="_blank" rel="noopener"><span class="nav-logo">${l.app === 'Waze' ? '🚙' : '📍'}</span><span><b>${esc(l.label)}</b><small>${esc(l.sub)}</small></span><span>↗</span></a>`).join('')}</div></article>` : ''}
+          ${day.navigation.legs.length ? `<article class="card"><div class="mini-label">עצירות</div><h3>ניווט לכל יעד</h3><div class="nav-links" style="margin-top:12px">${day.navigation.legs.map(l => navLeg(l)).join('')}</div></article>` : ''}
         </div>
       </section>
     `);

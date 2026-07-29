@@ -183,6 +183,7 @@ button { color: inherit; }
 .nav-logo { width: 45px; height: 45px; border-radius: 14px; display: grid; place-items: center; background: #edf2ef; font-size: 20px; }
 .nav-link b { display: block; }
 .nav-link small { color: var(--muted); }
+.nav-actions { display: flex; gap: 8px; align-items: center; }
 
 .route-card { overflow: hidden; padding: 0; }
 .route-visual { min-height: 310px; background: linear-gradient(165deg,#dfeceb,#eef0df 50%,#f0e3cb); position: relative; padding: 28px; }
@@ -190,6 +191,7 @@ button { color: inherit; }
 .route-legend { padding: 22px; }
 .route-stops { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 15px; }
 .route-stop { text-align: center; font-size: 13px; }
+a.route-stop { text-decoration: none; color: inherit; display: block; }
 .route-stop b { display: block; }
 .route-stop span { color: var(--muted); font-size: 11px; }
 
