@@ -185,7 +185,7 @@
         <div class="section-head"><div><h2>במבט אחד</h2><p>הדברים שנצטרך הכי הרבה בזמן אמת</p></div></div>
         <div class="grid grid-3">
           <article class="card quick-card">
-            <div><div class="quick-icon">✈️</div><div class="mini-label">טיסת הלוך</div><div class="quick-value">${esc(state.flights[0].depart)} → ${esc(state.flights[0].arrive)}</div><div class="quick-caption">${esc(state.flights[0].airline)} · ${esc(state.flights[0].date)} · ${esc(state.flights[0].flightNumber)}</div></div>
+            <div><div class="quick-icon">✈️</div><div class="mini-label">טיסת הלוך</div><div class="quick-value" dir="ltr" style="text-align:right">${esc(state.flights[0].depart)} → ${esc(state.flights[0].arrive)}</div><div class="quick-caption">${esc(state.flights[0].airline)} · ${esc(state.flights[0].date)} · ${esc(state.flights[0].flightNumber)}</div></div>
             <button class="text-link" data-go="info">כל פרטי הטיסות ←</button>
           </article>
           <article class="card quick-card">
