@@ -64,7 +64,7 @@
       <div class="app-shell">
         <header class="topbar">
           <button class="brand" data-go="home" aria-label="חזרה למסך הבית" style="border:0;background:none;padding:0;cursor:pointer;text-align:right">
-            <span class="brand-mark">⛰</span>
+            <span class="brand-mark">☀</span>
             <span><div class="brand-title">${esc(state.title)}</div><div class="brand-sub">${esc(state.dateLabel)}</div></span>
           </button>
           <div class="top-actions">
@@ -100,7 +100,7 @@
           <div class="hero-meta">
             <span class="hero-pill">📅 ${esc(state.dateLabel)}</span>
             <span class="hero-pill">📍 ${esc(state.routeLabel)}</span>
-            <span class="hero-pill">🚗 טיול ברכב</span>
+            <span class="hero-pill">👨‍👩‍👧‍👦 שתי משפחות</span>
           </div>
         </div>
         <div class="hero-side">
@@ -146,7 +146,7 @@
         <div class="section-head"><div><h2>במבט אחד</h2><p>הדברים שנצטרך הכי הרבה בזמן אמת</p></div></div>
         <div class="grid grid-3">
           <article class="card quick-card">
-            <div><div class="quick-icon">✈️</div><div class="mini-label">טיסת הלוך</div><div class="quick-value">06:20 → 08:40</div><div class="quick-caption">אל על · 3.8 · ${esc(state.flights[0].flightNumber)}</div></div>
+            <div><div class="quick-icon">✈️</div><div class="mini-label">טיסת הלוך</div><div class="quick-value">${esc(state.flights[0].depart)} → ${esc(state.flights[0].arrive)}</div><div class="quick-caption">${esc(state.flights[0].airline)} · ${esc(state.flights[0].date)} · ${esc(state.flights[0].flightNumber)}</div></div>
             <button class="text-link" data-go="info">כל פרטי הטיסות ←</button>
           </article>
           <article class="card quick-card">
