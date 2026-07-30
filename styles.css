@@ -209,7 +209,7 @@ a.route-stop { text-decoration: none; color: inherit; display: block; }
 
 .bottom-nav {
   position: fixed; z-index: 40; right: 50%; transform: translateX(50%); bottom: calc(10px + var(--safe-bottom));
-  width: min(650px, calc(100% - 22px)); display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px;
+  width: min(650px, calc(100% - 22px)); display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px;
   padding: 7px; border-radius: 22px; background: rgba(23,49,46,.94); color: white; box-shadow: 0 17px 45px rgba(18,42,38,.32); backdrop-filter: blur(18px);
 }
 .bottom-nav button { border: 0; background: transparent; color: rgba(255,255,255,.68); border-radius: 16px; min-height: 58px; padding: 5px; display: grid; place-items: center; gap: 2px; cursor: pointer; font-size: 11px; }
@@ -488,6 +488,8 @@ body {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
 }
+.checklist-row { display: flex; gap: 8px; align-items: center; }
+.checklist-row .checklist-item { flex: 1; }
 .checklist-item {
   min-height: 68px;
   display: grid;

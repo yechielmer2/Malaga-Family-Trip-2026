@@ -1,6 +1,7 @@
 (() => {
   const STORAGE_KEY = 'malaga-family-trip-2026-data-v1';
   const CHECKLIST_KEY = 'malaga-family-trip-2026-checklist-v1';
+  const ATTRACTIONS_KEY = 'malaga-family-trip-2026-attractions-v1';
   const PRE_TRIP_TASKS = [
     { id: 'iphone-backup', label: 'גיבוי אייפון' },
     { id: 'internet-sim', label: 'סים אינטרנט' },
@@ -36,6 +37,43 @@
     }
   }
 
+  function loadAttractionsDone() {
+    try {
+      return JSON.parse(localStorage.getItem(ATTRACTIONS_KEY) || '{}');
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function attractionsPage() {
+    const done = loadAttractionsDone();
+    const list = state.attractions || [];
+    const totalDone = list.filter(a => done[a.id]).length;
+    const groups = {};
+    list.forEach(a => { (groups[a.category] = groups[a.category] || []).push(a); });
+    const sections = Object.keys(groups).map(cat => `
+      <section class="section">
+        <div class="section-head"><div><h2>${esc(cat)}</h2></div></div>
+        <article class="card checklist-card">
+          ${groups[cat].map(a => `
+            <div class="checklist-row">
+              <label class="checklist-item ${done[a.id] ? 'completed' : ''}">
+                <input type="checkbox" data-attraction-id="${esc(a.id)}" ${done[a.id] ? 'checked' : ''}>
+                <span class="checkmark" aria-hidden="true">✓</span>
+                <span class="checklist-copy"><b>${esc(a.name)}</b></span>
+              </label>
+              ${a.maps ? `<a class="btn btn-ghost btn-small" href="${esc(a.maps)}" target="_blank" rel="noopener">${esc(a.linkLabel || 'מפה')}</a>` : ''}
+            </div>`).join('')}
+        </article>
+      </section>`).join('');
+    return appShell(`
+      <section class="section" style="margin-top:0">
+        <div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">מה עשינו</div><h2>אטרקציות ומקומות</h2><p>סמנו וי על מה שכבר עשיתם בטיול. ${totalDone}/${list.length} הושלמו.</p></div></div>
+      </section>
+      ${sections}
+    `);
+  }
+
   function checklistCard() {
     const completed = loadChecklist();
     const done = PRE_TRIP_TASKS.filter(task => completed[task.id]).length;
@@ -66,7 +104,7 @@
   function currentRoute() {
     const hash = location.hash.replace(/^#/, '') || 'home';
     if (hash.startsWith('day-')) return { page: 'day', id: hash };
-    return { page: ['home','days','route','lodgings','documents','info'].includes(hash) ? hash : 'home' };
+    return { page: ['home','days','route','lodgings','documents','info','attractions'].includes(hash) ? hash : 'home' };
   }
 
   function dateStatus() {
@@ -93,7 +131,7 @@
   }
 
   function icon(label) {
-    return ({ home:'⌂', days:'☷', route:'⌁', lodgings:'⌂', documents:'▣', info:'ⓘ' })[label] || '•';
+    return ({ home:'⌂', days:'☷', route:'⌁', lodgings:'⌂', documents:'▣', info:'ⓘ', attractions:'★' })[label] || '•';
   }
 
   function appShell(content) {
@@ -118,7 +156,7 @@
 
   function bottomNav(active) {
     const items = [
-      ['home','הבית'], ['days','ימים'], ['route','מסלול'], ['lodgings','לינות'], ['documents','מסמכים'], ['info','מידע']
+      ['home','הבית'], ['days','ימים'], ['route','מסלול'], ['lodgings','לינות'], ['attractions','אטרקציות'], ['documents','מסמכים'], ['info','מידע']
     ];
     return `<nav class="bottom-nav" aria-label="ניווט ראשי">${items.map(([id,label]) => `
       <button data-go="${id}" class="${active === id || (active === 'day' && id === 'days') ? 'active' : ''}">
@@ -368,6 +406,7 @@
     else if (route.page === 'route') html = routePage();
     else if (route.page === 'lodgings') html = lodgingsPage();
     else if (route.page === 'documents') html = documentsPage();
+    else if (route.page === 'attractions') html = attractionsPage();
     else html = infoPage();
     app.innerHTML = html;
     bindEvents();
@@ -386,6 +425,13 @@
       localStorage.setItem(CHECKLIST_KEY, JSON.stringify(completed));
       render();
       showToast(input.checked ? 'המשימה סומנה כהושלמה' : 'המשימה נפתחה מחדש');
+    }));
+    app.querySelectorAll('[data-attraction-id]').forEach(input => input.addEventListener('change', () => {
+      const done = loadAttractionsDone();
+      done[input.dataset.attractionId] = input.checked;
+      localStorage.setItem(ATTRACTIONS_KEY, JSON.stringify(done));
+      render();
+      showToast(input.checked ? 'סומן כבוצע' : 'הסימון הוסר');
     }));
 
     const select = document.getElementById('editor-day-select');

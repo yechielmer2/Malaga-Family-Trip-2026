@@ -93,7 +93,7 @@
       day(2, '5.8', 'יום רביעי, 5 באוגוסט', 'יום בריכה, ים ומרינה', 'Ocean House ← Puerto Marina',
         'פתיחה רכה לחופשה: בוקר חופשי במלון, מנוחת צהריים וערב במרינה של בנאלמדנה.',
         [['09:00', 'בוקר חופשי', 'בריכה, חוף וארוחת בוקר בלי שעון.', '🏖️'], ['13:00', 'מנוחה במלון', 'שעות החום בחדרים.', '😴'], ['17:30', 'Puerto Marina', 'טיול בין הסירות, גלידה ב־Gelateria Italiana Da Salvadore וארוחת ערב.', '⛵'], ['21:00', 'חזרה למלון', 'לילה מוקדם אחרי יום הטיסה.', '🌙']],
-        ['כובעים, קרם הגנה ומים גם בשעות אחר הצהריים.', 'המרינה נוחה לעגלות ולהליכה משפחתית.', 'אפשר לפצל: מי שעייף נשאר במלון.', 'גלידה איטלקית אמיתית ב־Gelateria Italiana Da Salvadore בפוארטו מרינה, קרוב למלון Ocean House.', 'PARQUELANDIA: פארק שעשועים קיצי על המרינה שנפתח בערב (מ־19:30 עד אחרי חצות) עם מתקנים לילדים, טרמפולינות, רכבות ומכוניות מתנגשות. ערב מושלם לגיא ורון אחרי ארוחת הערב.'],
+        ['כובעים, קרם הגנה ומים גם בשעות אחר הצהריים.', 'המרינה נוחה לעגלות ולהליכה משפחתית.', 'אפשר לפצל: מי שעייף נשאר במלון.', 'גלידה איטלקית אמיתית ב־Gelateria Italiana Da Salvadore בפוארטו מרינה, קרוב למלון Ocean House.', 'PARQUELANDIA: פארק שעשועים קיצי על המרינה שנפתח בערב (מ־19:30 עד אחרי חצות) עם מתקנים לילדים, טרמפולינות, רכבות ומכוניות מתנגשות. ערב מושלם לכל הילדים אחרי ארוחת הערב.'],
         ['Ocean House Costa del Sol by Grupotel', 'Puerto Marina Benalmádena'], { duration: 'חצי יום פעיל', walking: 'קלה ומישורית', places: ['Gelateria Italiana Da Salvadore Benalmádena', { label: 'PARQUELANDIA', maps: 'https://share.google/oFOQfzAgfhUCwpHzO' }] }),
 
       day(3, '6.8', 'יום חמישי, 6 באוגוסט', 'מלאגה העתיקה והנמל', 'טורמולינוס ← מרכז מלאגה ← Muelle Uno',
@@ -123,7 +123,7 @@
       day(7, '10.8', 'יום שני, 10 באוגוסט', 'פארק מים או יום מלון', 'Occidental ← Aqualand Torremolinos',
         'יום בחירה: פארק מים למשפחות שרוצות אקשן, או יום מלא בבריכה ובחוף למי שמעדיף לנוח.',
         [['09:30', 'החלטה לפי מזג האוויר', 'בודקים חום, עומס וכוחות.', '☀️'], ['10:00', 'Aqualand עם הפתיחה', 'מגיעים עם פתיחת הפארק כדי לתפוס מגלשות לפני התורים.', '🛝'], ['13:30', 'הפסקה מוצלת', 'אוכל, מים ומנוחה.', '🥤'], ['17:00', 'חזרה למלון', 'מקלחות וערב חופשי.', '🏨']],
-        ['לרכוש כרטיסים מראש רק אחרי בדיקת מדיניות גובה וגיל.', 'בגדי ים, נעלי מים והגנה חזקה מהשמש.', 'האפשרות החלופית היא יום מלון מלא.', 'Zero Latency Miramar: חוויית מציאות מדומה (VR) משותפת בקניון Miramar, אופציה טובה לערב או ליום חם לגיא ורון.', 'יום שני הוא מהפחות עמוסים בפארק; מגיעים עם הפתיחה (בערך 10:00), כי אחרי הצהריים מגיעים אוטובוסי תיירים והתורים מתארכים. שווה לשקול fast pass למגלשות הגדולות.'],
+        ['לרכוש כרטיסים מראש רק אחרי בדיקת מדיניות גובה וגיל.', 'בגדי ים, נעלי מים והגנה חזקה מהשמש.', 'האפשרות החלופית היא יום מלון מלא.', 'Zero Latency Miramar: חוויית מציאות מדומה (VR) משותפת בקניון Miramar, אופציה טובה לערב או ליום חם; כדאי לבדוק מגבלת גיל ל-VR.', 'יום שני הוא מהפחות עמוסים בפארק; מגיעים עם הפתיחה (בערך 10:00), כי אחרי הצהריים מגיעים אוטובוסי תיירים והתורים מתארכים. שווה לשקול fast pass למגלשות הגדולות.'],
         ['Occidental Torremolinos Playa', 'Aqualand Torremolinos', 'Occidental Torremolinos Playa'], { duration: 'יום מלא', walking: 'בינונית', badge: 'דורש החלטה', places: ['Zero Latency Miramar Fuengirola'] }),
 
       day(8, '11.8', 'יום שלישי, 11 באוגוסט', 'מיחאס — העיירה הלבנה', 'טורמולינוס ← Mijas Pueblo',
@@ -183,6 +183,28 @@
       { id: 'doc-insurance', title: 'ביטוח נסיעות · הראל', category: 'מסמכים', status: 'מאושר', note: 'ביטוח בריאות נסיעות בהראל, משפחת גנם. פוליסה · 4 ספרות אחרונות: 8026. פקס +972-3-7348168.', href: '' },
       { id: 'doc-tuktapas', title: 'Tuk & Tapas · סיור טוק־טוק', category: 'פעילות', status: 'רעיון', note: 'סיור טוק־טוק עם טעימות טאפאס באזור.', href: 'https://tukandtapas.com/' },
       { id: 'doc-qqbikes', title: 'QQ Bikes · השכרת אופניים', category: 'פעילות', status: 'רעיון', note: 'השכרת אופניים בקוסטה דל סול.', href: 'https://www.qqbikes.com/en/' }
+    ],
+    attractions: [
+      { id: 'a-parquelandia', name: 'PARQUELANDIA', category: 'אטרקציות', maps: 'https://share.google/oFOQfzAgfhUCwpHzO' },
+      { id: 'a-aqualand', name: 'Aqualand Torremolinos', category: 'אטרקציות', maps: map('Aqualand Torremolinos') },
+      { id: 'a-eva', name: 'EVA Málaga (VR)', category: 'אטרקציות', maps: 'https://share.google/ZIVWrL7kvkXIMVkMO' },
+      { id: 'a-zerolatency', name: 'Zero Latency Miramar (VR)', category: 'אטרקציות', maps: map('Zero Latency Miramar Fuengirola') },
+      { id: 'a-clubhipico', name: 'Club Hípico El Ranchito (רכיבה ופלמנקו)', category: 'אטרקציות', maps: map('Club Hipico El Ranchito Mijas') },
+      { id: 'a-casino', name: 'Casino de Juego Torrequebrada', category: 'אטרקציות', maps: map('Casino de Juego Torrequebrada') },
+      { id: 'a-mijas', name: 'Mijas Pueblo', category: 'אטרקציות', maps: map('Mijas Pueblo') },
+      { id: 'a-benalmadena', name: 'Benalmádena Pueblo', category: 'אטרקציות', maps: map('Benalmádena Pueblo') },
+      { id: 'a-puertomarina', name: 'Puerto Marina Benalmádena', category: 'אטרקציות', maps: map('Puerto Marina Benalmádena') },
+      { id: 'a-malaga', name: 'מלאגה העתיקה ו־Calle Larios', category: 'אטרקציות', maps: map('Calle Larios Malaga') },
+      { id: 'a-muelleuno', name: 'Muelle Uno', category: 'אטרקציות', maps: map('Muelle Uno Malaga') },
+      { id: 'a-marbella', name: 'Marbella Old Town', category: 'אטרקציות', maps: map('Marbella Old Town') },
+      { id: 'a-puertobanus', name: 'Puerto Banús', category: 'אטרקציות', maps: map('Puerto Banus') },
+      { id: 'f-dasalvadore', name: 'Gelateria Italiana Da Salvadore (גלידה)', category: 'מסעדות ואוכל', maps: map('Gelateria Italiana Da Salvadore Benalmádena') },
+      { id: 'f-lucciano', name: 'Lucciano\'s (גלידה)', category: 'מסעדות ואוכל', maps: map('Lucciano\'s Málaga') },
+      { id: 'f-casamira', name: 'Casa Mira (גלידה)', category: 'מסעדות ואוכל', maps: map('Casa Mira Málaga') },
+      { id: 'f-gaby', name: 'Gaby\'s Kosher Market & Restaurant', category: 'מסעדות ואוכל', maps: map('Gaby\'s Kosher Market Málaga') },
+      { id: 's-primark', name: 'Primark', category: 'קניות', maps: map('Primark Málaga') },
+      { id: 'act-tuktapas', name: 'Tuk & Tapas (סיור)', category: 'פעילויות', maps: 'https://tukandtapas.com/', linkLabel: 'אתר' },
+      { id: 'act-qqbikes', name: 'QQ Bikes (השכרת אופניים)', category: 'פעילויות', maps: 'https://www.qqbikes.com/en/', linkLabel: 'אתר' }
     ]
   };
 })();
