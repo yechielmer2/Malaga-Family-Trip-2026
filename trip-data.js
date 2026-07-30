@@ -19,7 +19,10 @@
     tips,
     navigation: {
       full: navPoints.length > 1 ? route(...navPoints) : map(navPoints[0]),
-      legs: navPoints.concat(options.places || []).map(point => ({ label: point, sub: 'ניווט ליעד', waze: waze(point), maps: map(point) }))
+      legs: navPoints.concat(options.places || []).map(point => {
+        const p = typeof point === 'string' ? { label: point } : point;
+        return { label: p.label, sub: 'ניווט ליעד', waze: p.waze || waze(p.label), maps: p.maps || map(p.label) };
+      })
     },
     weather: { label: 'תחזית לטורמולינוס', href: 'https://www.meteoblue.com/en/weather/week/torremolinos_spain_2510281' }
   });
@@ -90,14 +93,14 @@
       day(2, '5.8', 'יום רביעי, 5 באוגוסט', 'יום בריכה, ים ומרינה', 'Ocean House ← Puerto Marina',
         'פתיחה רכה לחופשה: בוקר חופשי במלון, מנוחת צהריים וערב במרינה של בנאלמדנה.',
         [['09:00', 'בוקר חופשי', 'בריכה, חוף וארוחת בוקר בלי שעון.', '🏖️'], ['13:00', 'מנוחה במלון', 'שעות החום בחדרים.', '😴'], ['17:30', 'Puerto Marina', 'טיול בין הסירות, גלידה ב־Gelateria Italiana Da Salvadore וארוחת ערב.', '⛵'], ['21:00', 'חזרה למלון', 'לילה מוקדם אחרי יום הטיסה.', '🌙']],
-        ['כובעים, קרם הגנה ומים גם בשעות אחר הצהריים.', 'המרינה נוחה לעגלות ולהליכה משפחתית.', 'אפשר לפצל: מי שעייף נשאר במלון.', 'גלידה איטלקית אמיתית ב־Gelateria Italiana Da Salvadore בפוארטו מרינה, קרוב למלון Ocean House.'],
-        ['Ocean House Costa del Sol by Grupotel', 'Puerto Marina Benalmádena'], { duration: 'חצי יום פעיל', walking: 'קלה ומישורית', places: ['Gelateria Italiana Da Salvadore Benalmádena'] }),
+        ['כובעים, קרם הגנה ומים גם בשעות אחר הצהריים.', 'המרינה נוחה לעגלות ולהליכה משפחתית.', 'אפשר לפצל: מי שעייף נשאר במלון.', 'גלידה איטלקית אמיתית ב־Gelateria Italiana Da Salvadore בפוארטו מרינה, קרוב למלון Ocean House.', 'PARQUELANDIA: פארק שעשועים קיצי על המרינה שנפתח בערב (מ־19:30 עד אחרי חצות) עם מתקנים לילדים, טרמפולינות, רכבות ומכוניות מתנגשות. ערב מושלם לגיא ורון אחרי ארוחת הערב.'],
+        ['Ocean House Costa del Sol by Grupotel', 'Puerto Marina Benalmádena'], { duration: 'חצי יום פעיל', walking: 'קלה ומישורית', places: ['Gelateria Italiana Da Salvadore Benalmádena', { label: 'PARQUELANDIA', maps: 'https://share.google/oFOQfzAgfhUCwpHzO' }] }),
 
       day(3, '6.8', 'יום חמישי, 6 באוגוסט', 'מלאגה העתיקה והנמל', 'טורמולינוס ← מרכז מלאגה ← Muelle Uno',
         'יום עירוני בקצב משפחתי: מרכז היסטורי, תצפית מבחוץ על האלקסבה, נמל וקניות.',
         [['09:00', 'יציאה למלאגה', 'עדיף ברכבת הפרברים כדי לחסוך חניה.', '🚆'], ['10:00', 'העיר העתיקה', 'Calle Larios, הקתדרלה וכיכרות מוצלות.', '🏛️'], ['11:30', 'הפוגת גלידה', 'Lucciano\'s החדשנית או Casa Mira הוותיקה, שתיהן במרכז.', '🍦'], ['13:00', 'ארוחה ומנוחה', 'עצירה ארוכה באזור הנמל.', '🍽️'], ['17:00', 'Muelle Uno', 'טיילת, חנויות וגלידה מול המים.', '🛍️'], ['20:00', 'חזרה לטורמולינוס', 'ערב חופשי במלון.', '🌅']],
-        ['באוגוסט חם מאוד — להשאיר מוזיאון כאפשרות ממוזגת.', 'לא לנסות להספיק את כל האתרים ביום אחד.', 'לצלם מראש את תחנת הרכבת לחזרה.', 'שתי גלידריות מומלצות במרכז: Lucciano\'s בסגנון בוטיק (דולסה דה לאצ׳ה ופיסטוק) ו־Casa Mira ההיסטורית עם גלידת טורון.'],
-        ['Ocean House Costa del Sol by Grupotel', 'Calle Larios Malaga', 'Muelle Uno Malaga', 'Ocean House Costa del Sol by Grupotel'], { duration: '8–9 שעות', walking: 'בינונית, עם הפסקות', places: ['Lucciano\'s Málaga', 'Casa Mira Málaga'] }),
+        ['באוגוסט חם מאוד — להשאיר מוזיאון כאפשרות ממוזגת.', 'לא לנסות להספיק את כל האתרים ביום אחד.', 'לצלם מראש את תחנת הרכבת לחזרה.', 'שתי גלידריות מומלצות במרכז: Lucciano\'s בסגנון בוטיק (דולסה דה לאצ׳ה ופיסטוק) ו־Casa Mira ההיסטורית עם גלידת טורון.', 'אוכל כשר במלאגה: Gaby\'s Kosher Market & Restaurant, מרכול ומסעדה כשרים.'],
+        ['Ocean House Costa del Sol by Grupotel', 'Calle Larios Malaga', 'Muelle Uno Malaga', 'Ocean House Costa del Sol by Grupotel'], { duration: '8–9 שעות', walking: 'בינונית, עם הפסקות', places: ['Lucciano\'s Málaga', 'Casa Mira Málaga', 'Gaby\'s Kosher Market Málaga', { label: 'EVA Málaga (VR)', maps: 'https://share.google/ZIVWrL7kvkXIMVkMO' }] }),
 
       day(4, '7.8', 'יום שישי, 7 באוגוסט', 'בנאלמדנה בקצב קל', 'טורמולינוס ← Benalmádena Pueblo',
         'בוקר בעיירה בנאלמדנה ותצפיות, אחר הצהריים חזרה מוקדמת למנוחה ולערב משפחתי.',
@@ -120,14 +123,14 @@
       day(7, '10.8', 'יום שני, 10 באוגוסט', 'פארק מים או יום מלון', 'Occidental ← Aqualand Torremolinos',
         'יום בחירה: פארק מים למשפחות שרוצות אקשן, או יום מלא בבריכה ובחוף למי שמעדיף לנוח.',
         [['09:30', 'החלטה לפי מזג האוויר', 'בודקים חום, עומס וכוחות.', '☀️'], ['10:30', 'Aqualand', 'כניסה מוקדמת והגדרת נקודת מפגש.', '🛝'], ['13:30', 'הפסקה מוצלת', 'אוכל, מים ומנוחה.', '🥤'], ['17:00', 'חזרה למלון', 'מקלחות וערב חופשי.', '🏨']],
-        ['לרכוש כרטיסים מראש רק אחרי בדיקת מדיניות גובה וגיל.', 'בגדי ים, נעלי מים והגנה חזקה מהשמש.', 'האפשרות החלופית היא יום מלון מלא.'],
-        ['Occidental Torremolinos Playa', 'Aqualand Torremolinos', 'Occidental Torremolinos Playa'], { duration: 'יום מלא', walking: 'בינונית', badge: 'דורש החלטה' }),
+        ['לרכוש כרטיסים מראש רק אחרי בדיקת מדיניות גובה וגיל.', 'בגדי ים, נעלי מים והגנה חזקה מהשמש.', 'האפשרות החלופית היא יום מלון מלא.', 'Zero Latency Miramar: חוויית מציאות מדומה (VR) משותפת בקניון Miramar, אופציה טובה לערב או ליום חם לגיא ורון.'],
+        ['Occidental Torremolinos Playa', 'Aqualand Torremolinos', 'Occidental Torremolinos Playa'], { duration: 'יום מלא', walking: 'בינונית', badge: 'דורש החלטה', places: ['Zero Latency Miramar Fuengirola'] }),
 
       day(8, '11.8', 'יום שלישי, 11 באוגוסט', 'מיחאס — העיירה הלבנה', 'טורמולינוס ← Mijas Pueblo',
-        'טיול בוקר קצר לעיירה לבנה יפהפייה, תצפיות וסמטאות; חזרה לפני שיא החום.',
+        'אחד המקומות היפים באנדלוסיה: כפר לבן על ההר, סמטאות, עציצים כחולים, קרמיקה, שוקולד ובתי קפה. חצי יום מומלץ, וחזרה לפני שיא החום.',
         [['08:30', 'יציאה מוקדמת', 'נוסעים לפני העומס והחום.', '🚐'], ['09:15', 'Mijas Pueblo', 'תצפית, סמטאות לבנות וכיכר מרכזית.', '🤍'], ['12:00', 'ארוחת צהריים', 'עצירה נינוחה לפני החזרה.', '🍽️'], ['14:00', 'חזרה למלון', 'בריכה, חוף ומנוחה.', '🏖️']],
-        ['יש עליות ואבנים — נעליים נוחות.', 'לקבוע נקודת מפגש אם הילדים מתפזרים בין החנויות.', 'לא להשאיר ציוד גלוי ברכב.'],
-        ['Occidental Torremolinos Playa', 'Mijas Pueblo', 'Occidental Torremolinos Playa'], { duration: '5–6 שעות', walking: 'בינונית ועליות' }),
+        ['יש עליות ואבנים — נעליים נוחות.', 'לקבוע נקודת מפגש אם הילדים מתפזרים בין החנויות.', 'לא להשאיר ציוד גלוי ברכב.', 'ב־Club Hípico El Ranchito משלבים מופע רכיבה מרשים עם ריקודי פלמנקו.'],
+        ['Occidental Torremolinos Playa', 'Mijas Pueblo', 'Occidental Torremolinos Playa'], { duration: '5–6 שעות', walking: 'בינונית ועליות', places: ['Club Hipico El Ranchito Mijas'] }),
 
       day(9, '12.8', 'יום רביעי, 12 באוגוסט', 'מרבייה ופוארטו באנוס', 'טורמולינוס ← Marbella Old Town ← Puerto Banús',
         'יום טיול מערבה: העיר העתיקה של מרבייה בבוקר, מנוחה ארוכה וערב מוקדם בפוארטו באנוס.',
@@ -156,13 +159,13 @@
         { label: 'הראל · וואטסאפ 24ש', value: '+972-52-7544589', href: 'https://wa.me/972527544589', caption: 'לחיצה לפתיחת וואטסאפ' }
       ],
       carRental: {
-        provider: 'טרם צורף אישור תחבורה', title: 'הסעות ורכב בקוסטה דל סול',
-        status: 'דורש החלטה', pickup: 'נמל התעופה מלאגה → טורמולינוס · 4.8',
+        provider: 'Uber', title: 'תחבורה בקוסטה דל סול',
+        status: 'מאושר', pickup: 'נמל התעופה מלאגה → טורמולינוס · 4.8',
         return: 'טורמולינוס → נמל התעופה מלאגה · 14.8',
-        vehicle: '8 נוסעים + מזוודות', deposit: 'אין פרטי הזמנה',
-        requirements: 'אם שוכרים רכב, נדרש רכב גדול מאוד או שני רכבים. לחלופין, להזמין מראש מיניוואן להסעות ולהשתמש ברכבת ובמוניות לטיולי היום.',
-        alertTitle: 'צריך לסגור תחבורה ל־8 נוסעים',
-        warning: 'במסמכים שצורפו לא נמצא אישור רכב או הסעה. יש לתאם מראש פתרון שמתאים ל־4 מבוגרים, 4 ילדים וכל המזוודות.',
+        vehicle: 'Uber לפי הצורך', deposit: 'ללא הזמנה מראש',
+        requirements: 'נוסעים ב-Uber לכל הנסיעות, כולל ההגעה מהשדה והחזרה אליו. כשנוסעים כל השמונה עם המזוודות מזמינים Uber גדול (Van או XL).',
+        alertTitle: '',
+        warning: '',
         document: ''
       },
       weather: [
@@ -176,8 +179,10 @@
       { id: 'doc-flight', title: 'פרטי טיסות ארקיע', category: 'טיסות', status: 'מאושר', note: 'IZ261 ב־4.8 ו־IZ262 ב־14.8. מסמך המקור כולל שמות ומספרי כרטיס ולכן אינו מפורסם באתר.', href: '' },
       { id: 'doc-ocean', title: 'Ocean House Costa del Sol', category: 'לינה', status: 'מאושר', note: '4–9 באוגוסט · 2 סוויטות משפחתיות · 4 מבוגרים ו־4 ילדים.', href: '' },
       { id: 'doc-occidental', title: 'Occidental Torremolinos Playa', category: 'לינה', status: 'מאושר', note: '9–14 באוגוסט · 2 חדרי משפחה · ההזמנה אינה ניתנת להחזר.', href: '' },
-      { id: 'doc-transfer', title: 'הסעה או רכב ל־8 נוסעים', category: 'תחבורה', status: 'לביצוע', note: 'לא צורף אישור. נדרש מקום ל־8 נוסעים ולכל המזוודות.', href: '' },
-      { id: 'doc-insurance', title: 'ביטוח נסיעות · הראל', category: 'מסמכים', status: 'מאושר', note: 'ביטוח בריאות נסיעות בהראל, משפחת גנם. פוליסה · 4 ספרות אחרונות: 8026. פקס +972-3-7348168.', href: '' }
+      { id: 'doc-transfer', title: 'תחבורה · Uber', category: 'תחבורה', status: 'מאושר', note: 'התחבורה בקוסטה דל סול על בסיס Uber, כולל הסעה מהשדה וחזרה. אין צורך בהזמנת הסעות מראש.', href: '' },
+      { id: 'doc-insurance', title: 'ביטוח נסיעות · הראל', category: 'מסמכים', status: 'מאושר', note: 'ביטוח בריאות נסיעות בהראל, משפחת גנם. פוליסה · 4 ספרות אחרונות: 8026. פקס +972-3-7348168.', href: '' },
+      { id: 'doc-tuktapas', title: 'Tuk & Tapas · סיור טוק־טוק', category: 'פעילות', status: 'רעיון', note: 'סיור טוק־טוק עם טעימות טאפאס באזור.', href: 'https://tukandtapas.com/' },
+      { id: 'doc-qqbikes', title: 'QQ Bikes · השכרת אופניים', category: 'פעילות', status: 'רעיון', note: 'השכרת אופניים בקוסטה דל סול.', href: 'https://www.qqbikes.com/en/' }
     ]
   };
 })();
