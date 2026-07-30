@@ -60,7 +60,7 @@
               <label class="checklist-item ${done[a.id] ? 'completed' : ''}">
                 <input type="checkbox" data-attraction-id="${esc(a.id)}" ${done[a.id] ? 'checked' : ''}>
                 <span class="checkmark" aria-hidden="true">✓</span>
-                <span class="checklist-copy"><b>${esc(a.name)}</b></span>
+                <span class="checklist-copy"><b>${esc(a.name)}</b>${a.desc ? `<small>${esc(a.desc)}</small>` : ''}</span>
               </label>
               ${a.maps ? `<a class="btn btn-ghost btn-small" href="${esc(a.maps)}" target="_blank" rel="noopener">${esc(a.linkLabel || 'מפה')}</a>` : ''}
             </div>`).join('')}
