@@ -141,6 +141,7 @@
             <span class="hero-pill">📍 ${esc(state.routeLabel)}</span>
             <span class="hero-pill">👨‍👩‍👧‍👦 שתי משפחות</span>
           </div>
+          ${state.lastUpdated ? `<div class="hero-updated">עודכן לאחרונה: <bdi dir="ltr">${esc(state.lastUpdated)}</bdi></div>` : ''}
         </div>
         <div class="hero-side">
           <div class="countdown-card">
