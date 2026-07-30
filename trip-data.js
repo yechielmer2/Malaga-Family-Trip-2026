@@ -28,7 +28,7 @@
     version: 1,
     title: 'מלאגה 2026',
     subtitle: 'הטיול המסורתי של משפחות גנם ושגב',
-    lastUpdated: '30.7.2026, 10:33',
+    lastUpdated: '30.7.2026, 10:49',
     dateLabel: '4–14 באוגוסט 2026',
     startDate: '2026-08-04',
     endDate: '2026-08-14',
@@ -151,7 +151,8 @@
       emergency: [
         { label: 'מוקד חירום אירופי', value: '112', href: 'tel:112' },
         { label: 'משטרה לאומית', value: '091', href: 'tel:091' },
-        { label: 'משטרה מקומית', value: '092', href: 'tel:092' }
+        { label: 'משטרה מקומית', value: '092', href: 'tel:092' },
+        { label: 'ביטוח הראל · מוקד חירום 24ש', value: '972-3-7547030', href: 'tel:+97237547030' }
       ],
       carRental: {
         provider: 'טרם צורף אישור תחבורה', title: 'הסעות ורכב בקוסטה דל סול',
@@ -175,7 +176,7 @@
       { id: 'doc-ocean', title: 'Ocean House Costa del Sol', category: 'לינה', status: 'מאושר', note: '4–9 באוגוסט · 2 סוויטות משפחתיות · 4 מבוגרים ו־4 ילדים.', href: '' },
       { id: 'doc-occidental', title: 'Occidental Torremolinos Playa', category: 'לינה', status: 'מאושר', note: '9–14 באוגוסט · 2 חדרי משפחה · ההזמנה אינה ניתנת להחזר.', href: '' },
       { id: 'doc-transfer', title: 'הסעה או רכב ל־8 נוסעים', category: 'תחבורה', status: 'לביצוע', note: 'לא צורף אישור. נדרש מקום ל־8 נוסעים ולכל המזוודות.', href: '' },
-      { id: 'doc-insurance', title: 'ביטוח נסיעות', category: 'מסמכים', status: 'לביצוע', note: 'להוסיף רק תקציר חירום מצונזר; לא לפרסם פוליסה מלאה באתר ציבורי.', href: '' }
+      { id: 'doc-insurance', title: 'ביטוח נסיעות · הראל', category: 'מסמכים', status: 'מאושר', note: 'ביטוח בריאות נסיעות בהראל, משפחת גנם. מוקד חירום 24 שעות: טלפון 972-3-7547030, פקס 972-3-7348168, וואטסאפ 972-52-7544589. מספר הפוליסה נשמר מחוץ לאתר הציבורי.', href: '' }
     ]
   };
 })();
