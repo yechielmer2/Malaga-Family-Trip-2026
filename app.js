@@ -339,7 +339,7 @@
 
       <section class="section"><div class="section-head"><div><h2>תחזית לפי מיקום</h2><p>קישורים ישירים ל־Meteoblue</p></div></div><div class="grid grid-2">${state.useful.weather.map(w => `<a class="card weather-card" href="${esc(w.href)}" target="_blank" rel="noopener"><div class="weather-icon">☁️</div><div><div class="mini-label">${esc(w.dates)}</div><h3>${esc(w.name)}</h3><p>${esc(w.note)}</p></div><span>↗</span></a>`).join('')}</div></section>
 
-      <section class="section"><div class="section-head"><div><h2>מספרי חירום</h2></div></div><div class="grid grid-3">${state.useful.emergency.map(e => `<a class="card" href="${esc(e.href)}" style="text-decoration:none"><div class="mini-label">${esc(e.label)}</div><div class="quick-value" style="margin-top:8px">${esc(e.value)}</div><div class="quick-caption">לחיצה לחיוג</div></a>`).join('')}</div></section>
+      <section class="section"><div class="section-head"><div><h2>מספרי חירום</h2></div></div><div class="grid grid-3">${state.useful.emergency.map(e => `<a class="card" href="${esc(e.href)}" style="text-decoration:none"><div class="mini-label">${esc(e.label)}</div><div class="quick-value" style="margin-top:8px"><bdi dir="ltr">${esc(e.value)}</bdi></div><div class="quick-caption">${esc(e.caption || 'לחיצה לחיוג')}</div></a>`).join('')}</div></section>
     `);
   }
 
