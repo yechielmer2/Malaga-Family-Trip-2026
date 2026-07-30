@@ -3,7 +3,6 @@
   const CHECKLIST_KEY = 'malaga-family-trip-2026-checklist-v1';
   const PRE_TRIP_TASKS = [
     { id: 'iphone-backup', label: 'גיבוי אייפון' },
-    { id: 'kids-shopping', label: 'רשימת קניות לילדים', note: 'מידות וגובה' },
     { id: 'internet-sim', label: 'סים אינטרנט' },
     { id: 'travel-insurance', label: 'ביטוח נסיעות' },
     { id: 'flight-netflix', label: 'נטפליקס לטיסה', note: 'להוריד תכנים מראש' }
