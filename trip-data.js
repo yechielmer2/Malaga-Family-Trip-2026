@@ -28,7 +28,7 @@
     version: 1,
     title: 'מלאגה 2026',
     subtitle: 'הטיול המסורתי של משפחות גנם ושגב',
-    lastUpdated: '30.7.2026, 10:49',
+    lastUpdated: '1.1.2020, 00:00',
     dateLabel: '4–14 באוגוסט 2026',
     startDate: '2026-08-04',
     endDate: '2026-08-14',
