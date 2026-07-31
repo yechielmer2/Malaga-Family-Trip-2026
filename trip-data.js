@@ -99,8 +99,8 @@
       day(3, '6.8', 'יום חמישי, 6 באוגוסט', 'מלאגה העתיקה והנמל', 'טורמולינוס ← מרכז מלאגה ← Muelle Uno',
         'יום עירוני בקצב משפחתי: מרכז היסטורי, תצפית מבחוץ על האלקסבה, נמל וקניות.',
         [['09:00', 'יציאה למלאגה', 'עדיף ברכבת הפרברים כדי לחסוך חניה.', '🚆'], ['10:00', 'העיר העתיקה', 'Calle Larios, הקתדרלה וכיכרות מוצלות.', '🏛️'], ['11:30', 'הפוגת גלידה', 'Lucciano\'s החדשנית או Casa Mira הוותיקה, שתיהן במרכז.', '🍦'], ['13:00', 'ארוחה ומנוחה', 'עצירה ארוכה באזור הנמל.', '🍽️'], ['17:00', 'Muelle Uno', 'טיילת, חנויות וגלידה מול המים.', '🛍️'], ['20:00', 'חזרה לטורמולינוס', 'ערב חופשי במלון.', '🌅']],
-        ['באוגוסט חם מאוד — להשאיר מוזיאון כאפשרות ממוזגת.', 'לא לנסות להספיק את כל האתרים ביום אחד.', 'לצלם מראש את תחנת הרכבת לחזרה.', 'שתי גלידריות מומלצות במרכז: Lucciano\'s בסגנון בוטיק (דולסה דה לאצ׳ה ופיסטוק) ו־Casa Mira ההיסטורית עם גלידת טורון.', 'אוכל כשר במלאגה: Gaby\'s Kosher Market & Restaurant, מרכול ומסעדה כשרים.'],
-        ['Ocean House Costa del Sol by Grupotel', 'Calle Larios Malaga', 'Muelle Uno Malaga', 'Ocean House Costa del Sol by Grupotel'], { duration: '8–9 שעות', walking: 'בינונית, עם הפסקות', places: ['Lucciano\'s Málaga', 'Casa Mira Málaga', 'Gaby\'s Kosher Market Málaga', { label: 'EVA Málaga (VR)', maps: 'https://share.google/ZIVWrL7kvkXIMVkMO' }] }),
+        ['באוגוסט חם מאוד — להשאיר מוזיאון כאפשרות ממוזגת.', 'לא לנסות להספיק את כל האתרים ביום אחד.', 'לצלם מראש את תחנת הרכבת לחזרה.', 'שתי גלידריות מומלצות במרכז: Lucciano\'s בסגנון בוטיק (דולסה דה לאצ׳ה ופיסטוק) ו־Casa Mira ההיסטורית עם גלידת טורון.', 'אוכל כשר במלאגה: Gaby\'s Kosher Market & Restaurant, מרכול ומסעדה כשרים.', 'שעונים ב־Calle Larios: Joyería Marcos (רולקס רשמי, Marqués de Larios 2) וחנות Swatch, על אותו רחוב של הטיול במלאגה.'],
+        ['Ocean House Costa del Sol by Grupotel', 'Calle Larios Malaga', 'Muelle Uno Malaga', 'Ocean House Costa del Sol by Grupotel'], { duration: '8–9 שעות', walking: 'בינונית, עם הפסקות', places: ['Lucciano\'s Málaga', 'Casa Mira Málaga', 'Gaby\'s Kosher Market Málaga', { label: 'EVA Málaga (VR)', maps: 'https://share.google/ZIVWrL7kvkXIMVkMO' }, { label: 'Joyería Marcos (רולקס)', maps: map('Joyería Marcos Marqués de Larios Málaga') }, { label: 'Swatch מלאגה', maps: 'https://maps.google.com/maps/place//data=!4m2!3m1!1s0xd73296229c807af:0x6be6f764a3301a92?entry=s&hl=en' }] }),
 
       day(4, '7.8', 'יום שישי, 7 באוגוסט', 'בנאלמדנה בקצב קל', 'טורמולינוס ← Benalmádena Pueblo',
         'בוקר בעיירה בנאלמדנה ותצפיות, אחר הצהריים חזרה מוקדמת למנוחה ולערב משפחתי.',
@@ -203,6 +203,8 @@
       { id: 'f-casamira', name: 'Casa Mira (גלידה)', category: 'מסעדות ואוכל', desc: 'גלידרייה היסטורית עם גלידת טורון.', maps: map('Casa Mira Málaga') },
       { id: 'f-gaby', name: 'Gaby\'s Kosher Market & Restaurant', category: 'מסעדות ואוכל', desc: 'מרכול ומסעדה כשרים במלאגה.', maps: map('Gaby\'s Kosher Market Málaga') },
       { id: 's-primark', name: 'Primark', category: 'קניות', desc: 'רשת אופנה זולה, מצוין לבגדי ילדים ומזכרות.', maps: map('Primark Málaga') },
+      { id: 's-marcos', name: 'Joyería Marcos (רולקס)', category: 'קניות', desc: 'חנות רולקס רשמית ברחוב Calle Larios במלאגה.', maps: map('Joyería Marcos Marqués de Larios Málaga') },
+      { id: 's-swatch', name: 'Swatch מלאגה', category: 'קניות', desc: 'חנות שעוני Swatch במרכז מלאגה.', maps: 'https://maps.google.com/maps/place//data=!4m2!3m1!1s0xd73296229c807af:0x6be6f764a3301a92?entry=s&hl=en' },
       { id: 'act-tuktapas', name: 'Tuk & Tapas (סיור)', category: 'פעילויות', desc: 'סיור טוק־טוק עם טעימות טאפאס.', maps: 'https://tukandtapas.com/', linkLabel: 'אתר' },
       { id: 'act-qqbikes', name: 'QQ Bikes (השכרת אופניים)', category: 'פעילויות', desc: 'השכרת אופניים באזור.', maps: 'https://www.qqbikes.com/en/', linkLabel: 'אתר' }
     ],
@@ -227,7 +229,21 @@
       { name: 'Da Salvadore · גלידה', type: 'food', coords: [36.5985, -4.5155], maps: map('Gelateria Italiana Da Salvadore Benalmádena') },
       { name: 'Lucciano\'s · גלידה', type: 'food', coords: [36.7185, -4.4205], maps: map('Lucciano\'s Málaga') },
       { name: 'Casa Mira · גלידה', type: 'food', coords: [36.7180, -4.4195], maps: map('Casa Mira Málaga') },
-      { name: 'Gaby\'s Kosher', type: 'food', coords: [36.7150, -4.4230], maps: map('Gaby\'s Kosher Market Málaga') }
+      { name: 'Gaby\'s Kosher', type: 'food', coords: [36.7150, -4.4230], maps: map('Gaby\'s Kosher Market Málaga') },
+      { name: 'Joyería Marcos (רולקס)', type: 'attraction', coords: [36.7186, -4.4204], maps: map('Joyería Marcos Marqués de Larios Málaga') },
+      { name: 'Swatch מלאגה', type: 'attraction', coords: [36.7180, -4.4200], maps: 'https://maps.google.com/maps/place//data=!4m2!3m1!1s0xd73296229c807af:0x6be6f764a3301a92?entry=s&hl=en' }
+    ],
+    routePath: [
+      [36.6749, -4.4991],
+      [36.6170, -4.4995],
+      [36.5987, -4.5163],
+      [36.7146, -4.4160],
+      [36.5949, -4.5698],
+      [36.6150, -4.5050],
+      [36.6290, -4.5030],
+      [36.5959, -4.6377],
+      [36.4870, -4.9540],
+      [36.6749, -4.4991]
     ]
   };
 })();

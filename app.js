@@ -339,7 +339,7 @@
       <section class="section" style="margin-top:0">
         <div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">מפת הטיול</div><h2>כל המקומות על המפה</h2><p>נעצים לפי סוג: מלונות, מסעדות ואטרקציות. הקישו על נעץ לפתיחה בגוגל מפות.</p></div></div>
         <div id="route-map" class="route-map"></div>
-        <div class="map-legend"><span><i style="background:#1d4ed8"></i> מלונות</span><span><i style="background:#e07b1a"></i> מסעדות</span><span><i style="background:#188a4e"></i> אטרקציות</span></div>
+        <div class="map-legend"><span><i style="background:#1d4ed8"></i> מלונות</span><span><i style="background:#e07b1a"></i> מסעדות</span><span><i style="background:#188a4e"></i> אטרקציות</span><span><i style="background:#173f3a;border-radius:2px;width:20px;height:3px"></i> מסלול הימים</span></div>
       </section>
       <section class="section"><div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">תמונת המסלול</div><h2>מפה וניווט</h2><p>קישור למסלול המלא וקישור נפרד לכל יום</p></div></div>${routePreview()}</section>
       <section class="section"><div class="section-head"><div><h2>מקטעי הנסיעה</h2><p>אפשר לפתוח כל מקטע בנפרד</p></div></div><div class="day-list">${state.days.filter(d => d.navigation?.full).map(d => `<article class="day-card" data-go="${esc(d.id)}"><div class="day-num"><div><span>יום</span><strong>${d.number}</strong><span>${esc(d.shortDate)}</span></div></div><div><h3>${esc(d.route)}</h3><p>${esc(d.duration)}</p></div><a class="btn btn-dark btn-small" href="${esc(d.navigation.full)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">מפה</a></article>`).join('')}</div></section>
@@ -411,6 +411,8 @@
     const bounds = [];
     const map = L.map(el, { scrollWheelZoom: false });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(map);
+    const path = state.routePath || [];
+    if (path.length > 1) L.polyline(path, { color: '#173f3a', weight: 3, opacity: 0.55, dashArray: '6 8' }).addTo(map);
     (state.mapPoints || []).forEach(p => {
       if (!p.coords) return;
 
