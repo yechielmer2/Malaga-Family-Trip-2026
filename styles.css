@@ -195,6 +195,9 @@ button { color: inherit; }
 a.route-stop { text-decoration: none; color: inherit; display: block; }
 .route-stop b { display: block; }
 .route-stop span { color: var(--muted); font-size: 11px; }
+.route-map { height: 360px; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); }
+.map-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; font-size: 13px; color: var(--muted); }
+.map-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-left: 6px; vertical-align: middle; }
 
 .lodging-card { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; }
 .lodging-card + .lodging-card { margin-top: 14px; }

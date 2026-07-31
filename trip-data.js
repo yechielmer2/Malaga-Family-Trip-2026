@@ -205,6 +205,29 @@
       { id: 's-primark', name: 'Primark', category: 'קניות', desc: 'רשת אופנה זולה, מצוין לבגדי ילדים ומזכרות.', maps: map('Primark Málaga') },
       { id: 'act-tuktapas', name: 'Tuk & Tapas (סיור)', category: 'פעילויות', desc: 'סיור טוק־טוק עם טעימות טאפאס.', maps: 'https://tukandtapas.com/', linkLabel: 'אתר' },
       { id: 'act-qqbikes', name: 'QQ Bikes (השכרת אופניים)', category: 'פעילויות', desc: 'השכרת אופניים באזור.', maps: 'https://www.qqbikes.com/en/', linkLabel: 'אתר' }
+    ],
+    mapPoints: [
+      { name: 'Ocean House · מלון 4–9.8', type: 'hotel', coords: [36.6170, -4.4995], maps: map('Ocean House Costa del Sol by Grupotel') },
+      { name: 'Occidental Torremolinos · מלון 9–14.8', type: 'hotel', coords: [36.6150, -4.5050], maps: map('Occidental Torremolinos Playa') },
+      { name: 'שדה התעופה מלאגה', type: 'attraction', coords: [36.6749, -4.4991], maps: map('Málaga Airport') },
+      { name: 'מלאגה העתיקה', type: 'attraction', coords: [36.7196, -4.4200], maps: map('Calle Larios Malaga') },
+      { name: 'Muelle Uno', type: 'attraction', coords: [36.7146, -4.4160], maps: map('Muelle Uno Malaga') },
+      { name: 'Puerto Marina Benalmádena', type: 'attraction', coords: [36.5987, -4.5163], maps: map('Puerto Marina Benalmádena') },
+      { name: 'Benalmádena Pueblo', type: 'attraction', coords: [36.5949, -4.5698], maps: map('Benalmádena Pueblo') },
+      { name: 'Casino Torrequebrada', type: 'attraction', coords: [36.5960, -4.5170], maps: map('Casino de Juego Torrequebrada') },
+      { name: 'PARQUELANDIA', type: 'attraction', coords: [36.5990, -4.5160], maps: 'https://share.google/oFOQfzAgfhUCwpHzO' },
+      { name: 'Aqualand Torremolinos', type: 'attraction', coords: [36.6290, -4.5030], maps: map('Aqualand Torremolinos') },
+      { name: 'Zero Latency Miramar (VR)', type: 'attraction', coords: [36.5390, -4.6230], maps: map('Zero Latency Miramar Fuengirola') },
+      { name: 'EVA Málaga (VR)', type: 'attraction', coords: [36.7180, -4.4210], maps: 'https://share.google/ZIVWrL7kvkXIMVkMO' },
+      { name: 'Mijas Pueblo', type: 'attraction', coords: [36.5959, -4.6377], maps: map('Mijas Pueblo') },
+      { name: 'Club Hípico El Ranchito', type: 'attraction', coords: [36.5620, -4.6350], maps: map('Club Hipico El Ranchito Mijas') },
+      { name: 'Marbella Old Town', type: 'attraction', coords: [36.5101, -4.8856], maps: map('Marbella Old Town') },
+      { name: 'Puerto Banús', type: 'attraction', coords: [36.4870, -4.9540], maps: map('Puerto Banus') },
+      { name: 'Primark', type: 'attraction', coords: [36.7170, -4.4215], maps: map('Primark Málaga') },
+      { name: 'Da Salvadore · גלידה', type: 'food', coords: [36.5985, -4.5155], maps: map('Gelateria Italiana Da Salvadore Benalmádena') },
+      { name: 'Lucciano\'s · גלידה', type: 'food', coords: [36.7185, -4.4205], maps: map('Lucciano\'s Málaga') },
+      { name: 'Casa Mira · גלידה', type: 'food', coords: [36.7180, -4.4195], maps: map('Casa Mira Málaga') },
+      { name: 'Gaby\'s Kosher', type: 'food', coords: [36.7150, -4.4230], maps: map('Gaby\'s Kosher Market Málaga') }
     ]
   };
 })();

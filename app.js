@@ -336,7 +336,12 @@
 
   function routePage() {
     return appShell(`
-      <section class="section" style="margin-top:0"><div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">תמונת המסלול</div><h2>מפה וניווט</h2><p>קישור למסלול המלא וקישור נפרד לכל יום</p></div></div>${routePreview()}</section>
+      <section class="section" style="margin-top:0">
+        <div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">מפת הטיול</div><h2>כל המקומות על המפה</h2><p>נעצים לפי סוג: מלונות, מסעדות ואטרקציות. הקישו על נעץ לפתיחה בגוגל מפות.</p></div></div>
+        <div id="route-map" class="route-map"></div>
+        <div class="map-legend"><span><i style="background:#1d4ed8"></i> מלונות</span><span><i style="background:#e07b1a"></i> מסעדות</span><span><i style="background:#188a4e"></i> אטרקציות</span></div>
+      </section>
+      <section class="section"><div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">תמונת המסלול</div><h2>מפה וניווט</h2><p>קישור למסלול המלא וקישור נפרד לכל יום</p></div></div>${routePreview()}</section>
       <section class="section"><div class="section-head"><div><h2>מקטעי הנסיעה</h2><p>אפשר לפתוח כל מקטע בנפרד</p></div></div><div class="day-list">${state.days.filter(d => d.navigation?.full).map(d => `<article class="day-card" data-go="${esc(d.id)}"><div class="day-num"><div><span>יום</span><strong>${d.number}</strong><span>${esc(d.shortDate)}</span></div></div><div><h3>${esc(d.route)}</h3><p>${esc(d.duration)}</p></div><a class="btn btn-dark btn-small" href="${esc(d.navigation.full)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">מפה</a></article>`).join('')}</div></section>
       <div class="source-note">הקישורים נפתחים בשירותי ניווט חיצוניים. יש לבדוק בזמן אמת עומסי תנועה, חניה ושינויים בדרך.</div>
     `);
@@ -395,6 +400,27 @@
 
   function dataEditor() {
     return `<div class="form-grid"><div class="field full"><label>כל נתוני האפליקציה</label><textarea id="json-data" class="json-area">${esc(JSON.stringify(state, null, 2))}</textarea></div></div><div class="modal-actions"><button class="btn btn-dark" data-action="import-json">שמירה מהטקסט</button><button class="btn btn-soft" data-action="download-json">הורדת קובץ גיבוי</button><label class="btn btn-ghost" style="cursor:pointer">טעינת קובץ<input id="import-file" type="file" accept="application/json" hidden></label><button class="btn btn-ghost" data-action="reset-data">איפוס לגרסה המקורית</button></div>`;
+  }
+
+  function initRouteMap() {
+    const el = document.getElementById('route-map');
+    if (!el || !window.L || el.dataset.ready) return;
+
+    el.dataset.ready = '1';
+    const colors = { hotel: '#1d4ed8', food: '#e07b1a', attraction: '#188a4e' };
+    const bounds = [];
+    const map = L.map(el, { scrollWheelZoom: false });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(map);
+    (state.mapPoints || []).forEach(p => {
+      if (!p.coords) return;
+
+      bounds.push(p.coords);
+      L.circleMarker(p.coords, { radius: 8, weight: 2, color: '#fff', fillColor: colors[p.type] || colors.attraction, fillOpacity: 1 })
+        .addTo(map)
+        .bindPopup(`<b>${esc(p.name)}</b><br><a href="${esc(p.maps)}" target="_blank" rel="noopener">פתיחה בגוגל מפות</a>`);
+    });
+    if (bounds.length) map.fitBounds(bounds, { padding: [30, 30] });
+    setTimeout(() => map.invalidateSize(), 150);
   }
 
   function render() {
@@ -462,6 +488,8 @@
 
     const fileInput = document.getElementById('import-file');
     if (fileInput) fileInput.addEventListener('change', importFile);
+
+    initRouteMap();
   }
 
   function handleAction(event) {
