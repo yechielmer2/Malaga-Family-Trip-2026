@@ -1,6 +1,6 @@
-const CACHE = 'malaga-2026-v11';
+const CACHE = 'malaga-2026-v12';
 const APP_SHELL = [
-  '/', '/index.html', '/styles.css?v=11', '/trip-data.js?v=11', '/app.js?v=11',
+  '/', '/index.html', '/styles.css?v=12', '/trip-data.js?v=12', '/app.js?v=12',
   '/manifest.webmanifest', '/assets/icon.svg'
 ];
 
