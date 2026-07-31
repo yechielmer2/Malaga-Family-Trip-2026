@@ -2,31 +2,11 @@
   const STORAGE_KEY = 'malaga-family-trip-2026-data-v1';
   const CHECKLIST_KEY = 'malaga-family-trip-2026-checklist-v1';
   const ATTRACTIONS_KEY = 'malaga-family-trip-2026-attractions-v1';
-  const ORGANIZER_KEY = 'malaga-family-trip-2026-organizer-v1';
-  const DEFAULT_TASKS = [
+  const PRE_TRIP_TASKS = [
     { id: 'iphone-backup', label: 'גיבוי אייפון' },
-    { id: 'internet-sim', label: 'לעשות סים אינטרנט' },
+    { id: 'internet-sim', label: 'סים אינטרנט' },
     { id: 'travel-insurance', label: 'ביטוח נסיעות' },
-    { id: 'flight-netflix', label: 'נטפליקס לטיסה', note: 'להוריד תכנים מראש' },
-    { id: 'book-nerja-cave', label: 'להזמין מקום למערת נרחה', note: 'מומלץ להזמין מראש', href: 'https://cuevadenerja.es/en/' }
-  ];
-  const DEFAULT_GEAR = [
-    { id: 'cook-containers', category: 'ציוד בישול קל', label: 'קופסאות אוכל ושקיות סגירה' },
-    { id: 'cook-cutlery', category: 'ציוד בישול קל', label: 'סכו״ם, צלחות וכוסות רב־פעמיים' },
-    { id: 'cook-opener', category: 'ציוד בישול קל', label: 'פותחן, נייר אלומיניום ונייר סופג' },
-    { id: 'cook-cleaning', category: 'ציוד בישול קל', label: 'ספוג וסבון כלים קטן' },
-    { id: 'clothes-swim', category: 'ביגוד', label: 'בגדי ים ובגדי החלפה' },
-    { id: 'clothes-evening', category: 'ביגוד', label: 'בגדים קלים לערב וסווטשירט דק' },
-    { id: 'clothes-shoes', category: 'ביגוד', label: 'סנדלים ונעלי הליכה' },
-    { id: 'clothes-hats', category: 'ביגוד', label: 'כובעים ומשקפי שמש' },
-    { id: 'food-flight', category: 'אוכל', label: 'חטיפים ואוכל לטיסה' },
-    { id: 'food-breakfast', category: 'אוכל', label: 'מוצרים בסיסיים לבוקר הראשון' },
-    { id: 'food-kids', category: 'אוכל', label: 'נשנושים מוכרים לילדים' },
-    { id: 'food-bottles', category: 'אוכל', label: 'בקבוקי מים אישיים' },
-    { id: 'sea-sunscreen', category: 'ים ובריכה', label: 'קרם הגנה ואפטר־סאן' },
-    { id: 'sea-towels', category: 'ים ובריכה', label: 'מגבות חוף ותיק רטוב' },
-    { id: 'tech-chargers', category: 'אלקטרוניקה', label: 'מטענים, כבלים וסוללה ניידת' },
-    { id: 'tech-adapter', category: 'אלקטרוניקה', label: 'מפצל חשמל ואוזניות לילדים' }
+    { id: 'flight-netflix', label: 'נטפליקס לטיסה', note: 'להוריד תכנים מראש' }
   ];
   const clone = value => JSON.parse(JSON.stringify(value));
   let state = loadState();
@@ -65,88 +45,6 @@
     }
   }
 
-  function loadOrganizer() {
-    try {
-      const saved = JSON.parse(localStorage.getItem(ORGANIZER_KEY) || 'null');
-      if (saved?.tasks && saved?.gear) return saved;
-      const legacyDone = loadChecklist();
-      return {
-        tasks: clone(DEFAULT_TASKS),
-        gear: clone(DEFAULT_GEAR),
-        taskDone: { ...legacyDone },
-        gearDone: {}
-      };
-    } catch (e) {
-      return { tasks: clone(DEFAULT_TASKS), gear: clone(DEFAULT_GEAR), taskDone: {}, gearDone: {} };
-    }
-  }
-
-  function saveOrganizer(organizer) {
-    localStorage.setItem(ORGANIZER_KEY, JSON.stringify(organizer));
-  }
-
-  function organizerPage() {
-    const organizer = loadOrganizer();
-    const tasksDone = organizer.tasks.filter(task => organizer.taskDone[task.id]).length;
-    const gearDone = organizer.gear.filter(item => organizer.gearDone[item.id]).length;
-    const categories = [...new Set(organizer.gear.map(item => item.category))];
-    return appShell(`
-      <section class="section" style="margin-top:0">
-        <div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">מתארגנים ביחד</div><h2>משימות וציוד</h2><p>הסימונים והתוספות נשמרים במכשיר הזה.</p></div></div>
-        <div class="organizer-summary"><span>✓ ${tasksDone}/${organizer.tasks.length} משימות</span><span>🎒 ${gearDone}/${organizer.gear.length} פריטי ציוד</span></div>
-      </section>
-
-      <section class="section">
-        <div class="section-head"><div><h2>משימות פתוחות</h2><p>אפשר להוסיף כל משימה שעולה בהמשך</p></div></div>
-        <form id="add-task-form" class="quick-add card">
-          <label class="sr-only" for="new-task">משימה חדשה</label>
-          <input id="new-task" name="task" required maxlength="100" placeholder="לדוגמה: להזמין מסעדה לערב הראשון">
-          <button class="btn btn-dark" type="submit">הוספת משימה</button>
-        </form>
-        <article class="card organizer-list">
-          ${organizer.tasks.map(task => `
-            <div class="organizer-row">
-              <label class="checklist-item ${organizer.taskDone[task.id] ? 'completed' : ''}">
-                <input type="checkbox" data-task-id="${esc(task.id)}" ${organizer.taskDone[task.id] ? 'checked' : ''}>
-                <span class="checkmark" aria-hidden="true">✓</span>
-                <span class="checklist-copy"><b>${esc(task.label)}</b>${task.note ? `<small>${esc(task.note)}</small>` : ''}</span>
-              </label>
-              ${task.href ? `<a class="btn btn-soft btn-small" href="${esc(task.href)}" target="_blank" rel="noopener">הזמנה</a>` : ''}
-              <button class="icon-btn delete-row" type="button" data-delete-task="${esc(task.id)}" aria-label="מחיקת ${esc(task.label)}">×</button>
-            </div>`).join('')}
-        </article>
-      </section>
-
-      <section class="section">
-        <div class="section-head"><div><h2>רשימת ציוד</h2><p>מחולקת לקטגוריות כדי שיהיה קל לארוז</p></div></div>
-        <div class="notice">בחדרי Ocean House מופיעים קומקום ומיני־בר, אך לא מטבח מלא. לכן רשימת הבישול מתמקדת בציוד קל בלבד.</div>
-        <form id="add-gear-form" class="quick-add card quick-add-gear">
-          <label class="sr-only" for="new-gear">פריט ציוד חדש</label>
-          <input id="new-gear" name="gear" required maxlength="100" placeholder="פריט ציוד חדש">
-          <select name="category" aria-label="קטגוריית ציוד">${categories.map(category => `<option>${esc(category)}</option>`).join('')}<option>אחר</option></select>
-          <button class="btn btn-dark" type="submit">הוספה</button>
-        </form>
-        <div class="gear-grid">
-          ${categories.map(category => `
-            <article class="card gear-category">
-              <div class="mini-label">קטגוריה</div><h3>${esc(category)}</h3>
-              <div class="gear-items">
-                ${organizer.gear.filter(item => item.category === category).map(item => `
-                  <div class="organizer-row compact">
-                    <label class="checklist-item ${organizer.gearDone[item.id] ? 'completed' : ''}">
-                      <input type="checkbox" data-gear-id="${esc(item.id)}" ${organizer.gearDone[item.id] ? 'checked' : ''}>
-                      <span class="checkmark" aria-hidden="true">✓</span>
-                      <span class="checklist-copy"><b>${esc(item.label)}</b></span>
-                    </label>
-                    <button class="icon-btn delete-row" type="button" data-delete-gear="${esc(item.id)}" aria-label="מחיקת ${esc(item.label)}">×</button>
-                  </div>`).join('')}
-              </div>
-            </article>`).join('')}
-        </div>
-      </section>
-    `);
-  }
-
   function attractionsPage() {
     const done = loadAttractionsDone();
     const list = state.attractions || [];
@@ -177,18 +75,18 @@
   }
 
   function checklistCard() {
-    const organizer = loadOrganizer();
-    const done = organizer.tasks.filter(task => organizer.taskDone[task.id]).length;
+    const completed = loadChecklist();
+    const done = PRE_TRIP_TASKS.filter(task => completed[task.id]).length;
     return `
       <section class="section">
         <div class="section-head">
           <div><h2>צ׳ק־ליסט לפני הטיסה</h2><p>משימות קטנות שכדאי לסגור בזמן</p></div>
-          <button class="text-link" data-go="organizer">לכל המשימות והציוד ←</button>
+          <span class="checklist-count">${done}/${PRE_TRIP_TASKS.length} הושלמו</span>
         </div>
         <article class="card checklist-card">
-          ${organizer.tasks.map(task => `
-            <label class="checklist-item ${organizer.taskDone[task.id] ? 'completed' : ''}">
-              <input type="checkbox" data-task-id="${esc(task.id)}" ${organizer.taskDone[task.id] ? 'checked' : ''}>
+          ${PRE_TRIP_TASKS.map(task => `
+            <label class="checklist-item ${completed[task.id] ? 'completed' : ''}">
+              <input type="checkbox" data-checklist-id="${esc(task.id)}" ${completed[task.id] ? 'checked' : ''}>
               <span class="checkmark" aria-hidden="true">✓</span>
               <span class="checklist-copy">
                 <b>${esc(task.label)}</b>
@@ -206,7 +104,7 @@
   function currentRoute() {
     const hash = location.hash.replace(/^#/, '') || 'home';
     if (hash.startsWith('day-')) return { page: 'day', id: hash };
-    return { page: ['home','days','route','lodgings','documents','info','attractions','organizer'].includes(hash) ? hash : 'home' };
+    return { page: ['home','days','route','lodgings','documents','info','attractions'].includes(hash) ? hash : 'home' };
   }
 
   function dateStatus() {
@@ -233,7 +131,7 @@
   }
 
   function icon(label) {
-    return ({ home:'⌂', days:'☷', route:'⌁', lodgings:'⌂', documents:'▣', info:'ⓘ', attractions:'★', organizer:'✓' })[label] || '•';
+    return ({ home:'⌂', days:'☷', route:'⌁', lodgings:'⌂', documents:'▣', info:'ⓘ', attractions:'★' })[label] || '•';
   }
 
   function appShell(content) {
@@ -258,7 +156,7 @@
 
   function bottomNav(active) {
     const items = [
-      ['home','הבית'], ['days','ימים'], ['route','מסלול'], ['lodgings','לינות'], ['attractions','אטרקציות'], ['organizer','ציוד'], ['documents','מסמכים'], ['info','מידע']
+      ['home','הבית'], ['days','ימים'], ['route','מסלול'], ['lodgings','לינות'], ['attractions','אטרקציות'], ['documents','מסמכים'], ['info','מידע']
     ];
     return `<nav class="bottom-nav" aria-label="ניווט ראשי">${items.map(([id,label]) => `
       <button data-go="${id}" class="${active === id || (active === 'day' && id === 'days') ? 'active' : ''}">
@@ -509,7 +407,6 @@
     else if (route.page === 'lodgings') html = lodgingsPage();
     else if (route.page === 'documents') html = documentsPage();
     else if (route.page === 'attractions') html = attractionsPage();
-    else if (route.page === 'organizer') html = organizerPage();
     else html = infoPage();
     app.innerHTML = html;
     bindEvents();
@@ -522,31 +419,12 @@
     }));
     app.querySelectorAll('[data-action]').forEach(el => el.addEventListener('click', handleAction));
     app.querySelectorAll('[data-editor-tab]').forEach(el => el.addEventListener('click', () => { editorTab = el.dataset.editorTab; render(); }));
-    app.querySelectorAll('[data-task-id]').forEach(input => input.addEventListener('change', () => {
-      const organizer = loadOrganizer();
-      organizer.taskDone[input.dataset.taskId] = input.checked;
-      saveOrganizer(organizer);
+    app.querySelectorAll('[data-checklist-id]').forEach(input => input.addEventListener('change', () => {
+      const completed = loadChecklist();
+      completed[input.dataset.checklistId] = input.checked;
+      localStorage.setItem(CHECKLIST_KEY, JSON.stringify(completed));
       render();
       showToast(input.checked ? 'המשימה סומנה כהושלמה' : 'המשימה נפתחה מחדש');
-    }));
-    app.querySelectorAll('[data-gear-id]').forEach(input => input.addEventListener('change', () => {
-      const organizer = loadOrganizer();
-      organizer.gearDone[input.dataset.gearId] = input.checked;
-      saveOrganizer(organizer);
-      render();
-      showToast(input.checked ? 'הפריט נארז' : 'הפריט הוחזר לרשימה');
-    }));
-    app.querySelectorAll('[data-delete-task]').forEach(button => button.addEventListener('click', () => {
-      const organizer = loadOrganizer();
-      organizer.tasks = organizer.tasks.filter(task => task.id !== button.dataset.deleteTask);
-      delete organizer.taskDone[button.dataset.deleteTask];
-      saveOrganizer(organizer); render(); showToast('המשימה נמחקה');
-    }));
-    app.querySelectorAll('[data-delete-gear]').forEach(button => button.addEventListener('click', () => {
-      const organizer = loadOrganizer();
-      organizer.gear = organizer.gear.filter(item => item.id !== button.dataset.deleteGear);
-      delete organizer.gearDone[button.dataset.deleteGear];
-      saveOrganizer(organizer); render(); showToast('הפריט נמחק');
     }));
     app.querySelectorAll('[data-attraction-id]').forEach(input => input.addEventListener('change', () => {
       const done = loadAttractionsDone();
@@ -584,28 +462,6 @@
 
     const fileInput = document.getElementById('import-file');
     if (fileInput) fileInput.addEventListener('change', importFile);
-
-    const taskForm = document.getElementById('add-task-form');
-    if (taskForm) taskForm.addEventListener('submit', event => {
-      event.preventDefault();
-      const value = String(new FormData(taskForm).get('task') || '').trim();
-      if (!value) return;
-      const organizer = loadOrganizer();
-      organizer.tasks.push({ id: `task-${Date.now()}`, label: value });
-      saveOrganizer(organizer); render(); showToast('המשימה נוספה');
-    });
-
-    const gearForm = document.getElementById('add-gear-form');
-    if (gearForm) gearForm.addEventListener('submit', event => {
-      event.preventDefault();
-      const form = new FormData(gearForm);
-      const value = String(form.get('gear') || '').trim();
-      const category = String(form.get('category') || 'אחר').trim();
-      if (!value) return;
-      const organizer = loadOrganizer();
-      organizer.gear.push({ id: `gear-${Date.now()}`, label: value, category });
-      saveOrganizer(organizer); render(); showToast('פריט הציוד נוסף');
-    });
   }
 
   function handleAction(event) {
@@ -667,7 +523,7 @@
         refreshing = true;
         window.location.reload();
       });
-      navigator.serviceWorker.register('/sw.js?v=12', { updateViaCache: 'none' })
+      navigator.serviceWorker.register('/sw.js?v=3', { updateViaCache: 'none' })
         .then(registration => registration.update())
         .catch(console.warn);
     }
