@@ -5,7 +5,8 @@
   const wx = {
     la: 'https://www.meteoblue.com/en/weather/week/los-angeles_united-states-of-america_5368361',
     sd: 'https://www.meteoblue.com/en/weather/week/san-diego_united-states-of-america_5391811',
-    lv: 'https://www.meteoblue.com/en/weather/week/las-vegas_united-states-of-america_5506956'
+    lv: 'https://www.meteoblue.com/en/weather/week/las-vegas_united-states-of-america_5506956',
+    jt: 'https://www.meteoblue.com/en/weather/week/twentynine-palms_united-states-of-america_5405613'
   };
   const day = (number, shortDate, date, title, routeText, summary, schedule, tips, navPoints, options = {}) => ({
     id: `day-${number}`,
@@ -174,17 +175,17 @@
         ['להצטייד במים, חטיפים ובידור לילדים למסע הכביש.', 'לתדלק ולבדוק את הרכב לפני הדרך הארוכה.', 'לאשר מלון בוגאס לפני היציאה.'],
         ['San Diego CA'], { duration: 'יום גמיש', walking: 'לבחירה', badge: 'לתכנון' }),
 
-      day(13, '30.12', 'יום רביעי, 30 בדצמבר', 'מסע כביש: פארקים בדרך', 'סן דייגו ← פארק לאומי ← לכיוון וגאס',
-        'יוצאים לדרך צפונה־מזרחה. עוצרים בפארק לאומי מרשים בדרך — אפשר גם ללון קרוב לפארק ולהמשיך למחרת.',
-        [['08:00', 'יציאה מסן דייגו', 'מתחילים מוקדם לפני החום והתנועה.', '🚗'], ['11:00', 'פארק לאומי', 'עצירה לטיול קצר ונופים.', '🏜️'], ['14:00', 'ארוחה בדרך', 'עצירת דרך.', '🥪'], ['17:00', 'לינה קרובה לפארק', 'אופציונלי: לילה בדרך לפני וגאס.', '🏨']],
-        ['אפשרויות פארקים: Joshua Tree, Mojave, Death Valley, Zion — לבחור לפי מסלול וזמן.', 'בדצמבר במדבר קר בלילה — להצטייד בשכבות חמות.', 'לבדוק שעות ותשלום כניסה לפארקים לאומיים מראש.'],
-        ['San Diego CA', 'Joshua Tree National Park', 'Las Vegas NV'], { duration: 'יום נסיעה', walking: 'קלה עד בינונית', badge: 'מסע כביש', tone: 'clay', weather: { label: 'תחזית ללאס וגאס', href: wx.lv }, places: ['Zion National Park', 'Death Valley National Park', 'Mojave National Preserve'] }),
+      day(13, '30.12', 'יום רביעי, 30 בדצמבר', 'מסע כביש: פארק ג׳ושוע טרי', 'סן דייגו ← Joshua Tree ← Twentynine Palms',
+        'נפרדים מסן דייגו ויוצאים למסע הכביש לוגאס. עוצרים בפארק הלאומי ג׳ושוע טרי לחצי יום של סלעי ענק וטיולים קצרים, ולנים בטוונטיניין פאלמס ליד הפארק.',
+        [['08:00', 'יציאה מסן דייגו', 'מתחילים מוקדם, כ־3 שעות נסיעה לפארק.', '🚗'], ['11:00', 'Joshua Tree', 'סלעי בולדר ענקיים ועצי יוש׳ואה.', '🌵'], ['11:30', 'Hidden Valley', 'מסלול טבעת קצר וקל (כ־1.6 ק״מ), מושלם לילדים.', '🥾'], ['13:00', 'Skull Rock ו־Cholla Garden', 'סלע הגולגולת ושדה קקטוסים מצולם.', '📸'], ['16:30', 'לינה בטוונטיניין פאלמס', 'לילה ליד הפארק לפני המשך לוגאס.', '🏨']],
+        ['בדצמבר הימים נעימים אך הלילות קפואים במדבר — שכבות חמות וכובע.', 'אין דלק או אוכל בתוך הפארק — למלא מים ומזון לפני הכניסה.', 'הקליטה הסלולרית חלשה בפארק — להוריד מפה לא־מקוונת מראש.'],
+        ['San Diego CA', 'Joshua Tree National Park', 'Twentynine Palms CA'], { duration: 'יום נסיעה וטיול', walking: 'קלה עד בינונית', badge: 'מסע כביש', tone: 'clay', weather: { label: 'תחזית לג׳ושוע טרי', href: wx.jt } }),
 
-      day(14, '31.12', 'יום חמישי, 31 בדצמבר', 'מגיעים ללאס וגאס · ערב השנה החדשה', 'פארק ← לאס וגאס',
-        'משלימים את הנסיעה ומגיעים ללאס וגאס. כניסה למלון וערב חגיגי לשנה החדשה על הסטריפ.',
-        [['10:00', 'המשך נסיעה', 'קטע אחרון עד לאס וגאס.', '🚗'], ['13:00', 'כניסה למלון', 'צ׳ק־אין והתארגנות.', '🏨'], ['17:00', 'הסטריפ', 'טיול ראשוני בין המלונות והאורות.', '🎰'], ['22:00', 'ערב השנה החדשה', 'חגיגות New Year על הסטריפ — זיקוקים בחצות.', '🎆']],
-        ['הסטריפ נחסם לתנועה בליל השנה החדשה — לתכנן מיקום מראש.', 'המונים גדולים מאוד בחצות — לשמור על הילדים קרוב.', 'רעיון: לצפות בזיקוקים ממקום גבוה/מרוחק עם הילדים.'],
-        ['Las Vegas Strip'], { duration: 'יום נסיעה וערב חג', walking: 'בינונית', badge: 'ראש השנה', tone: 'gold', weather: { label: 'תחזית ללאס וגאס', href: wx.lv } }),
+      day(14, '31.12', 'יום חמישי, 31 בדצמבר', 'מגיעים ללאס וגאס · ערב השנה החדשה', 'Twentynine Palms ← Calico ← Seven Magic Mountains ← לאס וגאס',
+        'משלימים את מסע הכביש לוגאס עם שתי עצירות כיפיות בדרך, ומגיעים ללאס וגאס לערב השנה החדשה על הסטריפ.',
+        [['08:30', 'יציאה לכיוון וגאס', 'עולים על כביש I-15 צפונה.', '🚗'], ['10:30', 'Calico Ghost Town', 'עיירת רפאים משוחזרת מימי מכרות הכסף, כיף לילדים.', '🤠'], ['13:30', 'Seven Magic Mountains', 'מיצג עמודי סלע צבעוניים ממש לפני וגאס, עצירת צילום קצרה.', '🎨'], ['15:00', 'כניסה למלון בוגאס', 'צ׳ק־אין והתארגנות.', '🏨'], ['22:00', 'ערב השנה החדשה', 'חגיגות New Year על הסטריפ, זיקוקים בחצות.', '🎆']],
+        ['הסטריפ נחסם לתנועה בליל השנה החדשה — לתכנן מיקום וחניה מראש.', 'המונים גדולים מאוד בחצות — לשמור על הילדים קרוב, ואטמי אוזניים לזיקוקים.', 'Seven Magic Mountains חינם וכ־10 דקות מהכביש — עצירה מהירה ומצולמת.'],
+        ['Twentynine Palms CA', 'Calico Ghost Town', 'Seven Magic Mountains', 'Las Vegas Strip'], { duration: 'יום נסיעה וערב חג', walking: 'קלה', badge: 'ראש השנה', tone: 'gold', weather: { label: 'תחזית ללאס וגאס', href: wx.lv } }),
 
       day(15, '1.1', 'יום שישי, 1 בינואר', 'לאס וגאס: הסטריפ', 'לאס וגאס',
         'היום הראשון של השנה. יום רגוע יחסית: מלונות הנושא, מזרקות ומופעים על הסטריפ.',
@@ -253,9 +254,9 @@
       { id: 'a-lajolla', name: 'La Jolla Cove', category: 'אטרקציות', desc: 'מפרץ יפהפה עם כלבי ים ואריות ים.', maps: map('La Jolla Cove') },
       { id: 'a-coronado', name: 'Coronado Beach', category: 'אטרקציות', desc: 'חוף רחב עם מלון היסטורי בסן דייגו.', maps: map('Coronado Beach San Diego') },
       { id: 'a-midway', name: 'USS Midway Museum', category: 'אטרקציות', desc: 'מוזיאון נושאת מטוסים בנמל סן דייגו.', maps: map('USS Midway Museum') },
-      { id: 'a-joshua', name: 'Joshua Tree National Park', category: 'אטרקציות', desc: 'פארק מדבר עם עצי יוש׳ואה, בדרך לוגאס.', maps: map('Joshua Tree National Park') },
-      { id: 'a-zion', name: 'Zion National Park', category: 'אטרקציות', desc: 'קניון מרהיב ביוטה, אופציה במסע הכביש.', maps: map('Zion National Park') },
-      { id: 'a-deathvalley', name: 'Death Valley National Park', category: 'אטרקציות', desc: 'עמק המוות, נופי מדבר קיצוניים.', maps: map('Death Valley National Park') },
+      { id: 'a-joshua', name: 'Joshua Tree National Park', category: 'אטרקציות', desc: 'פארק מדבר עם סלעי ענק ועצי יוש׳ואה, העצירה המרכזית במסע הכביש.', maps: map('Joshua Tree National Park') },
+      { id: 'a-calico', name: 'Calico Ghost Town', category: 'אטרקציות', desc: 'עיירת רפאים משוחזרת מימי מכרות הכסף, עצירה על I-15.', maps: map('Calico Ghost Town Yermo') },
+      { id: 'a-sevenmagic', name: 'Seven Magic Mountains', category: 'אטרקציות', desc: 'מיצג עמודי סלע צבעוניים ממש לפני לאס וגאס.', maps: map('Seven Magic Mountains Las Vegas') },
       { id: 'a-strip', name: 'Las Vegas Strip', category: 'אטרקציות', desc: 'שדרת המלונות והאורות של לאס וגאס.', maps: map('Las Vegas Strip') },
       { id: 'a-bellagio', name: 'Bellagio Fountains', category: 'אטרקציות', desc: 'מופע מזרקות מים מול מלון בלאג׳יו.', maps: map('Bellagio Fountains Las Vegas') },
       { id: 'a-grandcanyon', name: 'Grand Canyon (West)', category: 'אטרקציות', desc: 'הקניון הגדול, טיול יום מלאס וגאס.', maps: map('Grand Canyon West') },
@@ -275,6 +276,8 @@
       { name: 'Legoland California', type: 'attraction', coords: [33.1264, -117.3110], maps: map('Legoland California Carlsbad') },
       { name: 'USS Midway Museum', type: 'attraction', coords: [32.7137, -117.1751], maps: map('USS Midway Museum') },
       { name: 'Joshua Tree National Park', type: 'attraction', coords: [33.8734, -115.9010], maps: map('Joshua Tree National Park') },
+      { name: 'Calico Ghost Town', type: 'attraction', coords: [34.9486, -116.8644], maps: map('Calico Ghost Town Yermo') },
+      { name: 'Seven Magic Mountains', type: 'attraction', coords: [35.8449, -115.2707], maps: map('Seven Magic Mountains Las Vegas') },
       { name: 'לאס וגאס · הסטריפ', type: 'hotel', coords: [36.1147, -115.1728], maps: map('Las Vegas Strip') },
       { name: 'Grand Canyon (West)', type: 'attraction', coords: [36.0104, -113.8110], maps: map('Grand Canyon West') },
       { name: 'Hoover Dam', type: 'attraction', coords: [36.0161, -114.7377], maps: map('Hoover Dam') },
@@ -285,6 +288,8 @@
       [34.0555, -118.3620],
       [32.7157, -117.1611],
       [33.8734, -115.9010],
+      [34.9486, -116.8644],
+      [35.8449, -115.2707],
       [36.1147, -115.1728],
       [36.0840, -115.1537]
     ]
