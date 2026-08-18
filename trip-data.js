@@ -220,12 +220,12 @@
       ],
       carRental: {
         provider: 'Avis', title: 'Rental car in the US',
-        status: 'Confirmed', pickup: 'LAX airport - Dec 18 - 06:30',
-        return: 'Las Vegas (LAS) - Jan 4 - 06:30',
+        status: 'Confirmed', pickup: 'LAX - 5251 W 98th St, Los Angeles 90045 - Dec 18, 06:30',
+        return: 'Las Vegas - McCarran Rent A Car Center, 7135 Gilespie St 89119 - Jan 4, 06:30',
         vehicle: 'Family car (confirm size and car seats)', deposit: 'Per Avis policy',
-        requirements: 'Pick up at LAX right after landing and return in Las Vegas before the flight home (one-way rental). Requires an international license and the driver\'s credit card. Make sure to have a booster/car seat for the kids.',
-        alertTitle: 'Confirm the drop-off location',
-        warning: 'The Jan 4 drop-off at 06:30 must be in Las Vegas (LAS) to make the 09:10 flight. Verify with Avis that the booking is one-way LAX to LAS.',
+        requirements: 'One-way rental: pick up at the LAX Avis location right after landing and return at the Las Vegas McCarran Rent A Car Center before the flight home. Avis desks: LAX 310-342-9200, Las Vegas 702-531-1500. Requires an international license and the driver\'s credit card. Bring a booster/car seat for the kids.',
+        alertTitle: '',
+        warning: '',
         document: ''
       },
       weather: [
