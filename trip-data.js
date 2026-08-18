@@ -109,11 +109,11 @@
         ['Do not plan a big attraction on landing day - jet lag is real.', 'Make sure to have a car seat/booster for the kids in the rental.', 'Check the car and photograph its condition before leaving the airport.'],
         ['Los Angeles International Airport', 'Park Plaza Lodge Hotel Los Angeles'], { duration: 'Flight & arrival day', walking: 'Very little', weather: { label: 'Los Angeles weather', href: wx.la } }),
 
-      day(2, 'Dec 19', 'Saturday, December 19', 'A day in Los Angeles', 'Los Angeles and around',
-        'First full day in Los Angeles. Options to choose from depending on energy and jet-lag recovery.',
-        [['09:30', 'Head out by choice', 'Pick one main attraction for the day.', '🌴'], ['13:00', 'Lunch', 'A relaxed stop.', '🍔'], ['16:00', 'Free afternoon', 'Boardwalk / shopping / beach depending on the weather.', '🛍️']],
-        ['Options: Disneyland, Universal Studios, Santa Monica, Hollywood, Griffith Observatory.', 'For Disneyland/Universal, buy tickets ahead and arrive at opening.', 'Choose by distance and traffic - LA is spread out.'],
-        ['Park Plaza Lodge Hotel Los Angeles', 'Santa Monica Pier'], { duration: 'Full day', walking: 'Moderate', badge: 'Decision needed', weather: { label: 'Los Angeles weather', href: wx.la }, places: ['Disneyland Park Anaheim', 'Universal Studios Hollywood', 'Santa Monica Pier', 'Griffith Observatory'] }),
+      day(2, 'Dec 19', 'Saturday, December 19', 'Universal Studios Hollywood', 'Los Angeles > Universal Studios Hollywood',
+        'A full day at Universal Studios Hollywood, built around the movie-set experiences: the famous Studio Tour through the real backlot, live shows and immersive worlds - rather than the thrill coasters.',
+        [['08:30', 'Arrive at opening', 'Get there early and head to the Studio Tour before the lines build.', '🎬'], ['09:00', 'Studio Tour', 'Tram ride through the working backlot and real movie sets (the plane-crash set, Bates Motel, Jaws and more).', '🎥'], ['12:00', 'Lunch', 'A break in the park or at CityWalk.', '🍔'], ['13:30', 'Shows and immersive worlds', 'WaterWorld live stunt show, the Special Effects show, and the Harry Potter and Super Nintendo World lands.', '✨'], ['17:00', 'Easy finish', 'A last walk and back to the hotel.', '🌆']],
+        ['The Studio Tour is the highlight for movie-set fans - do it first thing, before the lines.', 'Movie-set style over coasters: the WaterWorld stunt show, the Special Effects show, Hogwarts castle and Super Nintendo World. Transformers and King Kong (inside the tour) are immersive simulators, not coasters.', 'If you are skipping thrill rides, you can pass on Revenge of the Mummy (an indoor coaster).', 'Universal fills a full day, so no need to squeeze in another LA site. Buy tickets ahead and check for holiday-season crowds.'],
+        ['Park Plaza Lodge Hotel Los Angeles', 'Universal Studios Hollywood'], { duration: 'Full day', walking: 'A lot', weather: { label: 'Los Angeles weather', href: wx.la }, places: ['Universal CityWalk Hollywood'] }),
 
       day(3, 'Dec 20', 'Sunday, December 20', 'Moving to San Diego', 'Los Angeles > San Diego - Romano family',
         'Check out of the LA hotel and drive south to San Diego (about two hours) to stay with the Romano family.',
