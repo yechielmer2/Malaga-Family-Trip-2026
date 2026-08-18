@@ -1,30 +1,30 @@
-# Christmas in the US — אפליקציית הטיול המשפחתי
+# Christmas in the US - family trip app
 
-אפליקציית רשת סטטית, בעברית ומותאמת לטלפון, לטיול של משפחת גנם בארצות הברית בתאריכים 18 בדצמבר 2026 עד 4 בינואר 2027: לוס אנג׳לס, סן דייגו ולאס וגאס.
+A static, mobile-friendly web app in English for the Ganam family's US trip, December 18, 2026 to January 4, 2027: Los Angeles, San Diego and Las Vegas.
 
-## מה יש באפליקציה
+## What's in the app
 
-- מסך בית עם ספירה לאחור והיום הנוכחי.
-- תוכנית יומית מלאה, מלוס אנג׳לס דרך סן דייגו ועד לאס וגאס.
-- פרטי טיסות אל על (LY5 / LY4479 / LY6).
-- לינות: Park Plaza Lodge בלוס אנג׳לס, אירוח אצל משפחת רומנו בסן דייגו, ומלון בלאס וגאס (לתכנון).
-- ניווט ישיר, תחזית לפי מיקום ומספרי חירום.
-- אטרקציות מומלצות בלוס אנג׳לס, סן דייגו, מסע הכביש ולאס וגאס.
-- מצב עריכה מקומי, ייבוא וייצוא של נתוני הטיול.
-- PWA לשמירת מעטפת האפליקציה גם בקליטה חלשה.
+- Home screen with a countdown and the current day.
+- A full day-by-day plan, from Los Angeles through San Diego to Las Vegas.
+- EL AL flight details (LY5 / LY4479 / LY6).
+- Stays: Park Plaza Lodge in Los Angeles, hosted by the Romano family in San Diego, and a Las Vegas hotel (to plan).
+- Direct navigation, weather by location and emergency numbers.
+- Recommended attractions in Los Angeles, San Diego, the road trip and Las Vegas.
+- Local edit mode, with import/export of the trip data.
+- PWA to keep the app shell available even on a weak connection.
 
-## הרצה מקומית
+## Run locally
 
 ```bash
 python3 -m http.server 8080
 ```
 
-לאחר מכן פותחים `http://localhost:8080`.
+Then open `http://localhost:8080`.
 
-## פרטיות
+## Privacy
 
-מסמכי המקור כוללים שמות נוסעים, מספרי אישור ומספרי הזמנה, ולכן אינם מועתקים לאתר הציבורי. באפליקציה נשמר רק תקציר שימושי ומצונזר.
+The source documents include traveler names, confirmation codes and reservation numbers, so they are not copied to the public site. Only a useful, redacted summary is kept in the app.
 
-## עריכת התכנון
+## Editing the plan
 
-`trip-data.js` הוא מקור האמת. אפשר גם להפעיל מצב עריכה באתר; השינויים נשמרים ב־`localStorage` של אותו דפדפן וניתן לייצא אותם לקובץ JSON.
+`trip-data.js` is the source of truth. You can also enable edit mode on the site; changes are saved in that browser's `localStorage` and can be exported to a JSON file.

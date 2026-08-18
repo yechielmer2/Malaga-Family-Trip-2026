@@ -2,7 +2,7 @@
 const fs = require('fs');
 
 const file = 'trip-data.js';
-const stamp = new Intl.DateTimeFormat('he-IL', {
+const stamp = new Intl.DateTimeFormat('en-US', {
   timeZone: 'Asia/Jerusalem',
   day: 'numeric',
   month: 'numeric',

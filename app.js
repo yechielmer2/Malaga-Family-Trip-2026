@@ -1,12 +1,12 @@
 (() => {
-  const STORAGE_KEY = 'malaga-family-trip-2026-data-v1';
-  const CHECKLIST_KEY = 'malaga-family-trip-2026-checklist-v1';
-  const ATTRACTIONS_KEY = 'malaga-family-trip-2026-attractions-v1';
+  const STORAGE_KEY = 'us-trip-2026-data-v1';
+  const CHECKLIST_KEY = 'us-trip-2026-checklist-v1';
+  const ATTRACTIONS_KEY = 'us-trip-2026-attractions-v1';
   const PRE_TRIP_TASKS = [
-    { id: 'iphone-backup', label: 'גיבוי אייפון' },
-    { id: 'internet-sim', label: 'סים אינטרנט' },
-    { id: 'travel-insurance', label: 'ביטוח נסיעות' },
-    { id: 'flight-netflix', label: 'נטפליקס לטיסה', note: 'להוריד תכנים מראש' }
+    { id: 'iphone-backup', label: 'iPhone backup' },
+    { id: 'internet-sim', label: 'Data SIM / eSIM' },
+    { id: 'travel-insurance', label: 'Travel insurance' },
+    { id: 'flight-netflix', label: 'Netflix for the flight', note: 'Download shows in advance' }
   ];
   const clone = value => JSON.parse(JSON.stringify(value));
   let state = loadState();
@@ -62,13 +62,13 @@
                 <span class="checkmark" aria-hidden="true">✓</span>
                 <span class="checklist-copy"><b>${esc(a.name)}</b>${a.desc ? `<small>${esc(a.desc)}</small>` : ''}</span>
               </label>
-              ${a.maps ? `<a class="btn btn-ghost btn-small" href="${esc(a.maps)}" target="_blank" rel="noopener">${esc(a.linkLabel || 'מפה')}</a>` : ''}
+              ${a.maps ? `<a class="btn btn-ghost btn-small" href="${esc(a.maps)}" target="_blank" rel="noopener">${esc(a.linkLabel || 'Map')}</a>` : ''}
             </div>`).join('')}
         </article>
       </section>`).join('');
     return appShell(`
       <section class="section" style="margin-top:0">
-        <div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">מה עשינו</div><h2>אטרקציות ומקומות</h2><p>סמנו וי על מה שכבר עשיתם בטיול. ${totalDone}/${list.length} הושלמו.</p></div></div>
+        <div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">What we did</div><h2>Attractions & places</h2><p>Check off what you have already done on the trip. ${totalDone}/${list.length} done.</p></div></div>
       </section>
       ${sections}
     `);
@@ -80,8 +80,8 @@
     return `
       <section class="section">
         <div class="section-head">
-          <div><h2>צ׳ק־ליסט לפני הטיסה</h2><p>משימות קטנות שכדאי לסגור בזמן</p></div>
-          <span class="checklist-count">${done}/${PRE_TRIP_TASKS.length} הושלמו</span>
+          <div><h2>Pre-flight checklist</h2><p>Small things worth closing in time</p></div>
+          <span class="checklist-count">${done}/${PRE_TRIP_TASKS.length} done</span>
         </div>
         <article class="card checklist-card">
           ${PRE_TRIP_TASKS.map(task => `
@@ -112,10 +112,10 @@
     const start = new Date(state.startDate + 'T00:00:00');
     const end = new Date(state.endDate + 'T23:59:59');
     const days = Math.ceil((start - now) / 86400000);
-    if (now < start) return { number: Math.max(0, days), label: days === 1 ? 'יום עד הטיול' : 'ימים עד הטיול' };
-    if (now > end) return { number: '✓', label: 'הטיול הסתיים' };
+    if (now < start) return { number: Math.max(0, days), label: days === 1 ? 'day until the trip' : 'days until the trip' };
+    if (now > end) return { number: '✓', label: 'Trip complete' };
     const dayIndex = Math.floor((now - start) / 86400000) + 1;
-    return { number: `יום ${dayIndex}`, label: 'אנחנו בטיול' };
+    return { number: `Day ${dayIndex}`, label: 'We are on the trip' };
   }
 
   function activeDay() {
@@ -139,13 +139,13 @@
     return `
       <div class="app-shell">
         <header class="topbar">
-          <button class="brand" data-go="home" aria-label="חזרה למסך הבית" style="border:0;background:none;padding:0;cursor:pointer;text-align:right">
+          <button class="brand" data-go="home" aria-label="Back to home" style="border:0;background:none;padding:0;cursor:pointer;text-align:left">
             <span class="brand-mark">☀</span>
             <span><div class="brand-title">${esc(state.title)}</div><div class="brand-sub">${esc(state.dateLabel)}</div></span>
           </button>
           <div class="top-actions">
-            <button class="chip-btn" data-action="print" title="הדפסה"><span>⎙</span><span class="desktop-label">הדפסה</span></button>
-            <button class="chip-btn edit-only" data-action="open-editor" title="עריכה"><span>✎</span><span class="desktop-label">עריכת התכנון</span></button>
+            <button class="chip-btn" data-action="print" title="Print"><span>⎙</span><span class="desktop-label">Print</span></button>
+            <button class="chip-btn edit-only" data-action="open-editor" title="Edit"><span>✎</span><span class="desktop-label">Edit plan</span></button>
           </div>
         </header>
         <main class="main">${content}</main>
@@ -156,9 +156,9 @@
 
   function bottomNav(active) {
     const items = [
-      ['home','הבית'], ['days','ימים'], ['route','מסלול'], ['lodgings','לינות'], ['attractions','אטרקציות'], ['documents','מסמכים'], ['info','מידע']
+      ['home','Home'], ['days','Days'], ['route','Route'], ['lodgings','Stays'], ['attractions','Attractions'], ['documents','Documents'], ['info','Info']
     ];
-    return `<nav class="bottom-nav" aria-label="ניווט ראשי">${items.map(([id,label]) => `
+    return `<nav class="bottom-nav" aria-label="Main navigation">${items.map(([id,label]) => `
       <button data-go="${id}" class="${active === id || (active === 'day' && id === 'days') ? 'active' : ''}">
         <span>${icon(id)}</span><span>${label}</span>
       </button>`).join('')}</nav>`;
@@ -176,9 +176,9 @@
           <div class="hero-meta">
             <span class="hero-pill">📅 ${esc(state.dateLabel)}</span>
             <span class="hero-pill">📍 ${esc(state.routeLabel)}</span>
-            <span class="hero-pill">👨‍👩‍👧‍👦 שתי משפחות</span>
+            <span class="hero-pill">👨‍👩‍👧‍👦 Ganam + Romano</span>
           </div>
-          ${state.lastUpdated ? `<div class="hero-updated">עודכן לאחרונה: <bdi dir="ltr">${esc(state.lastUpdated)}</bdi></div>` : ''}
+          ${state.lastUpdated ? `<div class="hero-updated">Last updated: <bdi>${esc(state.lastUpdated)}</bdi></div>` : ''}
         </div>
         <div class="hero-side">
           <div class="countdown-card">
@@ -186,8 +186,8 @@
             <div class="countdown-number">${esc(c.number)}</div>
             <div>${esc(day.date)} · ${esc(day.title)}</div>
             <div class="hero-actions">
-              <button class="btn btn-primary" data-go="${esc(day.id)}">פתחו את היום</button>
-              <a class="btn btn-light" href="${esc(day.navigation.full)}" target="_blank" rel="noopener">ניווט היום</a>
+              <button class="btn btn-primary" data-go="${esc(day.id)}">Open today</button>
+              <a class="btn btn-light" href="${esc(day.navigation.full)}" target="_blank" rel="noopener">Today's navigation</a>
             </div>
           </div>
         </div>
@@ -203,16 +203,16 @@
     return appShell(`
       ${hero()}
       <section class="section">
-        <div class="section-head"><div><h2>היום שבמרכז</h2><p>כל מה שצריך, בלי לחפש בין הודעות וקבצים</p></div><button class="text-link" data-go="days">לכל הימים ←</button></div>
+        <div class="section-head"><div><h2>Today's focus</h2><p>Everything you need, without digging through messages and files</p></div><button class="text-link" data-go="days">All days →</button></div>
         <article class="card today-card">
           <div>
             <div class="big-date">${esc(day.date)}</div>
             <h3>${esc(day.title)}</h3>
             <p>${esc(day.summary)}</p>
             <div class="today-actions">
-              <button class="btn btn-dark" data-go="${esc(day.id)}">פירוט היום</button>
-              <a class="btn btn-soft" target="_blank" rel="noopener" href="${esc(day.navigation.full)}">מסלול מלא במפה</a>
-              ${day.weather ? `<a class="btn btn-ghost" target="_blank" rel="noopener" href="${esc(day.weather.href)}">מזג אוויר</a>` : ''}
+              <button class="btn btn-dark" data-go="${esc(day.id)}">Day details</button>
+              <a class="btn btn-soft" target="_blank" rel="noopener" href="${esc(day.navigation.full)}">Full route on map</a>
+              ${day.weather ? `<a class="btn btn-ghost" target="_blank" rel="noopener" href="${esc(day.weather.href)}">Weather</a>` : ''}
             </div>
           </div>
           <div class="today-icon">${day.schedule[0]?.icon || '🧭'}</div>
@@ -220,37 +220,37 @@
       </section>
 
       <section class="section">
-        <div class="section-head"><div><h2>במבט אחד</h2><p>הדברים שנצטרך הכי הרבה בזמן אמת</p></div></div>
+        <div class="section-head"><div><h2>At a glance</h2><p>The things we'll need most in real time</p></div></div>
         <div class="grid grid-3">
           <article class="card quick-card">
-            <div><div class="quick-icon">✈️</div><div class="mini-label">טיסת הלוך</div><div class="quick-value" dir="ltr" style="text-align:right">${esc(state.flights[0].depart)} → ${esc(state.flights[0].arrive)}</div><div class="quick-caption">${esc(state.flights[0].airline)} · ${esc(state.flights[0].date)} · ${esc(state.flights[0].flightNumber)}</div></div>
-            <button class="text-link" data-go="info">כל פרטי הטיסות ←</button>
+            <div><div class="quick-icon">✈️</div><div class="mini-label">Outbound flight</div><div class="quick-value">${esc(state.flights[0].depart)} → ${esc(state.flights[0].arrive)}</div><div class="quick-caption">${esc(state.flights[0].airline)} · ${esc(state.flights[0].date)} · ${esc(state.flights[0].flightNumber)}</div></div>
+            <button class="text-link" data-go="info">All flight details →</button>
           </article>
           <article class="card quick-card">
-            <div><div class="quick-icon">🏨</div><div class="mini-label">המלון הראשון</div><div class="quick-value">${esc(firstHotel.name)}</div><div class="quick-caption">${esc(firstHotel.dates)}</div></div>
-            <button class="text-link" data-go="lodgings">לכל הלינות ←</button>
+            <div><div class="quick-icon">🏨</div><div class="mini-label">First stay</div><div class="quick-value">${esc(firstHotel.name)}</div><div class="quick-caption">${esc(firstHotel.dates)}</div></div>
+            <button class="text-link" data-go="lodgings">All stays →</button>
           </article>
           <article class="card quick-card">
-            <div><div class="quick-icon">👨‍👩‍👧‍👦</div><div class="mini-label">הרכב הנוסעים</div><div class="quick-value">2 משפחות</div><div class="quick-caption">4 מבוגרים · 4 ילדים · 2 חדרים</div></div>
-            <button class="text-link" data-go="lodgings">חלוקת המלונות ←</button>
+            <div><div class="quick-icon">👨‍👩‍👧‍👦</div><div class="mini-label">Who's traveling</div><div class="quick-value">Ganam family</div><div class="quick-caption">2 adults, 2 kids · with the Romano family in San Diego: 4 adults, 5 kids</div></div>
+            <button class="text-link" data-go="lodgings">All stays →</button>
           </article>
         </div>
       </section>
 
       ${checklistCard()}
 
-      ${rental?.warning ? `<section class="section"><div class="alert-card"><div class="alert-icon">!</div><div><h3>${esc(rental.alertTitle || 'חשוב לפני הנסיעה')}</h3><p>${esc(rental.warning)}</p><button class="text-link" data-go="info">לפרטים השימושיים ←</button></div></div></section>` : ''}
+      ${rental?.warning ? `<section class="section"><div class="alert-card"><div class="alert-icon">!</div><div><h3>${esc(rental.alertTitle || 'Before you drive')}</h3><p>${esc(rental.warning)}</p><button class="text-link" data-go="info">Useful info →</button></div></div></section>` : ''}
 
       <section class="section">
-        <div class="section-head"><div><h2>מסלול הטיול</h2><p>בסיס אחד נוח, חופים וטיולי כוכב</p></div><button class="text-link" data-go="route">למפת המסלול ←</button></div>
+        <div class="section-head"><div><h2>Trip route</h2><p>Los Angeles, San Diego, a parks road trip and Las Vegas</p></div><button class="text-link" data-go="route">Route map →</button></div>
         ${routePreview()}
       </section>
 
       <section class="section">
-        <div class="section-head"><div><h2>לפני שיוצאים</h2><p>שני דברים שכדאי לזכור</p></div><button class="text-link" data-go="documents">למסמכים ←</button></div>
+        <div class="section-head"><div><h2>Before you go</h2><p>A couple of things to remember</p></div><button class="text-link" data-go="documents">Documents →</button></div>
         <div class="grid grid-2">
-          <article class="card"><div class="card-top"><div><div class="mini-label">מעבר מלון · 9.8</div><h3>${esc(secondHotel.name)}</h3></div><span class="status ready">הוזמן</span></div><p>${esc(secondHotel.note)}</p></article>
-          <article class="card"><div class="card-top"><div><div class="mini-label">טיסות</div><h3>כבודה וצ׳ק־אין</h3></div><span class="status pending">לבדיקה</span></div><p>יש להתייצב בשדה לפחות 3 שעות לפני כל טיסה ולבדוק מראש את הכבודה הרשומה לכל נוסע.</p></article>
+          <article class="card"><div class="card-top"><div><div class="mini-label">San Diego</div><h3>${esc(secondHotel.name)}</h3></div><span class="status ${['Booked','Hosted'].includes(secondHotel.status) ? 'ready' : 'pending'}">${esc(secondHotel.status)}</span></div><p>${esc(secondHotel.note)}</p></article>
+          <article class="card"><div class="card-top"><div><div class="mini-label">Flights</div><h3>Baggage & check-in</h3></div><span class="status pending">To check</span></div><p>Arrive at the airport at least 3 hours before each flight and check the baggage allowance for every traveler in advance.</p></article>
         </div>
       </section>
     `);
@@ -261,7 +261,7 @@
     const points = [[45,242],[210,112],[390,177],[565,140],[735,180],[880,57]];
     return `<article class="card route-card">
       <div class="route-visual">
-        <svg viewBox="0 0 920 290" role="img" aria-label="תרשים טיול הכוכב מטורמולינוס ברחבי קוסטה דל סול">
+        <svg viewBox="0 0 920 290" role="img" aria-label="Diagram of the trip route from Los Angeles to Las Vegas">
           <defs><linearGradient id="routeG" x1="0" x2="1"><stop stop-color="#e49b3d"/><stop offset="1" stop-color="#245d55"/></linearGradient></defs>
           <path d="M45 242C155 190 155 82 275 102s102 122 225 92 115-86 218-23 86-69 162-114" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="34" stroke-linecap="round"/>
           <path d="M45 242C155 190 155 82 275 102s102 122 225 92 115-86 218-23 86-69 162-114" fill="none" stroke="url(#routeG)" stroke-width="8" stroke-linecap="round" stroke-dasharray="1 17"/>
@@ -270,7 +270,7 @@
         </svg>
       </div>
       <div class="route-legend">
-        <div class="card-top"><div><div class="mini-label">${esc(state.dateLabel)}</div><h3>${esc(state.fullRoute.title)}</h3><p>${esc(state.fullRoute.subtitle)}</p></div><a class="btn btn-dark btn-small" href="${esc(state.fullRoute.google)}" target="_blank" rel="noopener">פתיחה במפה</a></div>
+        <div class="card-top"><div><div class="mini-label">${esc(state.dateLabel)}</div><h3>${esc(state.fullRoute.title)}</h3><p>${esc(state.fullRoute.subtitle)}</p></div><a class="btn btn-dark btn-small" href="${esc(state.fullRoute.google)}" target="_blank" rel="noopener">Open in map</a></div>
         <div class="route-stops">${stops.map(s => `<div class="route-stop"><b>${esc(s.name)}</b><span>${esc(s.kind)}</span></div>`).join('')}</div>
       </div>
     </article>`;
@@ -279,56 +279,57 @@
   function daysPage() {
     return appShell(`
       <section class="section" style="margin-top:0">
-        <div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">התוכנית המלאה</div><h2>יום אחר יום</h2><p>לוח זמנים, עצירות, ניווט וטיפים לכל יום</p></div></div>
+        <div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">The full plan</div><h2>Day by day</h2><p>Schedule, stops, navigation and tips for each day</p></div></div>
         <div class="day-list">${state.days.map(day => dayCard(day)).join('')}</div>
       </section>
     `);
   }
 
   function dayCard(day) {
+    const pending = ['Decision','To plan','Draft','Check'].some(k => day.badge.includes(k));
     return `<article class="day-card" tabindex="0" role="button" data-go="${esc(day.id)}">
-      <div class="day-num"><div><span>יום</span><strong>${day.number}</strong><span>${esc(day.shortDate)}</span></div></div>
+      <div class="day-num"><div><span>Day</span><strong>${day.number}</strong><span>${esc(day.shortDate)}</span></div></div>
       <div><div class="mini-label">${esc(day.date)}</div><h3>${esc(day.title)}</h3><p>${esc(day.route)}</p></div>
-      <div><span class="status ${day.badge.includes('טיוטה') || day.badge.includes('דורש') || day.badge.includes('בדיקה') ? 'pending' : 'ready'}">${esc(day.badge)}</span><div class="day-arrow" style="margin-top:8px">←</div></div>
+      <div><span class="status ${pending ? 'pending' : 'ready'}">${esc(day.badge)}</span><div class="day-arrow" style="margin-top:8px">→</div></div>
     </article>`;
   }
 
   function navLeg(l) {
     const wazeHref = l.waze || l.href || '';
     const mapsHref = l.maps || '';
-    return `<div class="nav-link"><span class="nav-logo">📍</span><span><b>${esc(l.label)}</b><small>${esc(l.sub || 'ניווט ליעד')}</small></span><span class="nav-actions">${wazeHref ? `<a class="btn btn-dark btn-small" href="${esc(wazeHref)}" target="_blank" rel="noopener">Waze</a>` : ''}${mapsHref ? `<a class="btn btn-ghost btn-small" href="${esc(mapsHref)}" target="_blank" rel="noopener">מפה</a>` : ''}</span></div>`;
+    return `<div class="nav-link"><span class="nav-logo">📍</span><span><b>${esc(l.label)}</b><small>${esc(l.sub || 'Navigate')}</small></span><span class="nav-actions">${wazeHref ? `<a class="btn btn-dark btn-small" href="${esc(wazeHref)}" target="_blank" rel="noopener">Waze</a>` : ''}${mapsHref ? `<a class="btn btn-ghost btn-small" href="${esc(mapsHref)}" target="_blank" rel="noopener">Map</a>` : ''}</span></div>`;
   }
 
   function dayPage(id) {
     const day = state.days.find(d => d.id === id);
-    if (!day) return appShell('<div class="empty">היום המבוקש לא נמצא.</div>');
+    if (!day) return appShell('<div class="empty">Day not found.</div>');
     return appShell(`
       <section class="day-hero" data-tone="${esc(day.tone)}">
-        <button class="back-btn" data-go="days">→ כל הימים</button>
-        <div class="day-kicker">יום ${day.number} · ${esc(day.date)}</div>
+        <button class="back-btn" data-go="days">← All days</button>
+        <div class="day-kicker">Day ${day.number} · ${esc(day.date)}</div>
         <h1>${esc(day.title)}</h1>
         <div class="day-route">${esc(day.route)}</div>
         <div class="day-fact">${esc(day.heroFact)}</div>
       </section>
       <div class="day-meta">
-        <div class="meta-card"><span class="mini-label">זמן</span><b>${esc(day.duration)}</b></div>
-        <div class="meta-card"><span class="mini-label">הליכה</span><b>${esc(day.walking)}</b></div>
-        <div class="meta-card"><span class="mini-label">מצב התכנון</span><b>${esc(day.badge)}</b></div>
+        <div class="meta-card"><span class="mini-label">Duration</span><b>${esc(day.duration)}</b></div>
+        <div class="meta-card"><span class="mini-label">Walking</span><b>${esc(day.walking)}</b></div>
+        <div class="meta-card"><span class="mini-label">Status</span><b>${esc(day.badge)}</b></div>
       </div>
 
       <section class="section grid grid-2">
-        <article class="card"><div class="card-top"><div><div class="mini-label">התמונה הגדולה</div><h3>מה עושים היום</h3></div><button class="btn btn-ghost btn-small edit-only" data-action="edit-day" data-day="${esc(day.id)}">עריכה</button></div><p style="font-size:17px">${esc(day.summary)}</p></article>
-        <article class="card"><div class="mini-label">ניווט</div><h3>פותחים ויוצאים</h3><p>המסלול המלא נפתח בגוגל מפות; כל יעד נפתח גם בנפרד בוויז.</p><a class="btn btn-dark" style="width:100%;margin-top:8px" href="${esc(day.navigation.full)}" target="_blank" rel="noopener">פתיחת המסלול המלא</a>${day.weather ? `<a class="btn btn-soft" style="width:100%;margin-top:8px" href="${esc(day.weather.href)}" target="_blank" rel="noopener">☁ ${esc(day.weather.label)}</a>` : ''}</article>
+        <article class="card"><div class="card-top"><div><div class="mini-label">The big picture</div><h3>What we do today</h3></div><button class="btn btn-ghost btn-small edit-only" data-action="edit-day" data-day="${esc(day.id)}">Edit</button></div><p style="font-size:17px">${esc(day.summary)}</p></article>
+        <article class="card"><div class="mini-label">Navigation</div><h3>Open and go</h3><p>The full route opens in Google Maps; each stop also opens separately in Waze.</p><a class="btn btn-dark" style="width:100%;margin-top:8px" href="${esc(day.navigation.full)}" target="_blank" rel="noopener">Open full route</a>${day.weather ? `<a class="btn btn-soft" style="width:100%;margin-top:8px" href="${esc(day.weather.href)}" target="_blank" rel="noopener">☁ ${esc(day.weather.label)}</a>` : ''}</article>
       </section>
 
       <section class="section grid grid-2">
         <article class="card">
-          <div class="mini-label">לוח זמנים</div><h3>סדר היום</h3>
+          <div class="mini-label">Schedule</div><h3>Today's plan</h3>
           <div class="timeline">${day.schedule.map(item => `<div class="timeline-item"><div class="timeline-icon">${esc(item.icon)}</div><div class="timeline-time">${esc(item.time)}</div><div class="timeline-body"><b>${esc(item.title)}</b><p>${esc(item.detail)}</p></div></div>`).join('')}</div>
         </article>
         <div class="grid">
-          <article class="card"><div class="mini-label">חשוב לדעת</div><h3>טיפים ליום הזה</h3><ul class="tip-list">${day.tips.map(t => `<li>${esc(t)}</li>`).join('')}</ul></article>
-          ${day.navigation.legs.length ? `<article class="card"><div class="mini-label">עצירות</div><h3>ניווט לכל יעד</h3><div class="nav-links" style="margin-top:12px">${day.navigation.legs.map(l => navLeg(l)).join('')}</div></article>` : ''}
+          <article class="card"><div class="mini-label">Good to know</div><h3>Tips for today</h3><ul class="tip-list">${day.tips.map(t => `<li>${esc(t)}</li>`).join('')}</ul></article>
+          ${day.navigation.legs.length ? `<article class="card"><div class="mini-label">Stops</div><h3>Navigate to each stop</h3><div class="nav-links" style="margin-top:12px">${day.navigation.legs.map(l => navLeg(l)).join('')}</div></article>` : ''}
         </div>
       </section>
     `);
@@ -337,31 +338,31 @@
   function routePage() {
     return appShell(`
       <section class="section" style="margin-top:0">
-        <div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">מפת הטיול</div><h2>כל המקומות על המפה</h2><p>נעצים לפי סוג: מלונות, מסעדות ואטרקציות. הקישו על נעץ לפתיחה בגוגל מפות.</p></div></div>
+        <div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">Trip map</div><h2>All places on the map</h2><p>Pins by type: stays, food and attractions. Tap a pin to open it in Google Maps.</p></div></div>
         <div id="route-map" class="route-map"></div>
-        <div class="map-legend"><span><i style="background:#1d4ed8"></i> מלונות</span><span><i style="background:#e07b1a"></i> מסעדות</span><span><i style="background:#188a4e"></i> אטרקציות</span><span><i style="background:#173f3a;border-radius:2px;width:20px;height:3px"></i> מסלול הימים</span></div>
+        <div class="map-legend"><span><i style="background:#1d4ed8"></i> Stays</span><span><i style="background:#e07b1a"></i> Food</span><span><i style="background:#188a4e"></i> Attractions</span><span><i style="background:#173f3a;border-radius:2px;width:20px;height:3px"></i> Route</span></div>
       </section>
-      <section class="section"><div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">תמונת המסלול</div><h2>מפה וניווט</h2><p>קישור למסלול המלא וקישור נפרד לכל יום</p></div></div>${routePreview()}</section>
-      <section class="section"><div class="section-head"><div><h2>מקטעי הנסיעה</h2><p>אפשר לפתוח כל מקטע בנפרד</p></div></div><div class="day-list">${state.days.filter(d => d.navigation?.full).map(d => `<article class="day-card" data-go="${esc(d.id)}"><div class="day-num"><div><span>יום</span><strong>${d.number}</strong><span>${esc(d.shortDate)}</span></div></div><div><h3>${esc(d.route)}</h3><p>${esc(d.duration)}</p></div><a class="btn btn-dark btn-small" href="${esc(d.navigation.full)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">מפה</a></article>`).join('')}</div></section>
-      <div class="source-note">הקישורים נפתחים בשירותי ניווט חיצוניים. יש לבדוק בזמן אמת עומסי תנועה, חניה ושינויים בדרך.</div>
+      <section class="section"><div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">Route overview</div><h2>Map & navigation</h2><p>A link to the full route and a separate link for each day</p></div></div>${routePreview()}</section>
+      <section class="section"><div class="section-head"><div><h2>Drive segments</h2><p>Open each segment separately</p></div></div><div class="day-list">${state.days.filter(d => d.navigation?.full).map(d => `<article class="day-card" data-go="${esc(d.id)}"><div class="day-num"><div><span>Day</span><strong>${d.number}</strong><span>${esc(d.shortDate)}</span></div></div><div><h3>${esc(d.route)}</h3><p>${esc(d.duration)}</p></div><a class="btn btn-dark btn-small" href="${esc(d.navigation.full)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Map</a></article>`).join('')}</div></section>
+      <div class="source-note">Links open in external navigation apps. Check live traffic, parking and any road changes in real time.</div>
     `);
   }
 
   function lodgingsPage() {
     return appShell(`
-      <section class="section" style="margin-top:0"><div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">איפה ישנים</div><h2>לינות</h2><p>כתובות, תאריכים, קישורים וניווט ישיר</p></div></div>
-        ${state.lodgings.map(l => `<article class="card lodging-card"><div><div class="card-top"><div><div class="mini-label">${esc(l.dates)}</div><h3>${esc(l.name)}</h3><div style="color:var(--muted)">${esc(l.nativeName)}</div></div><span class="status ${l.status === 'הוזמן' ? 'ready' : 'pending'}">${esc(l.status)}</span></div><div class="lodging-address">📍 ${esc(l.location)}</div><div class="info-row"><span>כניסה: <b>${esc(l.checkIn)}</b></span><span>יציאה: <b>${esc(l.checkOut)}</b></span></div><p>${esc(l.note)}</p></div><div class="nav-links"><a class="btn btn-dark btn-small" href="${esc(l.waze)}" target="_blank" rel="noopener">Waze</a><a class="btn btn-ghost btn-small" href="${esc(l.maps)}" target="_blank" rel="noopener">מפה</a>${l.weather ? `<a class="btn btn-soft btn-small" href="${esc(l.weather)}" target="_blank" rel="noopener">מזג אוויר</a>` : ''}${l.website ? `<a class="btn btn-ghost btn-small" href="${esc(l.website)}" target="_blank" rel="noopener">אתר ההזמנה</a>` : ''}</div></article>`).join('')}
+      <section class="section" style="margin-top:0"><div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">Where we sleep</div><h2>Stays</h2><p>Addresses, dates, links and direct navigation</p></div></div>
+        ${state.lodgings.map(l => `<article class="card lodging-card"><div><div class="card-top"><div><div class="mini-label">${esc(l.dates)}</div><h3>${esc(l.name)}</h3><div style="color:var(--muted)">${esc(l.nativeName)}</div></div><span class="status ${['Booked','Hosted'].includes(l.status) ? 'ready' : 'pending'}">${esc(l.status)}</span></div><div class="lodging-address">📍 ${esc(l.location)}</div><div class="info-row"><span>Check-in: <b>${esc(l.checkIn)}</b></span><span>Check-out: <b>${esc(l.checkOut)}</b></span></div><p>${esc(l.note)}</p></div><div class="nav-links"><a class="btn btn-dark btn-small" href="${esc(l.waze)}" target="_blank" rel="noopener">Waze</a><a class="btn btn-ghost btn-small" href="${esc(l.maps)}" target="_blank" rel="noopener">Map</a>${l.weather ? `<a class="btn btn-soft btn-small" href="${esc(l.weather)}" target="_blank" rel="noopener">Weather</a>` : ''}${l.website ? `<a class="btn btn-ghost btn-small" href="${esc(l.website)}" target="_blank" rel="noopener">Booking site</a>` : ''}</div></article>`).join('')}
       </section>
     `);
   }
 
   function documentsPage() {
-    const iconByCategory = { 'טיסות':'✈️','רכב':'🚗','תחבורה':'🚐','לינה':'🏨','מסמכים':'📄' };
+    const iconByCategory = { 'Flights':'✈️','Car':'🚗','Transport':'🚐','Lodging':'🏨','Documents':'📄' };
     return appShell(`
       <section class="section" style="margin-top:0">
-        <div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">הכול במקום אחד</div><h2>מסמכים ואישורים</h2><p>עותקים מצונזרים לפרסום, קישורי הזמנות והמסמכים שעדיין חסרים.</p></div><button class="btn btn-dark btn-small edit-only" data-action="open-editor-docs">הוספת קישור</button></div>
-        <div class="notice">המסמכים שהועלו לאתר עברו צנזור של קודי הזמנה ופרטים אישיים. אין להעלות לכאן דרכונים, פוליסה מלאה או מסמך עם פרטים רגישים כל עוד האתר ציבורי.</div>
-        <div class="doc-list">${state.documents.map(doc => `<article class="doc-card"><div class="doc-icon">${iconByCategory[doc.category] || '📄'}</div><div><div class="mini-label">${esc(doc.category)}</div><h3>${esc(doc.title)}</h3><p>${esc(doc.note)}</p></div>${doc.href ? `<a class="btn btn-dark btn-small" href="${esc(doc.href)}" target="_blank" rel="noopener">פתיחה</a>` : `<span class="status pending">${esc(doc.status)}</span>`}</article>`).join('')}</div>
+        <div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">All in one place</div><h2>Documents & confirmations</h2><p>Redacted copies for publishing, booking links, and the documents still missing.</p></div><button class="btn btn-dark btn-small edit-only" data-action="open-editor-docs">Add link</button></div>
+        <div class="notice">Documents on the site have had confirmation codes and personal details removed. Do not upload passports, a full insurance policy, or any document with sensitive details while the site is public.</div>
+        <div class="doc-list">${state.documents.map(doc => `<article class="doc-card"><div class="doc-icon">${iconByCategory[doc.category] || '📄'}</div><div><div class="mini-label">${esc(doc.category)}</div><h3>${esc(doc.title)}</h3><p>${esc(doc.note)}</p></div>${doc.href ? `<a class="btn btn-dark btn-small" href="${esc(doc.href)}" target="_blank" rel="noopener">Open</a>` : `<span class="status pending">${esc(doc.status)}</span>`}</article>`).join('')}</div>
       </section>
     `);
   }
@@ -369,37 +370,37 @@
   function infoPage() {
     const rental = state.useful.carRental;
     return appShell(`
-      <section class="section" style="margin-top:0"><div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">פרטים שימושיים</div><h2>טיסות, רכב, מזג אוויר ושבת</h2><p>המידע שחשוב שיהיה זמין במהירות</p></div></div>
+      <section class="section" style="margin-top:0"><div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">Useful details</div><h2>Flights, car and weather</h2><p>The info that should be quick to reach</p></div></div>
         <div class="grid grid-2">
-          ${state.flights.map(f => `<article class="card"><div class="card-top"><div><div class="mini-label">טיסת ${esc(f.direction)} · ${esc(f.date)}</div><h3>${esc(f.from)} ← ${esc(f.to)}</h3></div><span class="status ${f.status.includes('מאושר') ? 'ready' : 'pending'}">${esc(f.status)}</span></div><div style="display:flex;align-items:center;gap:13px;margin:18px 0"><div class="quick-value">${esc(f.depart)}</div><div style="flex:1;height:1px;background:var(--line);position:relative"><span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scaleX(-1);background:var(--card);padding:0 8px">✈</span></div><div class="quick-value">${esc(f.arrive)}</div></div><div class="info-row"><span>${esc(f.airline)}</span><span>${esc(f.flightNumber)}</span><span>${esc(f.duration)}</span></div><p>${esc(f.note)}</p></article>`).join('')}
+          ${state.flights.map(f => `<article class="card"><div class="card-top"><div><div class="mini-label">${esc(f.direction)} flight · ${esc(f.date)}</div><h3>${esc(f.from)} → ${esc(f.to)}</h3></div><span class="status ${f.status.includes('Confirmed') ? 'ready' : 'pending'}">${esc(f.status)}</span></div><div style="display:flex;align-items:center;gap:13px;margin:18px 0"><div class="quick-value">${esc(f.depart)}</div><div style="flex:1;height:1px;background:var(--line);position:relative"><span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--card);padding:0 8px">✈</span></div><div class="quick-value">${esc(f.arrive)}</div></div><div class="info-row"><span>${esc(f.airline)}</span><span>${esc(f.flightNumber)}</span><span>${esc(f.duration)}</span></div><p>${esc(f.note)}</p></article>`).join('')}
         </div>
       </section>
 
       <section class="section">
-        <article class="card rental-card"><div><div class="card-top"><div><div class="mini-label">תחבורה · ${esc(rental.provider)}</div><h3>${esc(rental.title)}</h3></div><span class="status ${rental.status === 'מאושר' ? 'ready' : 'pending'}">${esc(rental.status)}</span></div><div class="grid grid-2" style="margin-top:15px"><div class="soft-box"><div class="mini-label">הגעה</div><b>${esc(rental.pickup)}</b></div><div class="soft-box"><div class="mini-label">חזרה</div><b>${esc(rental.return)}</b></div></div><div class="info-row" style="margin-top:14px"><span><b>${esc(rental.vehicle)}</b></span><span>${esc(rental.deposit)}</span></div><p>${esc(rental.requirements)}</p>${rental.warning ? `<div class="warning-box">${esc(rental.warning)}</div>` : ''}</div>${rental.document ? `<a class="btn btn-dark btn-small" href="${esc(rental.document)}" target="_blank" rel="noopener">פתיחת המסמך</a>` : ''}</article>
+        <article class="card rental-card"><div><div class="card-top"><div><div class="mini-label">Transport · ${esc(rental.provider)}</div><h3>${esc(rental.title)}</h3></div><span class="status ${rental.status === 'Confirmed' ? 'ready' : 'pending'}">${esc(rental.status)}</span></div><div class="grid grid-2" style="margin-top:15px"><div class="soft-box"><div class="mini-label">Pick-up</div><b>${esc(rental.pickup)}</b></div><div class="soft-box"><div class="mini-label">Drop-off</div><b>${esc(rental.return)}</b></div></div><div class="info-row" style="margin-top:14px"><span><b>${esc(rental.vehicle)}</b></span><span>${esc(rental.deposit)}</span></div><p>${esc(rental.requirements)}</p>${rental.warning ? `<div class="warning-box">${esc(rental.warning)}</div>` : ''}</div>${rental.document ? `<a class="btn btn-dark btn-small" href="${esc(rental.document)}" target="_blank" rel="noopener">Open document</a>` : ''}</article>
       </section>
 
-      <section class="section"><div class="section-head"><div><h2>תחזית לפי מיקום</h2><p>קישורים ישירים ל־Meteoblue</p></div></div><div class="grid grid-2">${state.useful.weather.map(w => `<a class="card weather-card" href="${esc(w.href)}" target="_blank" rel="noopener"><div class="weather-icon">☁️</div><div><div class="mini-label">${esc(w.dates)}</div><h3>${esc(w.name)}</h3><p>${esc(w.note)}</p></div><span>↗</span></a>`).join('')}</div></section>
+      <section class="section"><div class="section-head"><div><h2>Weather by location</h2><p>Direct links to Meteoblue</p></div></div><div class="grid grid-2">${state.useful.weather.map(w => `<a class="card weather-card" href="${esc(w.href)}" target="_blank" rel="noopener"><div class="weather-icon">☁️</div><div><div class="mini-label">${esc(w.dates)}</div><h3>${esc(w.name)}</h3><p>${esc(w.note)}</p></div><span>↗</span></a>`).join('')}</div></section>
 
-      <section class="section"><div class="section-head"><div><h2>מספרי חירום</h2></div></div><div class="grid grid-3">${state.useful.emergency.map(e => `<a class="card" href="${esc(e.href)}" style="text-decoration:none"><div class="mini-label">${esc(e.label)}</div><div class="quick-value" style="margin-top:8px"><bdi dir="ltr">${esc(e.value)}</bdi></div><div class="quick-caption">${esc(e.caption || 'לחיצה לחיוג')}</div></a>`).join('')}</div></section>
+      <section class="section"><div class="section-head"><div><h2>Emergency numbers</h2></div></div><div class="grid grid-3">${state.useful.emergency.map(e => `<a class="card" href="${esc(e.href)}" style="text-decoration:none"><div class="mini-label">${esc(e.label)}</div><div class="quick-value" style="margin-top:8px"><bdi>${esc(e.value)}</bdi></div><div class="quick-caption">${esc(e.caption || 'Tap to call')}</div></a>`).join('')}</div></section>
     `);
   }
 
   function editorModal() {
-    return `<div class="modal-backdrop" data-action="close-editor-backdrop"><section class="modal" role="dialog" aria-modal="true" aria-label="עריכת התכנון" onclick="event.stopPropagation()"><div class="modal-head"><h2>עריכת התכנון</h2><button class="icon-btn" data-action="close-editor">✕</button></div><div class="modal-body"><div class="notice">העריכות נשמרות בדפדפן של המכשיר הזה. כדי להעביר אותן למכשיר אחר או להפוך אותן לגרסה הראשית של האתר, מייצאים קובץ נתונים ומכניסים אותו לפרויקט.</div><div class="editor-tabs"><button class="${editorTab==='day'?'active':''}" data-editor-tab="day">עריכת יום</button><button class="${editorTab==='document'?'active':''}" data-editor-tab="document">מסמכים</button><button class="${editorTab==='data'?'active':''}" data-editor-tab="data">ייבוא וייצוא</button></div>${editorTab === 'day' ? dayEditor() : editorTab === 'document' ? documentEditor() : dataEditor()}</div></section></div>`;
+    return `<div class="modal-backdrop" data-action="close-editor-backdrop"><section class="modal" role="dialog" aria-modal="true" aria-label="Edit plan" onclick="event.stopPropagation()"><div class="modal-head"><h2>Edit plan</h2><button class="icon-btn" data-action="close-editor">✕</button></div><div class="modal-body"><div class="notice">Edits are saved in this device's browser. To move them to another device, or make them the site's main version, export a data file and add it to the project.</div><div class="editor-tabs"><button class="${editorTab==='day'?'active':''}" data-editor-tab="day">Edit day</button><button class="${editorTab==='document'?'active':''}" data-editor-tab="document">Documents</button><button class="${editorTab==='data'?'active':''}" data-editor-tab="data">Import & export</button></div>${editorTab === 'day' ? dayEditor() : editorTab === 'document' ? documentEditor() : dataEditor()}</div></section></div>`;
   }
 
   function dayEditor() {
     const day = state.days.find(d => d.id === editingDayId) || state.days[0];
-    return `<form id="day-editor-form"><div class="form-grid"><div class="field full"><label>בחר יום</label><select name="id" id="editor-day-select">${state.days.map(d => `<option value="${esc(d.id)}" ${d.id===day.id?'selected':''}>יום ${d.number} — ${esc(d.title)}</option>`).join('')}</select></div><div class="field full"><label>כותרת</label><input name="title" value="${esc(day.title)}"></div><div class="field"><label>תאריך</label><input name="date" value="${esc(day.date)}"></div><div class="field"><label>מצב התכנון</label><input name="badge" value="${esc(day.badge)}"></div><div class="field full"><label>מסלול</label><input name="route" value="${esc(day.route)}"></div><div class="field"><label>משך</label><input name="duration" value="${esc(day.duration)}"></div><div class="field"><label>הליכה</label><input name="walking" value="${esc(day.walking)}"></div><div class="field full"><label>תקציר</label><textarea name="summary">${esc(day.summary)}</textarea></div><div class="field full"><label>משפט מרכזי</label><input name="heroFact" value="${esc(day.heroFact)}"></div><div class="field full"><label>טיפים — טיפ אחד בכל שורה</label><textarea name="tips">${esc(day.tips.join('\n'))}</textarea></div><div class="field full"><label>לוח זמנים — שעה | כותרת | פירוט | אימוג׳י</label><textarea name="schedule" style="min-height:170px">${esc(day.schedule.map(x => `${x.time} | ${x.title} | ${x.detail} | ${x.icon}`).join('\n'))}</textarea></div><div class="field full"><label>קישור למסלול המלא</label><input name="fullNav" dir="ltr" value="${esc(day.navigation.full)}"></div></div><div class="modal-actions"><button class="btn btn-dark" type="submit">שמירת היום</button><button class="btn btn-ghost" type="button" data-action="close-editor">ביטול</button></div></form>`;
+    return `<form id="day-editor-form"><div class="form-grid"><div class="field full"><label>Select day</label><select name="id" id="editor-day-select">${state.days.map(d => `<option value="${esc(d.id)}" ${d.id===day.id?'selected':''}>Day ${d.number} — ${esc(d.title)}</option>`).join('')}</select></div><div class="field full"><label>Title</label><input name="title" value="${esc(day.title)}"></div><div class="field"><label>Date</label><input name="date" value="${esc(day.date)}"></div><div class="field"><label>Status</label><input name="badge" value="${esc(day.badge)}"></div><div class="field full"><label>Route</label><input name="route" value="${esc(day.route)}"></div><div class="field"><label>Duration</label><input name="duration" value="${esc(day.duration)}"></div><div class="field"><label>Walking</label><input name="walking" value="${esc(day.walking)}"></div><div class="field full"><label>Summary</label><textarea name="summary">${esc(day.summary)}</textarea></div><div class="field full"><label>Highlight line</label><input name="heroFact" value="${esc(day.heroFact)}"></div><div class="field full"><label>Tips — one per line</label><textarea name="tips">${esc(day.tips.join('\n'))}</textarea></div><div class="field full"><label>Schedule — time | title | detail | emoji</label><textarea name="schedule" style="min-height:170px">${esc(day.schedule.map(x => `${x.time} | ${x.title} | ${x.detail} | ${x.icon}`).join('\n'))}</textarea></div><div class="field full"><label>Full route link</label><input name="fullNav" value="${esc(day.navigation.full)}"></div></div><div class="modal-actions"><button class="btn btn-dark" type="submit">Save day</button><button class="btn btn-ghost" type="button" data-action="close-editor">Cancel</button></div></form>`;
   }
 
   function documentEditor() {
-    return `<form id="document-editor-form"><div class="form-grid"><div class="field full"><label>שם המסמך</label><input name="title" required placeholder="לדוגמה: אישור המלון"></div><div class="field"><label>קטגוריה</label><select name="category"><option>לינה</option><option>טיסות</option><option>תחבורה</option><option>מסמכים</option></select></div><div class="field"><label>מצב</label><input name="status" value="זמין"></div><div class="field full"><label>קישור לקובץ או לעמוד</label><input name="href" dir="ltr" placeholder="/documents/hotel.pdf או https://..."></div><div class="field full"><label>הערה</label><textarea name="note"></textarea></div></div><div class="modal-actions"><button class="btn btn-dark" type="submit">הוספת המסמך</button><button class="btn btn-ghost" type="button" data-action="close-editor">ביטול</button></div></form><div class="section"><div class="mini-label">מסמכים קיימים</div><div class="doc-list" style="margin-top:10px">${state.documents.map(d => `<div class="doc-card"><div class="doc-icon">📄</div><div><h3>${esc(d.title)}</h3><p>${esc(d.href || d.status)}</p></div><button class="btn btn-ghost btn-small" data-action="delete-document" data-doc="${esc(d.id)}">מחיקה</button></div>`).join('')}</div></div>`;
+    return `<form id="document-editor-form"><div class="form-grid"><div class="field full"><label>Document name</label><input name="title" required placeholder="e.g. Hotel confirmation"></div><div class="field"><label>Category</label><select name="category"><option>Lodging</option><option>Flights</option><option>Transport</option><option>Documents</option></select></div><div class="field"><label>Status</label><input name="status" value="Available"></div><div class="field full"><label>Link to a file or page</label><input name="href" placeholder="/documents/hotel.pdf or https://..."></div><div class="field full"><label>Note</label><textarea name="note"></textarea></div></div><div class="modal-actions"><button class="btn btn-dark" type="submit">Add document</button><button class="btn btn-ghost" type="button" data-action="close-editor">Cancel</button></div></form><div class="section"><div class="mini-label">Existing documents</div><div class="doc-list" style="margin-top:10px">${state.documents.map(d => `<div class="doc-card"><div class="doc-icon">📄</div><div><h3>${esc(d.title)}</h3><p>${esc(d.href || d.status)}</p></div><button class="btn btn-ghost btn-small" data-action="delete-document" data-doc="${esc(d.id)}">Delete</button></div>`).join('')}</div></div>`;
   }
 
   function dataEditor() {
-    return `<div class="form-grid"><div class="field full"><label>כל נתוני האפליקציה</label><textarea id="json-data" class="json-area">${esc(JSON.stringify(state, null, 2))}</textarea></div></div><div class="modal-actions"><button class="btn btn-dark" data-action="import-json">שמירה מהטקסט</button><button class="btn btn-soft" data-action="download-json">הורדת קובץ גיבוי</button><label class="btn btn-ghost" style="cursor:pointer">טעינת קובץ<input id="import-file" type="file" accept="application/json" hidden></label><button class="btn btn-ghost" data-action="reset-data">איפוס לגרסה המקורית</button></div>`;
+    return `<div class="form-grid"><div class="field full"><label>All app data</label><textarea id="json-data" class="json-area">${esc(JSON.stringify(state, null, 2))}</textarea></div></div><div class="modal-actions"><button class="btn btn-dark" data-action="import-json">Save from text</button><button class="btn btn-soft" data-action="download-json">Download backup</button><label class="btn btn-ghost" style="cursor:pointer">Load file<input id="import-file" type="file" accept="application/json" hidden></label><button class="btn btn-ghost" data-action="reset-data">Reset to original</button></div>`;
   }
 
   function initRouteMap() {
@@ -419,7 +420,7 @@
       bounds.push(p.coords);
       L.circleMarker(p.coords, { radius: 8, weight: 2, color: '#fff', fillColor: colors[p.type] || colors.attraction, fillOpacity: 1 })
         .addTo(map)
-        .bindPopup(`<b>${esc(p.name)}</b><br><a href="${esc(p.maps)}" target="_blank" rel="noopener">פתיחה בגוגל מפות</a>`);
+        .bindPopup(`<b>${esc(p.name)}</b><br><a href="${esc(p.maps)}" target="_blank" rel="noopener">Open in Google Maps</a>`);
     });
     if (bounds.length) map.fitBounds(bounds, { padding: [30, 30] });
     setTimeout(() => map.invalidateSize(), 150);
@@ -452,14 +453,14 @@
       completed[input.dataset.checklistId] = input.checked;
       localStorage.setItem(CHECKLIST_KEY, JSON.stringify(completed));
       render();
-      showToast(input.checked ? 'המשימה סומנה כהושלמה' : 'המשימה נפתחה מחדש');
+      showToast(input.checked ? 'Task marked as done' : 'Task reopened');
     }));
     app.querySelectorAll('[data-attraction-id]').forEach(input => input.addEventListener('change', () => {
       const done = loadAttractionsDone();
       done[input.dataset.attractionId] = input.checked;
       localStorage.setItem(ATTRACTIONS_KEY, JSON.stringify(done));
       render();
-      showToast(input.checked ? 'סומן כבוצע' : 'הסימון הוסר');
+      showToast(input.checked ? 'Marked as done' : 'Mark removed');
     }));
 
     const select = document.getElementById('editor-day-select');
@@ -478,14 +479,14 @@
         return { time, title, detail, icon };
       }).filter(x => x.title);
       day.navigation.full = String(fd.get('fullNav') || '').trim();
-      saveState(); editorOpen = false; showToast('היום נשמר'); render();
+      saveState(); editorOpen = false; showToast('Day saved'); render();
     });
 
     const docForm = document.getElementById('document-editor-form');
     if (docForm) docForm.addEventListener('submit', event => {
       event.preventDefault(); const fd = new FormData(docForm);
       state.documents.push({ id: 'doc-' + Date.now(), title: String(fd.get('title')), category: String(fd.get('category')), status: String(fd.get('status')), href: String(fd.get('href')), note: String(fd.get('note')) });
-      saveState(); showToast('המסמך נוסף'); render();
+      saveState(); showToast('Document added'); render();
     });
 
     const fileInput = document.getElementById('import-file');
@@ -503,35 +504,35 @@
     if (action === 'edit-day') { editingDayId = el.dataset.day; editorOpen = true; editorTab = 'day'; render(); }
     if (action === 'close-editor' || action === 'close-editor-backdrop') { editorOpen = false; render(); }
     if (action === 'delete-document') {
-      if (confirm('למחוק את המסמך מהרשימה?')) { state.documents = state.documents.filter(d => d.id !== el.dataset.doc); saveState(); render(); }
+      if (confirm('Delete this document from the list?')) { state.documents = state.documents.filter(d => d.id !== el.dataset.doc); saveState(); render(); }
     }
     if (action === 'download-json') downloadJSON();
     if (action === 'import-json') importJSONFromText();
     if (action === 'reset-data') {
-      if (confirm('לאפס את כל העריכות המקומיות ולחזור לגרסה המקורית?')) { state = clone(window.DEFAULT_TRIP); saveState(); showToast('הנתונים אופסו'); render(); }
+      if (confirm('Reset all local edits and return to the original version?')) { state = clone(window.DEFAULT_TRIP); saveState(); showToast('Data reset'); render(); }
     }
   }
 
   function downloadJSON() {
     const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href = url; a.download = 'malaga-trip-data.json'; a.click(); URL.revokeObjectURL(url);
+    const a = document.createElement('a'); a.href = url; a.download = 'us-trip-data.json'; a.click(); URL.revokeObjectURL(url);
   }
 
   function importJSONFromText() {
     try {
       const next = JSON.parse(document.getElementById('json-data').value);
-      if (!Array.isArray(next.days) || !Array.isArray(next.lodgings)) throw new Error('מבנה לא תקין');
-      state = next; saveState(); showToast('הנתונים נשמרו'); render();
-    } catch (e) { alert('לא ניתן לשמור: קובץ הנתונים אינו תקין.\n' + e.message); }
+      if (!Array.isArray(next.days) || !Array.isArray(next.lodgings)) throw new Error('Invalid structure');
+      state = next; saveState(); showToast('Data saved'); render();
+    } catch (e) { alert('Could not save: the data file is invalid.\n' + e.message); }
   }
 
   function importFile(event) {
     const file = event.target.files[0]; if (!file) return;
     const reader = new FileReader();
     reader.onload = () => {
-      try { const next = JSON.parse(reader.result); if (!Array.isArray(next.days)) throw new Error('מבנה לא תקין'); state = next; saveState(); showToast('קובץ הגיבוי נטען'); render(); }
-      catch (e) { alert('לא ניתן לטעון את הקובץ: ' + e.message); }
+      try { const next = JSON.parse(reader.result); if (!Array.isArray(next.days)) throw new Error('Invalid structure'); state = next; saveState(); showToast('Backup file loaded'); render(); }
+      catch (e) { alert('Could not load the file: ' + e.message); }
     };
     reader.readAsText(file);
   }
@@ -553,7 +554,7 @@
         refreshing = true;
         window.location.reload();
       });
-      navigator.serviceWorker.register('/sw.js?v=3', { updateViaCache: 'none' })
+      navigator.serviceWorker.register('/sw.js?v=4', { updateViaCache: 'none' })
         .then(registration => registration.update())
         .catch(console.warn);
     }

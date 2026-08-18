@@ -167,7 +167,7 @@ button { color: inherit; }
 .meta-card b { display: block; margin-top: 3px; }
 
 .timeline { position: relative; margin-top: 5px; }
-.timeline::before { content: ""; position: absolute; top: 19px; bottom: 18px; right: 19px; width: 2px; background: #dce4df; }
+.timeline::before { content: ""; position: absolute; top: 19px; bottom: 18px; left: 19px; width: 2px; background: #dce4df; }
 .timeline-item { display: grid; grid-template-columns: 40px 68px 1fr; gap: 13px; align-items: start; position: relative; padding: 10px 0; }
 .timeline-icon { width: 40px; height: 40px; background: #edf3ef; border-radius: 13px; display: grid; place-items: center; z-index: 1; }
 .timeline-time { font-weight: 900; font-size: 14px; padding-top: 8px; }
@@ -197,7 +197,7 @@ a.route-stop { text-decoration: none; color: inherit; display: block; }
 .route-stop span { color: var(--muted); font-size: 11px; }
 .route-map { height: 360px; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); }
 .map-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; font-size: 13px; color: var(--muted); }
-.map-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-left: 6px; vertical-align: middle; }
+.map-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
 
 .lodging-card { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; }
 .lodging-card + .lodging-card { margin-top: 14px; }
@@ -245,8 +245,8 @@ a.route-stop { text-decoration: none; color: inherit; display: block; }
   .hero-grid, .grid-3 { grid-template-columns: 1fr; }
   .hero-side { justify-self: stretch; width: auto; }
   .grid-2 { grid-template-columns: 1fr; }
-  .route-stops { grid-template-columns: 1fr; text-align: right; }
-  .route-stop { text-align: right; border-right: 2px solid #bed0c7; padding-right: 12px; }
+  .route-stops { grid-template-columns: 1fr; text-align: left; }
+  .route-stop { text-align: left; border-left: 2px solid #bed0c7; padding-left: 12px; }
 }
 @media (max-width: 620px) {
   .main { width: min(100% - 20px, 1160px); padding-top: 14px; }

@@ -1,26 +1,27 @@
-# הקשר הפרויקט
+# Project context
 
-אתר טיול משפחתי בעברית, מימין לשמאל, המותאם בעיקר לטלפון. הטיול הוא לארצות הברית בתאריכים 18 בדצמבר 2026 עד 4 בינואר 2027: לוס אנג׳לס, סן דייגו ולאס וגאס.
+A mobile-friendly family trip website in English (LTR). The trip is to the US, December 18, 2026 to January 4, 2027: Los Angeles, San Diego and Las Vegas.
 
-## הרכב
+## Group
 
-- משפחת גנם: 2 מבוגרים ו־2 ילדים (גיא 7, רון 5).
-- בסן דייגו מתארחים אצל משפחת רומנו.
+- Ganam family: 2 adults and 2 kids (Guy 7, Ron 5).
+- In Los Angeles and Las Vegas: the Ganam family only.
+- In San Diego: hosted by the Romano family; together the group is 4 adults and 5 kids.
 
-## פרטים מאושרים
+## Confirmed details
 
-- הלוך: אל על LY5, תל אביב–לוס אנג׳לס, 18.12.2026, המראה 00:45, נחיתה 06:00.
-- פנימי: אל על LY4479, לאס וגאס–לוס אנג׳לס, 4.1.2027, 09:10–10:26.
-- חזור: אל על LY6, לוס אנג׳לס–תל אביב, 4.1.2027, המראה 14:00, נחיתה 5.1.
-- לינה 18–20.12: Park Plaza Lodge, לוס אנג׳לס (2 לילות).
-- לינה 20–30.12 (בערך): אירוח אצל משפחת רומנו בסן דייגו.
-- לינה בלאס וגאס (3–4 לילות לסיום): טרם הוזמנה.
-- רכב: Avis, איסוף ב-LAX ב-18.12 והחזרה בלאס וגאס ב-4.1 (One-Way, לאשר).
+- Outbound: EL AL LY5, Tel Aviv to Los Angeles, Dec 18, 2026, departs 00:45, lands 06:00.
+- Internal: EL AL LY4479, Las Vegas to Los Angeles, Jan 4, 2027, 09:10-10:26.
+- Return: EL AL LY6, Los Angeles to Tel Aviv, Jan 4, 2027, departs 14:00, lands Jan 5.
+- Stay Dec 18-20: Park Plaza Lodge, Los Angeles (2 nights).
+- Stay Dec 20-30 (approx): hosted by the Romano family in San Diego.
+- Las Vegas stay (last 3-4 nights): not booked yet.
+- Car: Avis, pick up at LAX on Dec 18 and return in Las Vegas on Jan 4 (one-way, to confirm).
 
-## עקרונות
+## Principles
 
-- `trip-data.js` הוא מקור האמת לתוכן.
-- התוכנית מכוונת לקצב משפחתי עם הפסקות ומנוחה.
-- מסלול סן דייגו הוא בצורת כוכב מבית משפחת רומנו.
-- אין לפרסם שמות מלאים, מספרי הזמנה, מספרי אישור, מספרי כרטיס או פרטי אשראי.
-- מסמכים ציבוריים חייבים להיות מצונזרים.
+- `trip-data.js` is the source of truth for content.
+- The plan aims for a family pace with breaks and rest.
+- The San Diego trips are star-shaped from the Romano family's home.
+- Do not publish full names, reservation numbers, confirmation codes, ticket numbers or credit details.
+- Public documents must be redacted.
