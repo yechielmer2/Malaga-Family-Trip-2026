@@ -82,11 +82,11 @@
         website: '', weather: wx.sd
       },
       {
-        id: 'vegas-hotel', name: 'Las Vegas hotel', nativeName: 'Las Vegas - 3-4 nights',
-        dates: '31/12/2026 - 04/01/2027 (approx)', location: 'Las Vegas Strip, NV',
-        checkIn: 'To plan', checkOut: 'Mon 04/01 - before the flight', status: 'To book',
-        note: 'A Las Vegas hotel to close out the trip, including New Year\'s Eve. Not booked yet - pick a hotel on or near the Strip.',
-        maps: map('Las Vegas Strip hotels'), waze: waze('Las Vegas Strip'),
+        id: 'vegas-hotel', name: 'Club Wyndham Grand Desert', nativeName: 'Las Vegas - 3 nights - 2-bedroom suite with kitchen',
+        dates: '01/01 - 04/01/2027 - 3 nights', location: '265 East Harmon Avenue, Las Vegas, NV 89169',
+        checkIn: 'Fri 01/01 - from 16:00', checkOut: 'Mon 04/01 - before 10:00', status: 'Booked',
+        note: 'Non-smoking two-bedroom suite with a kitchen, just off the Strip near the Convention Center. Hotel phone 1-702-691-2600. Free cancellation until 29/12.',
+        maps: map('Club Wyndham Grand Desert Las Vegas'), waze: waze('Club Wyndham Grand Desert Las Vegas'),
         website: '', weather: wx.lv
       }
     ],
@@ -181,17 +181,17 @@
         ['December days are pleasant but desert nights are freezing - warm layers and a hat.', 'No fuel or food inside the park - fill up on water and food before entering.', 'Cell coverage is weak in the park - download an offline map ahead.'],
         ['San Diego CA', 'Joshua Tree National Park', 'Twentynine Palms CA'], { duration: 'Drive & hike day', walking: 'Light to moderate', badge: 'Road trip', tone: 'clay', weather: { label: 'Joshua Tree weather', href: wx.jt } }),
 
-      day(14, '31/12', 'Thursday, 31/12/2026', 'Arriving in Las Vegas - New Year\'s Eve', 'Twentynine Palms > Calico > Seven Magic Mountains > Las Vegas',
-        'Finish the road trip to Vegas with two fun stops along the way, and arrive in Las Vegas for New Year\'s Eve on the Strip.',
-        [['08:30', 'Head toward Vegas', 'Get on I-15 north.', '🚗'], ['10:30', 'Calico Ghost Town', 'A restored silver-mining ghost town, fun for kids.', '🤠'], ['13:30', 'Seven Magic Mountains', 'Colorful stacked-rock art installation right before Vegas, a quick photo stop.', '🎨'], ['15:00', 'Check in to the Vegas hotel', 'Check-in and getting settled.', '🏨'], ['22:00', 'New Year\'s Eve', 'New Year celebrations on the Strip, fireworks at midnight.', '🎆']],
-        ['The Strip closes to traffic on New Year\'s Eve - plan your spot and parking ahead.', 'Huge crowds at midnight - keep the kids close, and bring ear protection for the fireworks.', 'Seven Magic Mountains is free and about 10 minutes off the highway - a quick photo stop.', 'Backup: Mojave National Preserve with the Kelso Dunes - a nice desert stop between Barstow and Vegas, if you want to swap out Calico or add a stop.'],
-        ['Twentynine Palms CA', 'Calico Ghost Town', 'Seven Magic Mountains', 'Las Vegas Strip'], { duration: 'Drive & holiday evening', walking: 'Light', badge: 'New Year', tone: 'gold', weather: { label: 'Las Vegas weather', href: wx.lv } }),
+      day(14, '31/12', 'Thursday, 31/12/2026', 'New Year\'s Eve on the road to Vegas', 'Twentynine Palms > Calico > Seven Magic Mountains > Las Vegas area',
+        'Continue the road trip with two fun stops and spend New Year\'s Eve near Las Vegas. The Vegas hotel only starts tomorrow (01/01), so tonight\'s stay is still open - see the note.',
+        [['08:30', 'Head toward Vegas', 'Get on I-15 north.', '🚗'], ['10:30', 'Calico Ghost Town', 'A restored silver-mining ghost town, fun for kids.', '🤠'], ['13:30', 'Seven Magic Mountains', 'Colorful stacked-rock art installation right before Vegas, a quick photo stop.', '🎨'], ['17:00', 'Overnight near Vegas', 'Settle in for a low-key New Year\'s Eve - lodging still to decide.', '🏨']],
+        ['Club Wyndham only starts 01/01, so tonight (31/12) is an open decision: stay longer in San Diego and drive on 31/12, or add a night on the road near Vegas.', 'A low-key New Year\'s Eve is easier with young kids than the packed Strip at midnight.', 'Seven Magic Mountains is free and about 10 minutes off the highway - a quick photo stop.', 'Backup stop: Mojave National Preserve with the Kelso Dunes between Barstow and Vegas.'],
+        ['Twentynine Palms CA', 'Calico Ghost Town', 'Seven Magic Mountains', 'Las Vegas NV'], { duration: 'Drive & New Year\'s Eve', walking: 'Light', badge: 'Decision needed', tone: 'gold', weather: { label: 'Las Vegas weather', href: wx.lv } }),
 
-      day(15, '01/01', 'Friday, 01/01/2027', 'Las Vegas: the Strip', 'Las Vegas',
-        'The first day of the year. A relatively relaxed day: themed hotels, fountains and shows on the Strip.',
-        [['11:00', 'Easy morning', 'Rest after New Year\'s Eve.', '☕'], ['13:00', 'Hotel-hopping', 'Bellagio, Venetian, Caesars - lobbies and attractions.', '⛲'], ['16:00', 'Free time', 'Pool / shopping / rest.', '🛍️'], ['20:00', 'Evening on the Strip', 'Bellagio fountains and the lights.', '🌃']],
-        ['Lots of free attractions on the Strip: fountains, themed lobbies.', 'Casinos are not for kids - plan a route through the family-friendly areas.', 'Kid ideas: High Roller, Adventuredome, Shark Reef.'],
-        ['Las Vegas Strip', 'Bellagio Fountains'], { duration: 'Full day', walking: 'A lot', tone: 'gold', weather: { label: 'Las Vegas weather', href: wx.lv }, places: ['The Venetian Las Vegas', 'Adventuredome Las Vegas'] }),
+      day(15, '01/01', 'Friday, 01/01/2027', 'Arrive in Las Vegas - check in', 'Las Vegas area > Club Wyndham Grand Desert',
+        'New Year\'s Day: finish the drive into Las Vegas and check in to Club Wyndham Grand Desert (from 16:00), then an easy first evening on the Strip.',
+        [['10:00', 'Easy morning', 'No rush on New Year\'s Day.', '☕'], ['13:00', 'Into Las Vegas', 'Last stretch of the drive.', '🚗'], ['16:00', 'Check in to Club Wyndham Grand Desert', 'Two-bedroom suite just off the Strip.', '🏨'], ['19:00', 'Evening on the Strip', 'Bellagio fountains and the lights.', '🌃']],
+        ['Check-in is from 16:00 - if you arrive earlier, leave bags and start on the Strip.', 'Lots of free attractions on the Strip: fountains and themed lobbies.', 'Casinos are not for kids - plan a route through the family-friendly areas.'],
+        ['Club Wyndham Grand Desert Las Vegas', 'Bellagio Fountains'], { duration: 'Drive & arrival', walking: 'Moderate', tone: 'gold', weather: { label: 'Las Vegas weather', href: wx.lv }, places: ['Las Vegas Strip', 'The Venetian Las Vegas'] }),
 
       day(16, '02/01', 'Saturday, 02/01/2027', 'Las Vegas or a Grand Canyon trip', 'Las Vegas',
         'A choice day: a long day trip to the Grand Canyon (or the closer Hoover Dam), or another day in Vegas.',
@@ -238,7 +238,7 @@
       { id: 'doc-flight', title: 'EL AL flights (LY5 / LY4479 / LY6)', category: 'Flights', status: 'Confirmed', note: 'Outbound LY5 on 18/12 (TLV to LAX), internal LY4479 on 04/01 (LAS to LAX), return LY6 on 04/01 (LAX to TLV). The source document includes names and a confirmation code, so it is not published on the site.', href: '' },
       { id: 'doc-parkplaza', title: 'Park Plaza Lodge - Los Angeles', category: 'Lodging', status: 'Confirmed', note: '18/12 - 20/12 - 2 nights in Los Angeles.', href: '' },
       { id: 'doc-romano', title: 'San Diego stay - Romano family', category: 'Lodging', status: 'Hosted', note: 'Staying with the Romano family in San Diego, roughly 20/12 - 30/12.', href: '' },
-      { id: 'doc-vegas', title: 'Las Vegas hotel', category: 'Lodging', status: 'To book', note: '3-4 nights to close out the trip, including New Year\'s Eve. Still to choose and book.', href: '' },
+      { id: 'doc-vegas', title: 'Club Wyndham Grand Desert - Las Vegas', category: 'Lodging', status: 'Confirmed', note: '01/01 - 04/01, 3 nights, non-smoking two-bedroom suite with kitchen. 265 East Harmon Avenue. Confirmation number kept off the public site.', href: '' },
       { id: 'doc-car', title: 'Rental car - Avis', category: 'Transport', status: 'Confirmed', note: 'Pick up at LAX on 18/12 and return in Las Vegas on 04/01 (one-way). The reservation number is not published on the site.', href: '' },
       { id: 'doc-insurance', title: 'Travel insurance - Harel', category: 'Documents', status: 'To update', note: 'Harel travel health insurance, Ganam family. The policy details for this trip are to be updated. 24h Harel emergency hotline.', href: '' }
     ],
