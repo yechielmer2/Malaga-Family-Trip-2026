@@ -231,7 +231,7 @@
             <button class="text-link" data-go="lodgings">All stays →</button>
           </article>
           <article class="card quick-card">
-            <div><div class="quick-icon">👨‍👩‍👧‍👦</div><div class="mini-label">Who's traveling</div><div class="quick-value">Ganam family</div><div class="quick-caption">2 adults, 2 kids · with the Romano family in San Diego: 4 adults, 5 kids</div></div>
+            <div><div class="quick-icon">👨‍👩‍👧‍👦</div><div class="mini-label">Who's traveling</div><div class="quick-value">Two families</div><div class="quick-caption">Ganam, plus the Romano family from San Diego on: 4 adults, 5 kids</div></div>
             <button class="text-link" data-go="lodgings">All stays →</button>
           </article>
         </div>

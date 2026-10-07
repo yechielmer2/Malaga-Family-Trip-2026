@@ -42,7 +42,7 @@
     startDate: '2026-12-18',
     endDate: '2027-01-04',
     routeLabel: 'Los Angeles > San Diego > Las Vegas',
-    travelers: 'Ganam family (2 adults, 2 kids). In San Diego, together with the Romano family: 4 adults and 5 kids.',
+    travelers: 'Ganam family (2 adults, 2 kids). From San Diego onward the Romano family travels with us - two families together, 4 adults and 5 kids, through the road trip and Las Vegas.',
     notes: 'A winter break in the US: a few days in Los Angeles, Christmas in San Diego with the Romano family, a national-parks road trip, and Las Vegas for New Year.',
     flights: [
       {
@@ -85,7 +85,7 @@
         id: 'vegas-hotel', name: 'Club Wyndham Grand Desert', nativeName: 'Las Vegas - 3 nights - 2-bedroom suite with kitchen',
         dates: '01/01 - 04/01/2027 - 3 nights', location: '265 East Harmon Avenue, Las Vegas, NV 89169',
         checkIn: 'Fri 01/01 - from 16:00', checkOut: 'Mon 04/01 - before 10:00', status: 'Booked',
-        note: 'Non-smoking two-bedroom suite with a kitchen, just off the Strip near the Convention Center. Hotel phone 1-702-691-2600. Free cancellation until 29/12.',
+        note: 'Non-smoking two-bedroom suite with a kitchen for both families together, just off the Strip near the Convention Center. Hotel phone 1-702-691-2600. Free cancellation until 29/12.',
         maps: map('Club Wyndham Grand Desert Las Vegas'), waze: waze('Club Wyndham Grand Desert Las Vegas'),
         website: '', weather: wx.lv
       }
@@ -176,7 +176,7 @@
         ['San Diego CA', 'Belmont Park San Diego', 'Old Town San Diego State Historic Park'], { duration: 'Full day', walking: 'Moderate' }),
 
       day(13, '30/12', 'Wednesday, 30/12/2026', 'Road trip: Joshua Tree', 'San Diego > Joshua Tree > Twentynine Palms',
-        'Leave San Diego and start the road trip to Vegas. Stop at Joshua Tree National Park for a half day of giant boulders and short hikes, and overnight in Twentynine Palms by the park.',
+        'Both families leave San Diego together and start the road trip to Vegas. Stop at Joshua Tree National Park for a half day of giant boulders and short hikes, and overnight in Twentynine Palms by the park.',
         [['08:00', 'Leave San Diego', 'Start early, about 3 hours to the park.', '🚗'], ['11:00', 'Joshua Tree', 'Giant boulders and Joshua trees.', '🌵'], ['11:30', 'Hidden Valley', 'A short, easy loop (about 1 mile), perfect for kids.', '🥾'], ['13:00', 'Skull Rock and Cholla Garden', 'Skull Rock and a photogenic cactus field.', '📸'], ['16:30', 'Overnight in Twentynine Palms', 'A night by the park before continuing to Vegas.', '🏨']],
         ['December days are pleasant but desert nights are freezing - warm layers and a hat.', 'No fuel or food inside the park - fill up on water and food before entering.', 'Cell coverage is weak in the park - download an offline map ahead.'],
         ['San Diego CA', 'Joshua Tree National Park', 'Twentynine Palms CA'], { duration: 'Drive & hike day', walking: 'Light to moderate', badge: 'Road trip', tone: 'clay', weather: { label: 'Joshua Tree weather', href: wx.jt } }),
