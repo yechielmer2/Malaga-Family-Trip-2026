@@ -7,7 +7,9 @@
     { id: 'internet-sim', label: 'Data SIM / eSIM' },
     { id: 'travel-insurance', label: 'Travel insurance' },
     { id: 'flight-netflix', label: 'Netflix for the flight', note: 'Download shows in advance' },
-    { id: 'bsb-sphere-tickets', label: 'Buy Backstreet Boys tickets (Sphere, 01/01)', note: '2 adults - confirm the show date and availability' }
+    { id: 'bsb-sphere-tickets', label: 'Buy Backstreet Boys tickets (Sphere, 01/01)', note: '2 adults - confirm the show date and availability' },
+    { id: 'sd-phx-flight', label: 'Book San Diego to Phoenix flight (27/12)', note: '4 adults + 4 paying seats, infant on lap' },
+    { id: 'rebook-cars', label: 'Rebook rental cars', note: 'Car 1 LAX to San Diego (18-27/12); Car 2 Phoenix to Las Vegas (27/12-04/01)' }
   ];
   const clone = value => JSON.parse(JSON.stringify(value));
   let state = loadState();
