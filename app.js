@@ -6,7 +6,8 @@
     { id: 'iphone-backup', label: 'iPhone backup' },
     { id: 'internet-sim', label: 'Data SIM / eSIM' },
     { id: 'travel-insurance', label: 'Travel insurance' },
-    { id: 'flight-netflix', label: 'Netflix for the flight', note: 'Download shows in advance' }
+    { id: 'flight-netflix', label: 'Netflix for the flight', note: 'Download shows in advance' },
+    { id: 'bsb-sphere-tickets', label: 'Buy Backstreet Boys tickets (Sphere, 01/01)', note: '2 adults - confirm the show date and availability' }
   ];
   const clone = value => JSON.parse(JSON.stringify(value));
   let state = loadState();

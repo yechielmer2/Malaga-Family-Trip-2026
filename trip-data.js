@@ -188,10 +188,10 @@
         ['Twentynine Palms CA', 'Calico Ghost Town', 'Seven Magic Mountains', 'Las Vegas NV'], { duration: 'Drive & New Year\'s Eve', walking: 'Light', badge: 'Decision needed', tone: 'gold', weather: { label: 'Las Vegas weather', href: wx.lv } }),
 
       day(15, '01/01', 'Friday, 01/01/2027', 'Arrive in Las Vegas - check in', 'Las Vegas area > Club Wyndham Grand Desert',
-        'New Year\'s Day: finish the drive into Las Vegas and check in to Club Wyndham Grand Desert (from 16:00), then an easy first evening on the Strip.',
-        [['10:00', 'Easy morning', 'No rush on New Year\'s Day.', '☕'], ['13:00', 'Into Las Vegas', 'Last stretch of the drive.', '🚗'], ['16:00', 'Check in to Club Wyndham Grand Desert', 'Two-bedroom suite just off the Strip.', '🏨'], ['19:00', 'Evening on the Strip', 'Bellagio fountains and the lights.', '🌃']],
-        ['Check-in is from 16:00 - if you arrive earlier, leave bags and start on the Strip.', 'Lots of free attractions on the Strip: fountains and themed lobbies.', 'Casinos are not for kids - plan a route through the family-friendly areas.'],
-        ['Club Wyndham Grand Desert Las Vegas', 'Bellagio Fountains'], { duration: 'Drive & arrival', walking: 'Moderate', tone: 'gold', weather: { label: 'Las Vegas weather', href: wx.lv }, places: ['Las Vegas Strip', 'The Venetian Las Vegas'] }),
+        'New Year\'s Day: finish the drive into Las Vegas and check in to Club Wyndham Grand Desert (from 16:00), then an easy first evening - including Backstreet Boys at Sphere for two of the adults.',
+        [['10:00', 'Easy morning', 'No rush on New Year\'s Day.', '☕'], ['13:00', 'Into Las Vegas', 'Last stretch of the drive.', '🚗'], ['16:00', 'Check in to Club Wyndham Grand Desert', 'Two-bedroom suite just off the Strip.', '🏨'], ['19:00', 'Evening on the Strip', 'Bellagio fountains and the lights.', '🌃'], ['20:30', 'Backstreet Boys at Sphere', 'A night out for two of the adults at the Sphere while the others stay with the kids.', '🎤']],
+        ['Check-in is from 16:00 - if you arrive earlier, leave bags and start on the Strip.', 'Backstreet Boys at Sphere is a night out for two of the adults - buy tickets ahead and confirm the exact show date. The others stay back with the kids.', 'Casinos are not for kids - plan a route through the family-friendly areas.'],
+        ['Club Wyndham Grand Desert Las Vegas', 'Sphere Las Vegas', 'Bellagio Fountains'], { duration: 'Drive & arrival', walking: 'Moderate', tone: 'gold', weather: { label: 'Las Vegas weather', href: wx.lv }, places: ['Las Vegas Strip', 'Sphere Las Vegas'] }),
 
       day(16, '02/01', 'Saturday, 02/01/2027', 'Las Vegas or a Grand Canyon trip', 'Las Vegas',
         'A choice day: a long day trip to the Grand Canyon (or the closer Hoover Dam), or another day in Vegas.',
@@ -264,6 +264,7 @@
       { id: 'a-sevenmagic', name: 'Seven Magic Mountains', category: 'Road trip', desc: 'Colorful stacked-rock art installation right before Las Vegas.', maps: map('Seven Magic Mountains Las Vegas') },
       { id: 'a-mojave', name: 'Mojave National Preserve / Kelso Dunes (backup)', category: 'Road trip', desc: 'A desert preserve with singing sand dunes, a backup stop on the way to Vegas.', maps: map('Kelso Dunes Mojave National Preserve') },
       { id: 'a-strip', name: 'Las Vegas Strip', category: 'Las Vegas', desc: 'The hotel-and-lights boulevard of Las Vegas.', maps: map('Las Vegas Strip') },
+      { id: 'a-sphere', name: 'Sphere', category: 'Las Vegas', desc: 'The Sphere venue - Backstreet Boys show on 01/01 for two of the adults.', maps: map('Sphere Las Vegas') },
       { id: 'a-bellagio', name: 'Bellagio Fountains', category: 'Las Vegas', desc: 'The water-fountain show in front of the Bellagio.', maps: map('Bellagio Fountains Las Vegas') },
       { id: 'a-grandcanyon', name: 'Grand Canyon (West)', category: 'Las Vegas', desc: 'The Grand Canyon, a day trip from Las Vegas.', maps: map('Grand Canyon West') },
       { id: 'a-hoover', name: 'Hoover Dam', category: 'Las Vegas', desc: 'A huge dam about 45 minutes from Las Vegas.', maps: map('Hoover Dam') },
@@ -291,6 +292,7 @@
       { name: 'Kelso Dunes (Mojave) - backup', type: 'attraction', coords: [34.8917, -115.7089], maps: map('Kelso Dunes Mojave National Preserve') },
       { name: 'Seven Magic Mountains', type: 'attraction', coords: [35.8449, -115.2707], maps: map('Seven Magic Mountains Las Vegas') },
       { name: 'Las Vegas - the Strip', type: 'hotel', coords: [36.1147, -115.1728], maps: map('Las Vegas Strip') },
+      { name: 'Sphere (Backstreet Boys 01/01)', type: 'attraction', coords: [36.1211, -115.1620], maps: map('Sphere Las Vegas') },
       { name: 'Grand Canyon (West)', type: 'attraction', coords: [36.0104, -113.8110], maps: map('Grand Canyon West') },
       { name: 'Hoover Dam', type: 'attraction', coords: [36.0161, -114.7377], maps: map('Hoover Dam') },
       { name: 'Harry Reid Airport - LAS', type: 'attraction', coords: [36.0840, -115.1537], maps: map('Harry Reid International Airport Las Vegas') }
