@@ -8,6 +8,7 @@
     lv: 'https://www.meteoblue.com/en/weather/week/las-vegas_united-states-of-america_5506956',
     sedona: 'https://www.meteoblue.com/en/weather/week/sedona_united-states-of-america_5313457',
     grca: 'https://www.nps.gov/grca/planyourvisit/weather.htm',
+    bryce: 'https://www.nps.gov/brca/planyourvisit/weather.htm',
     zion: 'https://www.nps.gov/zion/planyourvisit/weather.htm'
   };
   const day = (number, shortDate, date, title, routeText, summary, schedule, tips, navPoints, options = {}) => ({
@@ -39,13 +40,13 @@
     version: 1,
     title: 'Christmas in the US',
     subtitle: 'The Ganam family in the US, visiting the Romano family in San Diego',
-    lastUpdated: '08/10/2026, 05:15',
+    lastUpdated: '13/10/2026, 21:20',
     dateLabel: '18/12/2026 - 04/01/2027',
     startDate: '2026-12-18',
     endDate: '2027-01-04',
-    routeLabel: 'Los Angeles > San Diego > Sedona > Grand Canyon > Zion > Las Vegas',
+    routeLabel: 'Los Angeles > San Diego > Sedona > Grand Canyon > Bryce > Zion > Las Vegas',
     travelers: 'Ganam family (2 adults, 2 kids). From San Diego onward the Romano family travels with us - two families together, 4 adults and 5 kids, through the road trip and Las Vegas.',
-    notes: 'A winter break in the US: Los Angeles, Christmas in San Diego with the Romano family, a national-parks road trip (Sedona, Grand Canyon, Zion), and Las Vegas for New Year.',
+    notes: 'A winter break in the US: Los Angeles, Christmas in San Diego with the Romano family, a national-parks road trip (Sedona, Grand Canyon, Bryce, Zion), and Las Vegas for New Year.',
     flights: [
       {
         id: 'outbound', direction: 'Outbound', airline: 'EL AL', flightNumber: 'LY 5',
@@ -54,10 +55,10 @@
         status: 'Confirmed', note: 'Long direct flight. Get to the airport well ahead of time. Morning landing in Los Angeles, then pick up the first rental car right after arrival.'
       },
       {
-        id: 'sd-phx', direction: 'Internal', airline: 'To book', flightNumber: 'TBD',
-        from: 'San Diego (SAN)', to: 'Phoenix (PHX)', date: 'Sunday, 27/12/2026',
-        depart: 'TBD', arrive: 'TBD', duration: 'About 1h 10m',
-        status: 'To book', note: 'Short hop to reposition for the road trip. Return the first rental car in San Diego before this flight and pick up a new car in Phoenix. Still to book for 4 adults + 4 paying seats (infant on lap).'
+        id: 'sd-phx', direction: 'Internal', airline: 'Southwest', flightNumber: 'WN 4452',
+        from: 'San Diego (SAN)', to: 'Phoenix (PHX)', date: 'Friday, 25/12/2026',
+        depart: '10:55', arrive: '13:15', duration: 'About 1h 20m',
+        status: 'Confirmed', note: 'Christmas Day hop to start the road trip. Return the first rental car in San Diego before the flight; pick up the Phoenix car on arrival. Boeing 737-800, nonstop.'
       },
       {
         id: 'lv-lax', direction: 'Internal', airline: 'EL AL', flightNumber: 'LY 4479',
@@ -83,27 +84,35 @@
       },
       {
         id: 'romano-house', name: 'Romano family home', nativeName: 'San Diego - family stay',
-        dates: '20/12 - 27/12/2026 (approx)', location: 'San Diego, CA',
-        checkIn: 'Sun 20/12', checkOut: 'Sun 27/12 (fly to Phoenix)', status: 'Hosted',
-        note: 'Staying with the Romano family in San Diego, the base for star-shaped day trips around the area. Christmas with the family. Both families then continue together on the road trip.',
+        dates: '20/12 - 25/12/2026 (approx)', location: 'San Diego, CA',
+        checkIn: 'Sun 20/12', checkOut: 'Fri 25/12 (fly to Phoenix)', status: 'Hosted',
+        note: 'Staying with the Romano family in San Diego, the base for star-shaped day trips. Christmas Eve together, then both families continue on the road trip.',
         maps: map('San Diego CA'), waze: waze('San Diego CA'),
         website: '', weather: wx.sd
       },
       {
-        id: 'sedona-stay', name: 'Sedona', nativeName: 'Road trip - 2 nights', 
-        dates: '27/12 - 29/12/2026 - 2 nights', location: 'Sedona, AZ',
-        checkIn: 'Sun 27/12', checkOut: 'Tue 29/12', status: 'To book',
+        id: 'sedona-stay', name: 'Sedona', nativeName: 'Road trip - 2 nights',
+        dates: '25/12 - 27/12/2026 - 2 nights', location: 'Sedona, AZ',
+        checkIn: 'Fri 25/12', checkOut: 'Sun 27/12', status: 'To book',
         note: 'Two nights in Sedona among the red rocks, the first base of the road trip. To book.',
         maps: map('Sedona AZ hotels'), waze: waze('Sedona AZ'),
         website: '', weather: wx.sedona
       },
       {
-        id: 'grandcanyon-stay', name: 'Grand Canyon (Tusayan / South Rim)', nativeName: 'Road trip - 1 night',
-        dates: '29/12 - 30/12/2026 - 1 night', location: 'Grand Canyon South Rim, AZ',
-        checkIn: 'Tue 29/12', checkOut: 'Wed 30/12', status: 'To book',
-        note: 'One night by the South Rim (Tusayan or the park village) so you can catch sunset and sunrise. Book early - limited rooms in winter.',
+        id: 'grandcanyon-stay', name: 'Grand Canyon (Tusayan / South Rim)', nativeName: 'Road trip - 2 nights',
+        dates: '27/12 - 29/12/2026 - 2 nights', location: 'Grand Canyon South Rim, AZ',
+        checkIn: 'Sun 27/12', checkOut: 'Tue 29/12', status: 'To book',
+        note: 'Two nights by the South Rim (Tusayan or the park village) - time for sunset, sunrise and a full day at the rim. Book early, limited winter rooms.',
         maps: map('Tusayan AZ hotels'), waze: waze('Tusayan AZ'),
         website: '', weather: wx.grca
+      },
+      {
+        id: 'bryce-stay', name: 'Bryce Canyon (Bryce Canyon City)', nativeName: 'Road trip - 1 night',
+        dates: '29/12 - 30/12/2026 - 1 night', location: 'Bryce Canyon City, UT',
+        checkIn: 'Tue 29/12', checkOut: 'Wed 30/12', status: 'To book',
+        note: 'One night by Bryce Canyon to see the snow-dusted hoodoos at sunrise/sunset. High and very cold in winter (~8,000 ft). To book.',
+        maps: map('Bryce Canyon City UT hotels'), waze: waze('Bryce Canyon City UT'),
+        website: '', weather: wx.bryce
       },
       {
         id: 'zion-stay', name: 'Zion (Springdale)', nativeName: 'Road trip - 2 nights',
@@ -124,13 +133,13 @@
     ],
     fullRoute: {
       title: 'Southwest road trip',
-      subtitle: 'Fly San Diego to Phoenix, then drive the red-rock country: Sedona, the Grand Canyon and Zion, finishing in Las Vegas.',
-      google: route('Phoenix Sky Harbor Airport', 'Sedona AZ', 'Grand Canyon South Rim Village', 'Zion National Park Springdale', 'Las Vegas NV'),
+      subtitle: 'Fly San Diego to Phoenix, then drive the red-rock country: Sedona, the Grand Canyon, Bryce and Zion, finishing in Las Vegas.',
+      google: route('Phoenix Sky Harbor Airport', 'Sedona AZ', 'Grand Canyon South Rim Village', 'Bryce Canyon National Park', 'Zion National Park Springdale', 'Las Vegas NV'),
       stops: [
-        { name: 'Los Angeles', kind: 'First stay', maps: map('Los Angeles CA') },
         { name: 'San Diego', kind: 'Family base', maps: map('San Diego CA') },
         { name: 'Sedona', kind: 'Red rocks', maps: map('Sedona AZ') },
         { name: 'Grand Canyon', kind: 'South Rim', maps: map('Grand Canyon South Rim Village') },
+        { name: 'Bryce Canyon', kind: 'Hoodoos', maps: map('Bryce Canyon National Park') },
         { name: 'Zion', kind: 'New Year', maps: map('Zion National Park Springdale') },
         { name: 'Las Vegas', kind: 'Finish', maps: map('Las Vegas NV') }
       ]
@@ -173,46 +182,46 @@
         ['Legoland California Carlsbad', 'SeaWorld San Diego'], { duration: 'Full day', walking: 'A lot', badge: 'Decision needed', weather: { label: 'San Diego weather', href: wx.sd }, places: ['SeaWorld San Diego'] }),
 
       day(7, '24/12', 'Thursday, 24/12/2026', 'Christmas Eve', 'San Diego - Romano family',
-        'Christmas Eve with the Romano family. A relaxed family day with a holiday feel.',
-        [['11:00', 'Free morning', 'Relaxed family time.', '☕'], ['14:00', 'Holiday prep', 'Help with preparations, last-minute shopping.', '🎄'], ['18:00', 'Christmas Eve', 'A festive dinner with the hosts.', '🕯️']],
-        ['Many shops and services close early on 24/12.', 'Arrange small gifts for the kids in advance.', 'Check opening hours for any attraction on the holiday.'],
+        'Christmas Eve with the Romano family - the family Christmas this year. A relaxed day with a holiday feel, and pack tonight for the early flight tomorrow.',
+        [['11:00', 'Free morning', 'Relaxed family time.', '☕'], ['14:00', 'Holiday prep', 'Help with preparations, last-minute shopping.', '🎄'], ['18:00', 'Christmas Eve', 'A festive dinner with the hosts.', '🕯️'], ['21:00', 'Pack for the road trip', 'Bags ready - the flight to Phoenix is mid-morning tomorrow.', '🧳']],
+        ['The Dec 25 flight is mid-morning, so Christmas Eve is the main family Christmas - plan the celebration tonight.', 'Pack tonight and arrange small gifts in advance.', 'Return the first rental car in San Diego in the morning before the flight.'],
         ['San Diego CA'], { duration: 'Family day', walking: 'Optional', badge: 'Holiday', tone: 'gold' }),
 
-      day(8, '25/12', 'Friday, 25/12/2026', 'Christmas Day', 'San Diego - Romano family',
-        'Christmas Day. Most attractions are closed - a family day at home and around the neighborhood.',
-        [['09:00', 'Christmas morning', 'Opening gifts and family time.', '🎁'], ['13:00', 'Christmas lunch', 'A big shared meal.', '🍗'], ['16:00', 'Short outing', 'A walk around the neighborhood or an open park.', '🚶']],
-        ['Most businesses are closed on 25/12 - do not plan paid attractions.', 'Traffic is light.', 'A good day to rest between the touring days.'],
-        ['San Diego CA'], { duration: 'Holiday', walking: 'Light', badge: 'Holiday', tone: 'clay' }),
-
-      day(9, '26/12', 'Saturday, 26/12/2026', 'Harbor, museums and downtown', 'San Diego base',
-        'A city day in San Diego: the harbor area, the USS Midway aircraft carrier and downtown (Gaslamp / Seaport). Pack tonight for the early flight tomorrow.',
-        [['10:00', 'USS Midway Museum', 'A historic aircraft carrier to explore.', '🛩️'], ['13:00', 'Seaport Village', 'Lunch and a walk by the water.', '⚓'], ['16:00', 'Downtown', 'Gaslamp Quarter, shops and coffee.', '🏙️'], ['19:00', 'Pack for the road trip', 'Bags ready for the morning flight to Phoenix.', '🧳']],
-        ['The USS Midway is fascinating for kids and adults.', 'Pack tonight - tomorrow is a travel day.', 'Confirm the San Diego to Phoenix flight and the Phoenix rental car.'],
-        ['USS Midway Museum', 'Seaport Village San Diego'], { duration: 'Full day', walking: 'Moderate', weather: { label: 'San Diego weather', href: wx.sd } }),
-
-      day(10, '27/12', 'Sunday, 27/12/2026', 'Fly to Phoenix, drive to Sedona', 'San Diego > fly > Phoenix > Sedona',
-        'The road trip begins: return the first car in San Diego, fly to Phoenix, pick up a new car, and drive north to Sedona with a stop at the Montezuma Castle cliff dwellings.',
-        [['07:00', 'Return car in San Diego', 'Drop the first rental before the flight.', '🚗'], ['09:00', 'Fly San Diego to Phoenix', 'Short hop, then pick up the new rental car.', '✈️'], ['12:00', 'Montezuma Castle', 'A short, easy stop at well-preserved cliff dwellings off I-17.', '🏜️'], ['14:30', 'Drive to Sedona', 'Red Rock Scenic Byway into town.', '🌄'], ['16:00', 'Settle in Sedona', 'Check in and an easy first evening among the red rocks.', '🏨']],
-        ['This swaps the one rental for two: return the first car in San Diego and pick up a new one in Phoenix (one-way to Las Vegas).', 'Montezuma Castle is a 10-minute walk - a perfect leg-stretch with the kids.', 'Sedona sits at about 4,300 ft - cool days and cold nights in winter.'],
+      day(8, '25/12', 'Friday, 25/12/2026', 'Christmas Day: fly to Phoenix, drive to Sedona', 'San Diego > fly > Phoenix > Sedona',
+        'The road trip begins on Christmas Day: an early goodbye, return the first car, fly to Phoenix, pick up the new car and drive to Sedona with a stop at the Montezuma Castle cliff dwellings.',
+        [['08:00', 'Return car in San Diego', 'Early start - drop the first rental before the flight.', '🚗'], ['10:55', 'Fly San Diego to Phoenix', 'Southwest WN 4452, nonstop, arrives 13:15. Pick up the new car.', '✈️'], ['14:30', 'Montezuma Castle', 'A short, easy stop at well-preserved cliff dwellings off I-17.', '🏜️'], ['16:00', 'Drive to Sedona', 'Red Rock Scenic Byway into town.', '🌄'], ['17:00', 'Settle in Sedona', 'Check in and an easy first evening among the red rocks.', '🏨']],
+        ['The flight is Christmas morning (departs 10:55) - the family Christmas is really Christmas Eve the night before.', 'This swaps one rental for two: return the first car in San Diego, pick up a new one in Phoenix (one-way to Las Vegas).', 'Afternoon arrival (13:15) leaves time for Montezuma Castle plus the drive; Sedona is about 2 hours from the airport.'],
         ['Phoenix Sky Harbor Airport', 'Montezuma Castle National Monument', 'Sedona AZ'], { duration: 'Fly & drive day', walking: 'Light', badge: 'Road trip', tone: 'clay', weather: { label: 'Sedona weather', href: wx.sedona }, places: ['Montezuma Castle National Monument'] }),
 
-      day(11, '28/12', 'Monday, 28/12/2026', 'Sedona red rocks', 'Sedona',
+      day(9, '26/12', 'Saturday, 26/12/2026', 'Sedona red rocks', 'Sedona',
         'A full day among Sedona\'s red rocks: scenic drives, easy family trails and the Chapel of the Holy Cross built into the rock.',
         [['09:30', 'Red Rock Scenic Byway', 'The SR-179 drive with pull-offs and views.', '🚙'], ['10:30', 'Bell Rock path', 'A short, flat, easy trail with big views.', '🥾'], ['12:30', 'Lunch in town', 'Sedona\'s shops and galleries.', '🌯'], ['14:30', 'Chapel of the Holy Cross', 'A striking chapel built into the red rock.', '⛪'], ['16:30', 'Sunset viewpoint', 'Airport Mesa or Oak Creek for the glow.', '🌅']],
         ['Mostly easy, flat trails that work for the kids - Bell Rock and the Chapel are good picks.', 'Layers: sunny by day, near freezing after sunset.', 'A jeep tour is an option if you want a guided red-rock adventure.'],
         ['Sedona AZ', 'Chapel of the Holy Cross Sedona', 'Bell Rock Sedona'], { duration: 'Full day', walking: 'Moderate', tone: 'clay', weather: { label: 'Sedona weather', href: wx.sedona }, places: ['Chapel of the Holy Cross Sedona', 'Red Rock Scenic Byway'] }),
 
-      day(12, '29/12', 'Tuesday, 29/12/2026', 'Flagstaff and the Grand Canyon', 'Sedona > Flagstaff > Grand Canyon South Rim',
-        'Drive up through Flagstaff to the Grand Canyon South Rim. Possible snow and real cold at altitude - and an unforgettable payoff at the rim.',
-        [['08:30', 'Oak Creek Canyon drive', 'The scenic climb from Sedona to Flagstaff.', '🌲'], ['09:30', 'Flagstaff stop', 'Route 66 downtown and Lowell Observatory (where Pluto was found).', '🔭'], ['12:30', 'Drive to the South Rim', 'About 1.5 hours north to the canyon.', '🚗'], ['14:30', 'Grand Canyon South Rim', 'Mather Point, the Rim Trail and the village.', '🏞️'], ['16:45', 'Sunset at the rim', 'Then check in nearby for the night.', '🌇']],
+      day(10, '27/12', 'Sunday, 27/12/2026', 'Flagstaff and the Grand Canyon', 'Sedona > Flagstaff > Grand Canyon South Rim',
+        'Drive up through Flagstaff to the Grand Canyon South Rim for the first of two nights. Possible snow and real cold at altitude - and an unforgettable payoff at the rim.',
+        [['08:30', 'Oak Creek Canyon drive', 'The scenic climb from Sedona to Flagstaff.', '🌲'], ['09:30', 'Flagstaff stop', 'Route 66 downtown and Lowell Observatory (where Pluto was found).', '🔭'], ['12:30', 'Drive to the South Rim', 'About 1.5 hours north to the canyon.', '🚗'], ['14:30', 'First look at the canyon', 'Mather Point and the village.', '🏞️'], ['16:45', 'Sunset at the rim', 'Then check in nearby for two nights.', '🌇']],
         ['Flagstaff and the rim are around 7,000 ft - expect snow and ice; check road conditions and dress very warm.', 'Keep a close hold on the kids near the rim - no railings in many spots.', 'Short winter daylight: get to the rim with time before sunset.'],
         ['Sedona AZ', 'Flagstaff AZ', 'Grand Canyon South Rim Village'], { duration: 'Drive & sightseeing', walking: 'Moderate', badge: 'Road trip', tone: 'forest', weather: { label: 'Grand Canyon weather', href: wx.grca }, places: ['Lowell Observatory Flagstaff', 'Grand Canyon South Rim Village'] }),
 
-      day(13, '30/12', 'Wednesday, 30/12/2026', 'Grand Canyon to Zion', 'Grand Canyon > Kanab > Zion (Springdale)',
-        'A scenic driving day north into Utah, with a stop in the little western town of Kanab, arriving at the gates of Zion in Springdale.',
-        [['08:30', 'Sunrise at the rim', 'One more look before leaving.', '🌄'], ['10:00', 'Drive north', 'US-89 across the high desert toward Utah.', '🚗'], ['13:00', 'Kanab, UT', 'Lunch in "Little Hollywood", an old western film town.', '🤠'], ['15:30', 'Into Zion / Springdale', 'Arrive at the park gateway town and check in.', '🏔️'], ['17:00', 'Easy evening', 'Settle in for two nights.', '🌙']],
-        ['It is a long driving day (4-5 hours with stops) - break it up and keep snacks handy.', 'Winter roads: check conditions on US-89 and near Zion.', 'Springdale sits right at the park entrance - very walkable.'],
-        ['Grand Canyon South Rim Village', 'Kanab UT', 'Springdale UT'], { duration: 'Drive day', walking: 'Light', badge: 'Road trip', tone: 'clay', weather: { label: 'Zion weather', href: wx.zion }, places: ['Kanab UT'] }),
+      day(11, '28/12', 'Monday, 28/12/2026', 'Grand Canyon full day', 'Grand Canyon South Rim',
+        'A full day at the South Rim: the Rim Trail, the viewpoints along Hermit Road, and sunrise or sunset over the canyon without rushing.',
+        [['08:00', 'Sunrise at the rim', 'Mather Point or Yavapai in the cold morning light.', '🌄'], ['10:00', 'Rim Trail walk', 'A flat, paved stretch between viewpoints, easy for the kids.', '🚶'], ['12:30', 'Lunch in the village', 'Warm up in the historic village.', '🍲'], ['14:00', 'Hermit Road viewpoints', 'The shuttle or drive to the big western overlooks.', '📸'], ['16:45', 'Second sunset', 'A last look before the drive north tomorrow.', '🌇']],
+        ['Two nights here means no rushing - pick the viewpoints and warm-up breaks that suit the kids.', 'Bitter cold and possible snow/ice at ~7,000 ft - layers, hats, gloves and traction underfoot.', 'The Junior Ranger booklet is a fun, free activity for the older kids.'],
+        ['Grand Canyon South Rim Village', 'Hermit Road Grand Canyon'], { duration: 'Full day', walking: 'Moderate', tone: 'forest', weather: { label: 'Grand Canyon weather', href: wx.grca } }),
+
+      day(12, '29/12', 'Tuesday, 29/12/2026', 'Grand Canyon to Bryce Canyon', 'Grand Canyon > Bryce Canyon',
+        'A scenic driving day north into Utah to Bryce Canyon, famous for its forest of orange hoodoos - especially magical dusted with snow.',
+        [['08:30', 'Leave the South Rim', 'One last canyon view before heading north.', '🌄'], ['09:30', 'Drive to Utah', 'US-89 across the high desert, past Kanab.', '🚗'], ['13:00', 'Arrive Bryce area', 'Check in and lunch near the park.', '🏔️'], ['14:30', 'Bryce Canyon rim', 'Sunset Point and Sunrise Point over the hoodoos.', '🧡'], ['16:30', 'Sunset over the hoodoos', 'The amphitheater glows late in the day.', '🌇']],
+        ['Long driving day (about 4 hours) - break it up, snacks ready.', 'Bryce is very high (~8,000 ft) and the coldest stop - serious winter layers.', 'Even just the rim viewpoints are stunning; no need for a big hike with the kids.'],
+        ['Grand Canyon South Rim Village', 'Kanab UT', 'Bryce Canyon National Park'], { duration: 'Drive & sightseeing', walking: 'Light to moderate', badge: 'Road trip', tone: 'clay', weather: { label: 'Bryce Canyon weather', href: wx.bryce }, places: ['Kanab UT', 'Bryce Canyon National Park'] }),
+
+      day(13, '30/12', 'Wednesday, 30/12/2026', 'Bryce to Zion', 'Bryce Canyon > Zion (Springdale)',
+        'A short, gorgeous drive from Bryce to Zion, arriving at the park gateway town of Springdale for two nights.',
+        [['09:00', 'Morning at Bryce', 'A last viewpoint or short rim stroll.', '🧡'], ['11:00', 'Drive to Zion', 'About 1.5-2 hours, through the Mount Carmel tunnel into Zion.', '🚗'], ['13:30', 'Into Springdale', 'Check in and lunch at the park gateway.', '🏔️'], ['15:00', 'First look at Zion', 'An easy walk among the towering canyon walls.', '🥾'], ['17:00', 'Easy evening', 'Settle in for two nights.', '🌙']],
+        ['The Mount Carmel Highway and tunnel into Zion is a scenic highlight - check winter road status.', 'Big-vehicle note: the Zion-Mount Carmel tunnel has size limits that need a permit for large RVs (a normal van/SUV is fine).', 'Springdale sits right at the park entrance - very walkable.'],
+        ['Bryce Canyon National Park', 'Springdale UT'], { duration: 'Drive & sightseeing', walking: 'Light to moderate', badge: 'Road trip', tone: 'clay', weather: { label: 'Zion weather', href: wx.zion }, places: ['Zion National Park Springdale'] }),
 
       day(14, '31/12', 'Thursday, 31/12/2026', 'Zion National Park - New Year\'s Eve', 'Zion (Springdale)',
         'A full day in Zion among the towering canyon walls, then a low-key New Year\'s Eve in Springdale.',
@@ -253,31 +262,32 @@
       ],
       carRental: {
         provider: 'Two rentals', title: 'Rental cars in the US',
-        status: 'To rebook', pickup: 'Car 1: LAX, 18/12 06:30. Car 2: Phoenix, 27/12',
-        return: 'Car 1: San Diego, 27/12. Car 2: Las Vegas, 04/01 06:30',
+        status: 'To rebook', pickup: 'Car 1: LAX, 18/12 06:30. Car 2: Phoenix, 25/12 ~13:30',
+        return: 'Car 1: San Diego, 25/12 AM. Car 2: Las Vegas, 04/01 06:30',
         vehicle: 'Large vehicle(s) for 9 people - minivan or large SUV', deposit: 'Per rental policy',
-        requirements: 'The route change needs two rentals instead of one. Car 1: pick up at LAX on 18/12, use for LA and San Diego, return in San Diego on 27/12 before the Phoenix flight. Car 2: pick up in Phoenix on 27/12, one-way to Las Vegas, return at McCarran Rent A Car Center on 04/01. Each driver needs an international license and a credit card; bring car seats/boosters.',
+        requirements: 'The route needs two rentals. Car 1: pick up at LAX on 18/12, use for LA and San Diego, return in San Diego on 25/12 before the Phoenix flight. Car 2: pick up in Phoenix on 25/12, one-way to Las Vegas, return at McCarran Rent A Car Center on 04/01. Each driver needs an international license and a credit card; bring car seats/boosters.',
         alertTitle: 'Rental cars need rebooking',
-        warning: 'The original one-way Avis (LAX to Las Vegas) no longer matches the plan. It needs changing to LAX to San Diego (return 27/12), plus a new one-way Phoenix to Las Vegas rental. Confirm both before the trip.',
+        warning: 'The original one-way Avis (LAX to Las Vegas) no longer matches the plan. It needs changing to LAX to San Diego (return 25/12), plus a new one-way Phoenix to Las Vegas rental. Confirm both before the trip.',
         document: ''
       },
       weather: [
         { name: 'Los Angeles', dates: '18/12 - 20/12', note: 'Mild winter, cool nights', href: wx.la },
-        { name: 'San Diego', dates: '20/12 - 27/12', note: 'Pleasant by day, cool in the evening', href: wx.sd },
-        { name: 'Sedona', dates: '27/12 - 29/12', note: 'Cool days, freezing nights (~4,300 ft)', href: wx.sedona },
-        { name: 'Grand Canyon', dates: '29/12 - 30/12', note: 'Cold and snowy at ~7,000 ft', href: wx.grca },
+        { name: 'San Diego', dates: '20/12 - 25/12', note: 'Pleasant by day, cool in the evening', href: wx.sd },
+        { name: 'Sedona', dates: '25/12 - 27/12', note: 'Cool days, freezing nights (~4,300 ft)', href: wx.sedona },
+        { name: 'Grand Canyon', dates: '27/12 - 29/12', note: 'Cold and snowy at ~7,000 ft', href: wx.grca },
+        { name: 'Bryce Canyon', dates: '29/12 - 30/12', note: 'Coldest stop, snow likely (~8,000 ft)', href: wx.bryce },
         { name: 'Zion', dates: '30/12 - 01/01', note: 'Cold winter days, icy shaded trails', href: wx.zion },
         { name: 'Las Vegas', dates: '01/01 - 04/01', note: 'Cold in winter, especially at night', href: wx.lv }
       ]
     },
     documents: [
       { id: 'doc-flight', title: 'EL AL flights (LY5 / LY4479 / LY6)', category: 'Flights', status: 'Confirmed', note: 'Outbound LY5 on 18/12 (TLV to LAX), internal LY4479 on 04/01 (LAS to LAX), return LY6 on 04/01 (LAX to TLV). The source document includes names and a confirmation code, so it is not published on the site.', href: '' },
-      { id: 'doc-sdphx', title: 'San Diego to Phoenix flight', category: 'Flights', status: 'To book', note: 'Short internal flight on 27/12 to start the road trip. Still to book for 4 adults + 4 paying seats (infant on lap).', href: '' },
+      { id: 'doc-sdphx', title: 'San Diego to Phoenix flight (Southwest WN 4452)', category: 'Flights', status: 'Confirmed', note: '25/12, departs 10:55 SAN, arrives 13:15 PHX, nonstop. Confirmation code kept off the public site.', href: '' },
       { id: 'doc-parkplaza', title: 'Park Plaza Lodge - Los Angeles', category: 'Lodging', status: 'Confirmed', note: '18/12 - 20/12 - 2 nights in Los Angeles.', href: '' },
-      { id: 'doc-romano', title: 'San Diego stay - Romano family', category: 'Lodging', status: 'Hosted', note: 'Staying with the Romano family in San Diego, roughly 20/12 - 27/12.', href: '' },
-      { id: 'doc-roadtrip-stays', title: 'Road-trip stays (Sedona, Grand Canyon, Zion)', category: 'Lodging', status: 'To book', note: 'Sedona 2 nights, Grand Canyon South Rim 1 night, Springdale (Zion) 2 nights. Book early - limited winter rooms near the parks.', href: '' },
+      { id: 'doc-romano', title: 'San Diego stay - Romano family', category: 'Lodging', status: 'Hosted', note: 'Staying with the Romano family in San Diego, roughly 20/12 - 25/12.', href: '' },
+      { id: 'doc-roadtrip-stays', title: 'Road-trip stays (Sedona, Grand Canyon, Bryce, Zion)', category: 'Lodging', status: 'To book', note: 'Sedona 2 nights, Grand Canyon South Rim 2 nights, Bryce Canyon 1 night, Springdale (Zion) 2 nights. Book early - limited winter rooms near the parks.', href: '' },
       { id: 'doc-vegas', title: 'Club Wyndham Grand Desert - Las Vegas', category: 'Lodging', status: 'Confirmed', note: '01/01 - 04/01, 3 nights, non-smoking two-bedroom suite with kitchen. 265 East Harmon Avenue. Confirmation number kept off the public site.', href: '' },
-      { id: 'doc-car', title: 'Rental cars (two one-ways)', category: 'Transport', status: 'To rebook', note: 'Car 1: LAX to San Diego (18/12 - 27/12). Car 2: Phoenix to Las Vegas (27/12 - 04/01). Reservation numbers kept off the public site.', href: '' },
+      { id: 'doc-car', title: 'Rental cars (two one-ways)', category: 'Transport', status: 'To rebook', note: 'Car 1: LAX to San Diego (18/12 - 25/12). Car 2: Phoenix to Las Vegas (25/12 - 04/01). Reservation numbers kept off the public site.', href: '' },
       { id: 'doc-insurance', title: 'Travel insurance - Harel', category: 'Documents', status: 'To update', note: 'Harel travel health insurance, Ganam family. The policy details for this trip are to be updated. 24h Harel emergency hotline.', href: '' }
     ],
     attractions: [
@@ -297,8 +307,9 @@
       { id: 'a-sedona', name: 'Sedona red rocks', category: 'Road trip', desc: 'Red-rock scenery, easy trails and the Red Rock Scenic Byway.', maps: map('Sedona AZ') },
       { id: 'a-chapel', name: 'Chapel of the Holy Cross', category: 'Road trip', desc: 'A striking chapel built into the red rock in Sedona.', maps: map('Chapel of the Holy Cross Sedona') },
       { id: 'a-flagstaff', name: 'Flagstaff / Lowell Observatory', category: 'Road trip', desc: 'Route 66 mountain town; Lowell Observatory, where Pluto was discovered.', maps: map('Lowell Observatory Flagstaff') },
-      { id: 'a-grandcanyon', name: 'Grand Canyon South Rim', category: 'Road trip', desc: 'The South Rim: Mather Point, the Rim Trail and the village.', maps: map('Grand Canyon South Rim Village') },
-      { id: 'a-kanab', name: 'Kanab, UT', category: 'Road trip', desc: 'A little western film town ("Little Hollywood") between the canyon and Zion.', maps: map('Kanab UT') },
+      { id: 'a-grandcanyon', name: 'Grand Canyon South Rim', category: 'Road trip', desc: 'The South Rim: Mather Point, the Rim Trail and Hermit Road viewpoints.', maps: map('Grand Canyon South Rim Village') },
+      { id: 'a-kanab', name: 'Kanab, UT', category: 'Road trip', desc: 'A little western film town ("Little Hollywood") on the way north.', maps: map('Kanab UT') },
+      { id: 'a-bryce', name: 'Bryce Canyon National Park', category: 'Road trip', desc: 'A forest of orange hoodoos, stunning dusted with snow (~8,000 ft).', maps: map('Bryce Canyon National Park') },
       { id: 'a-zion', name: 'Zion National Park', category: 'Road trip', desc: 'Towering canyon walls and easy valley trails from Springdale.', maps: map('Zion National Park Springdale') },
       { id: 'a-strip', name: 'Las Vegas Strip', category: 'Las Vegas', desc: 'The hotel-and-lights boulevard of Las Vegas.', maps: map('Las Vegas Strip') },
       { id: 'a-sphere', name: 'Sphere', category: 'Las Vegas', desc: 'The Sphere venue - Backstreet Boys show booked for 8:00pm on 01/01 for two of the adults.', maps: map('Sphere Las Vegas') },
@@ -320,10 +331,11 @@
       { name: 'USS Midway Museum', type: 'attraction', coords: [32.7137, -117.1751], maps: map('USS Midway Museum') },
       { name: 'Phoenix Sky Harbor Airport', type: 'attraction', coords: [33.4342, -112.0116], maps: map('Phoenix Sky Harbor Airport') },
       { name: 'Montezuma Castle', type: 'attraction', coords: [34.6117, -111.8350], maps: map('Montezuma Castle National Monument') },
-      { name: 'Sedona - overnight 27-29/12', type: 'hotel', coords: [34.8697, -111.7610], maps: map('Sedona AZ') },
+      { name: 'Sedona - overnight 25-27/12', type: 'hotel', coords: [34.8697, -111.7610], maps: map('Sedona AZ') },
       { name: 'Flagstaff / Lowell Observatory', type: 'attraction', coords: [35.1983, -111.6513], maps: map('Lowell Observatory Flagstaff') },
-      { name: 'Grand Canyon South Rim - overnight 29/12', type: 'hotel', coords: [36.0544, -112.1401], maps: map('Grand Canyon South Rim Village') },
+      { name: 'Grand Canyon South Rim - overnight 27-29/12', type: 'hotel', coords: [36.0544, -112.1401], maps: map('Grand Canyon South Rim Village') },
       { name: 'Kanab, UT', type: 'attraction', coords: [37.0475, -112.5263], maps: map('Kanab UT') },
+      { name: 'Bryce Canyon - overnight 29/12', type: 'hotel', coords: [37.6283, -112.1676], maps: map('Bryce Canyon National Park') },
       { name: 'Zion / Springdale - overnight 30/12-01/01', type: 'hotel', coords: [37.1972, -112.9870], maps: map('Zion National Park Springdale') },
       { name: 'Valley of Fire State Park', type: 'attraction', coords: [36.4817, -114.5281], maps: map('Valley of Fire State Park') },
       { name: 'Las Vegas - Club Wyndham', type: 'hotel', coords: [36.1147, -115.1728], maps: map('Club Wyndham Grand Desert Las Vegas') },
@@ -338,6 +350,7 @@
       [33.4342, -112.0116],
       [34.8697, -111.7610],
       [36.0544, -112.1401],
+      [37.6283, -112.1676],
       [37.1972, -112.9870],
       [36.1147, -115.1728]
     ]
