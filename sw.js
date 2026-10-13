@@ -1,6 +1,6 @@
-const CACHE = 'us-2026-v25';
+const CACHE = 'us-2026-v26';
 const APP_SHELL = [
-  '/', '/index.html', '/styles.css?v=25', '/trip-data.js?v=25', '/app.js?v=25',
+  '/', '/index.html', '/styles.css?v=26', '/trip-data.js?v=26', '/app.js?v=26',
   '/manifest.webmanifest', '/assets/icon.svg'
 ];
 

@@ -222,8 +222,8 @@
 
       day(15, '01/01', 'Friday, 01/01/2027', 'Zion to Las Vegas - check in + Sphere', 'Zion (Springdale) > Las Vegas',
         'New Year\'s Day: drive from Zion to Las Vegas (about 2.75 hours), check in to Club Wyndham Grand Desert (from 16:00), and an evening that includes Backstreet Boys at Sphere for two of the adults.',
-        [['10:00', 'Leave Zion', 'Scenic drive down I-15 through the Virgin River Gorge.', '🚗'], ['13:00', 'Into Las Vegas', 'Arrive and drop bags.', '🎰'], ['16:00', 'Check in to Club Wyndham Grand Desert', 'Two-bedroom suite just off the Strip.', '🏨'], ['19:00', 'Evening on the Strip', 'Bellagio fountains and the lights.', '🌃'], ['20:30', 'Backstreet Boys at Sphere', 'A night out for two of the adults at the Sphere while the others stay with the kids.', '🎤']],
-        ['Check-in is from 16:00 - if you arrive earlier, leave bags and start on the Strip.', 'Backstreet Boys at Sphere is a night out for two of the adults - buy tickets ahead and confirm the exact show date.', 'The Virgin River Gorge on I-15 is a scenic stretch - easy drive in good weather.'],
+        [['10:00', 'Leave Zion', 'Scenic drive down I-15 through the Virgin River Gorge.', '🚗'], ['13:00', 'Into Las Vegas', 'Arrive and drop bags.', '🎰'], ['16:00', 'Check in to Club Wyndham Grand Desert', 'Two-bedroom suite just off the Strip.', '🏨'], ['19:00', 'Evening on the Strip', 'Bellagio fountains and the lights.', '🌃'], ['20:00', 'Backstreet Boys at Sphere', 'Confirmed, 8:00pm at Sphere. A night out for two of the adults while the others stay with the kids.', '🎤']],
+        ['Check-in is from 16:00 - if you arrive earlier, leave bags and start on the Strip.', 'Backstreet Boys at Sphere is a night out for two of the adults - booked for 8:00pm on 01/01 (2 tickets). The others stay back with the kids.', 'The Virgin River Gorge on I-15 is a scenic stretch - easy drive in good weather.'],
         ['Springdale UT', 'Club Wyndham Grand Desert Las Vegas', 'Sphere Las Vegas'], { duration: 'Drive & arrival', walking: 'Moderate', tone: 'gold', weather: { label: 'Las Vegas weather', href: wx.lv }, places: ['Sphere Las Vegas', 'Las Vegas Strip'] }),
 
       day(16, '02/01', 'Saturday, 02/01/2027', 'Las Vegas: Valley of Fire or the Strip', 'Las Vegas',
@@ -301,7 +301,7 @@
       { id: 'a-kanab', name: 'Kanab, UT', category: 'Road trip', desc: 'A little western film town ("Little Hollywood") between the canyon and Zion.', maps: map('Kanab UT') },
       { id: 'a-zion', name: 'Zion National Park', category: 'Road trip', desc: 'Towering canyon walls and easy valley trails from Springdale.', maps: map('Zion National Park Springdale') },
       { id: 'a-strip', name: 'Las Vegas Strip', category: 'Las Vegas', desc: 'The hotel-and-lights boulevard of Las Vegas.', maps: map('Las Vegas Strip') },
-      { id: 'a-sphere', name: 'Sphere', category: 'Las Vegas', desc: 'The Sphere venue - Backstreet Boys show on 01/01 for two of the adults.', maps: map('Sphere Las Vegas') },
+      { id: 'a-sphere', name: 'Sphere', category: 'Las Vegas', desc: 'The Sphere venue - Backstreet Boys show booked for 8:00pm on 01/01 for two of the adults.', maps: map('Sphere Las Vegas') },
       { id: 'a-valleyoffire', name: 'Valley of Fire State Park', category: 'Las Vegas', desc: 'Stunning red sandstone with easy trails, about an hour NE of Las Vegas.', maps: map('Valley of Fire State Park') },
       { id: 'a-hoover', name: 'Hoover Dam', category: 'Las Vegas', desc: 'A huge dam about 45 minutes from Las Vegas.', maps: map('Hoover Dam') },
       { id: 'a-bellagio', name: 'Bellagio Fountains', category: 'Las Vegas', desc: 'The water-fountain show in front of the Bellagio.', maps: map('Bellagio Fountains Las Vegas') },
