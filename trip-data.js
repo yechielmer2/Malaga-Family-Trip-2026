@@ -262,12 +262,12 @@
       ],
       carRental: {
         provider: 'Two rentals', title: 'Rental cars in the US',
-        status: 'To rebook', pickup: 'Car 1: LAX, 18/12 06:30. Car 2: Phoenix, 25/12 ~13:30',
-        return: 'Car 1: San Diego, 25/12 AM. Car 2: Las Vegas, 04/01 06:30',
+        status: 'Car 1 booked', pickup: 'Car 1: LAX, 18/12 06:30. Car 2: Phoenix, 25/12 ~13:30',
+        return: 'Car 1: San Diego Airport, 25/12 10:00. Car 2: Las Vegas, 04/01 06:30',
         vehicle: 'Large vehicle(s) for 9 people - minivan or large SUV', deposit: 'Per rental policy',
-        requirements: 'The route needs two rentals. Car 1: pick up at LAX on 18/12, use for LA and San Diego, return in San Diego on 25/12 before the Phoenix flight. Car 2: pick up in Phoenix on 25/12, one-way to Las Vegas, return at McCarran Rent A Car Center on 04/01. Each driver needs an international license and a credit card; bring car seats/boosters.',
-        alertTitle: 'Rental cars need rebooking',
-        warning: 'The original one-way Avis (LAX to Las Vegas) no longer matches the plan. It needs changing to LAX to San Diego (return 25/12), plus a new one-way Phoenix to Las Vegas rental. Confirm both before the trip.',
+        requirements: 'Two one-way rentals. Car 1 (Avis, BOOKED): pick up at LAX on 18/12 06:30, use for LA and San Diego, return at San Diego Airport on 25/12 10:00. Car 2 (TO BOOK): pick up in Phoenix on 25/12, one-way to Las Vegas, return at McCarran Rent A Car Center on 04/01. Each driver needs an international license and a credit card; bring car seats/boosters.',
+        alertTitle: 'Car 2 still to book',
+        warning: 'Car 1 (LAX to San Diego, 18-25/12) is booked. Still to book: the one-way Phoenix to Las Vegas car for 25/12 to 04/01.',
         document: ''
       },
       weather: [
@@ -287,7 +287,7 @@
       { id: 'doc-romano', title: 'San Diego stay - Romano family', category: 'Lodging', status: 'Hosted', note: 'Staying with the Romano family in San Diego, roughly 20/12 - 25/12.', href: '' },
       { id: 'doc-roadtrip-stays', title: 'Road-trip stays (Sedona, Grand Canyon, Bryce, Zion)', category: 'Lodging', status: 'To book', note: 'Sedona 2 nights, Grand Canyon South Rim 2 nights, Bryce Canyon 1 night, Springdale (Zion) 2 nights. Book early - limited winter rooms near the parks.', href: '' },
       { id: 'doc-vegas', title: 'Club Wyndham Grand Desert - Las Vegas', category: 'Lodging', status: 'Confirmed', note: '01/01 - 04/01, 3 nights, non-smoking two-bedroom suite with kitchen. 265 East Harmon Avenue. Confirmation number kept off the public site.', href: '' },
-      { id: 'doc-car', title: 'Rental cars (two one-ways)', category: 'Transport', status: 'To rebook', note: 'Car 1: LAX to San Diego (18/12 - 25/12). Car 2: Phoenix to Las Vegas (25/12 - 04/01). Reservation numbers kept off the public site.', href: '' },
+      { id: 'doc-car', title: 'Rental cars (two one-ways)', category: 'Transport', status: 'Car 1 booked', note: 'Car 1 (Avis, booked): LAX to San Diego Airport, 18/12 06:30 - 25/12 10:00. Car 2 (to book): Phoenix to Las Vegas, 25/12 - 04/01. Reservation numbers kept off the public site.', href: '' },
       { id: 'doc-insurance', title: 'Travel insurance - Harel', category: 'Documents', status: 'To update', note: 'Harel travel health insurance, Ganam family. The policy details for this trip are to be updated. 24h Harel emergency hotline.', href: '' }
     ],
     attractions: [

@@ -7,7 +7,7 @@
     { id: 'internet-sim', label: 'Data SIM / eSIM' },
     { id: 'travel-insurance', label: 'Travel insurance' },
     { id: 'flight-netflix', label: 'Netflix for the flight', note: 'Download shows in advance' },
-    { id: 'rebook-cars', label: 'Rebook rental cars', note: 'Car 1 LAX to San Diego (18-25/12); Car 2 Phoenix to Las Vegas (25/12-04/01)' }
+    { id: 'rebook-cars', label: 'Book car 2: Phoenix to Las Vegas', note: 'One-way, 25/12-04/01, large vehicle for 9 (car 1 LAX to San Diego is booked)' }
   ];
   const clone = value => JSON.parse(JSON.stringify(value));
   let state = loadState();
