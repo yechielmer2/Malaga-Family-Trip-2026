@@ -249,7 +249,7 @@
 
       day(18, '04/01', 'Monday, 04/01/2027', 'Flying home', 'Las Vegas > Los Angeles > Tel Aviv',
         'Return day: drop the car in Vegas, an internal flight to Los Angeles, and a direct flight to Tel Aviv.',
-        [['06:00', 'Return rental car', 'Drop-off in Las Vegas by 06:30.', '🚗'], ['07:00', 'Check in for LY4479', 'Security for the internal flight.', '🛫'], ['09:10', 'Flight to Los Angeles', 'LAS to LAX, about an hour and a quarter.', '✈️'], ['14:00', 'Flight LY6 to Tel Aviv', 'Direct flight home, landing 05/01.', '🛬']],
+        [['06:00', 'Return rental car', 'Drop the Alamo van in Las Vegas by 07:00.', '🚗'], ['07:00', 'Check in for LY4479', 'Security for the internal flight.', '🛫'], ['09:10', 'Flight to Los Angeles', 'LAS to LAX, about an hour and a quarter.', '✈️'], ['14:00', 'Flight LY6 to Tel Aviv', 'Direct flight home, landing 05/01.', '🛬']],
         ['Confirm the rental drop-off location (Las Vegas) ahead of time.', 'The gap between landing at LAX (10:26) and departure (14:00) - make sure there is enough time for the transfer.', 'Keep passports and boarding passes handy.'],
         ['Harry Reid International Airport Las Vegas', 'Los Angeles International Airport'], { duration: 'Flight day', walking: 'A little', weather: { label: 'Las Vegas weather', href: wx.lv } })
     ],
@@ -261,13 +261,13 @@
         { label: 'Harel - WhatsApp 24h', value: '+972-52-7544589', href: 'https://wa.me/972527544589', caption: 'Tap to open WhatsApp' }
       ],
       carRental: {
-        provider: 'Two rentals', title: 'Rental cars in the US',
-        status: 'Car 1 booked', pickup: 'Car 1: LAX, 18/12 06:30. Car 2: Phoenix, 25/12 ~13:30',
-        return: 'Car 1: San Diego Airport, 25/12 10:00. Car 2: Las Vegas, 04/01 06:30',
-        vehicle: 'Large vehicle(s) for 9 people - minivan or large SUV', deposit: 'Per rental policy',
-        requirements: 'Two one-way rentals. Car 1 (Avis, BOOKED): pick up at LAX on 18/12 06:30, use for LA and San Diego, return at San Diego Airport on 25/12 10:00. Car 2 (TO BOOK): pick up in Phoenix on 25/12, one-way to Las Vegas, return at McCarran Rent A Car Center on 04/01. Each driver needs an international license and a credit card; bring car seats/boosters.',
-        alertTitle: 'Car 2 still to book',
-        warning: 'Car 1 (LAX to San Diego, 18-25/12) is booked. Still to book: the one-way Phoenix to Las Vegas car for 25/12 to 04/01.',
+        provider: 'Two rentals (Avis + Alamo)', title: 'Rental cars in the US',
+        status: 'Both booked', pickup: 'Car 1 (Avis): LAX, 18/12 06:30. Car 2 (Alamo): Phoenix, 25/12 13:30',
+        return: 'Car 1: San Diego Airport, 25/12 10:00. Car 2: Las Vegas (7135 Gilespie St), 04/01 07:00',
+        vehicle: 'Car 2: Fullsize 15-passenger van (Ford Transit Wagon or similar)', deposit: 'Per rental policy',
+        requirements: 'Two one-way rentals, both booked. Car 1 (Avis): LAX 18/12 06:30 to San Diego Airport 25/12 10:00, for LA and San Diego. Car 2 (Alamo): a fullsize van from Phoenix (1805 E Sky Harbor Cir S) on 25/12 13:30, one-way to Las Vegas (7135 Gilespie St) on 04/01 07:00, for the road trip with both families. Each driver needs an international license and a credit card; bring car seats/boosters.',
+        alertTitle: '',
+        warning: '',
         document: ''
       },
       weather: [
@@ -287,7 +287,7 @@
       { id: 'doc-romano', title: 'San Diego stay - Romano family', category: 'Lodging', status: 'Hosted', note: 'Staying with the Romano family in San Diego, roughly 20/12 - 25/12.', href: '' },
       { id: 'doc-roadtrip-stays', title: 'Road-trip stays (Sedona, Grand Canyon, Bryce, Zion)', category: 'Lodging', status: 'To book', note: 'Sedona 2 nights, Grand Canyon South Rim 2 nights, Bryce Canyon 1 night, Springdale (Zion) 2 nights. Book early - limited winter rooms near the parks.', href: '' },
       { id: 'doc-vegas', title: 'Club Wyndham Grand Desert - Las Vegas', category: 'Lodging', status: 'Confirmed', note: '01/01 - 04/01, 3 nights, non-smoking two-bedroom suite with kitchen. 265 East Harmon Avenue. Confirmation number kept off the public site.', href: '' },
-      { id: 'doc-car', title: 'Rental cars (two one-ways)', category: 'Transport', status: 'Car 1 booked', note: 'Car 1 (Avis, booked): LAX to San Diego Airport, 18/12 06:30 - 25/12 10:00. Car 2 (to book): Phoenix to Las Vegas, 25/12 - 04/01. Reservation numbers kept off the public site.', href: '' },
+      { id: 'doc-car', title: 'Rental cars (Avis + Alamo)', category: 'Transport', status: 'Confirmed', note: 'Car 1 (Avis): LAX to San Diego Airport, 18/12 06:30 - 25/12 10:00. Car 2 (Alamo): fullsize van, Phoenix to Las Vegas, 25/12 13:30 - 04/01 07:00. Reservation numbers and name kept off the public site.', href: '' },
       { id: 'doc-insurance', title: 'Travel insurance - Harel', category: 'Documents', status: 'To update', note: 'Harel travel health insurance, Ganam family. The policy details for this trip are to be updated. 24h Harel emergency hotline.', href: '' }
     ],
     attractions: [
