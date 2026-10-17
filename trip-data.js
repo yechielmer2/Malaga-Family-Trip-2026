@@ -106,11 +106,11 @@
         website: '', weather: wx.page
       },
       {
-        id: 'zion-stay', name: 'Zion (Springdale)', nativeName: 'Road trip - 3 nights',
-        dates: '29/12/2026 - 01/01/2027 - 3 nights', location: 'Springdale, UT',
-        checkIn: 'Tue 29/12', checkOut: 'Fri 01/01', status: 'To book',
-        note: 'Three nights in Springdale at the gates of Zion, including a low-key New Year\'s Eve. To book.',
-        maps: map('Springdale UT hotels'), waze: waze('Springdale UT'),
+        id: 'zion-stay', name: 'AutoCamp Zion', nativeName: 'Springdale area - 2 Airstream suites - 3 nights',
+        dates: '29/12/2026 - 01/01/2027 - 3 nights', location: 'AutoCamp Zion, Virgin / Springdale, UT',
+        checkIn: 'Tue 29/12', checkOut: 'Fri 01/01', status: 'Booked',
+        note: 'Two premium Airstream suites at AutoCamp Zion, near the park, including a low-key New Year\'s Eve. A fun stay for the kids.',
+        maps: map('AutoCamp Zion'), waze: waze('AutoCamp Zion'),
         website: '', weather: wx.zion
       },
       {
@@ -203,7 +203,7 @@
 
       day(12, '29/12', 'Tuesday, 29/12/2026', 'Page to Zion', 'Page > Kanab > Zion (Springdale)',
         'A scenic drive west into Utah to Zion, with a stop in the little western town of Kanab, arriving at the park gateway of Springdale for three nights.',
-        [['09:00', 'Leave Page', 'Head west on US-89.', '🚗'], ['10:30', 'Kanab, UT', 'Lunch in "Little Hollywood", an old western film town.', '🤠'], ['13:00', 'Into Zion', 'Through the Mount Carmel tunnel into the park.', '🏔️'], ['14:30', 'Check in at Springdale', 'Settle in for three nights.', '🏨'], ['16:00', 'First look at Zion', 'An easy walk among the towering canyon walls.', '🥾']],
+        [['09:00', 'Leave Page', 'Head west on US-89.', '🚗'], ['10:30', 'Kanab, UT', 'Lunch in "Little Hollywood", an old western film town.', '🤠'], ['13:00', 'Into Zion', 'Through the Mount Carmel tunnel into the park.', '🏔️'], ['14:30', 'Check in at AutoCamp Zion', 'Settle into the Airstream suites for three nights.', '🏨'], ['16:00', 'First look at Zion', 'An easy walk among the towering canyon walls.', '🥾']],
         ['It is about 2-2.5 hours Page to Springdale - an easy drive.', 'The Mount Carmel tunnel has size limits that need a permit for very large RVs (a passenger van is fine).', 'Springdale sits right at the park entrance - very walkable.'],
         ['Page AZ', 'Kanab UT', 'Springdale UT'], { duration: 'Drive & sightseeing', walking: 'Light to moderate', badge: 'Road trip', tone: 'clay', weather: { label: 'Zion weather', href: wx.zion }, places: ['Kanab UT', 'Zion National Park Springdale'] }),
 
@@ -274,7 +274,7 @@
       { id: 'doc-sdphx', title: 'San Diego to Phoenix flight (Southwest WN 4452)', category: 'Flights', status: 'Confirmed', note: '25/12, departs 10:55 SAN, arrives 13:15 PHX, nonstop. Confirmation code kept off the public site.', href: '' },
       { id: 'doc-parkplaza', title: 'Park Plaza Lodge - Los Angeles', category: 'Lodging', status: 'Confirmed', note: '18/12 - 20/12 - 2 nights in Los Angeles.', href: '' },
       { id: 'doc-romano', title: 'San Diego stay - Romano family', category: 'Lodging', status: 'Hosted', note: 'Staying with the Romano family in San Diego, roughly 20/12 - 25/12.', href: '' },
-      { id: 'doc-roadtrip-stays', title: 'Road-trip stays (Sedona, Page, Zion)', category: 'Lodging', status: 'To book', note: 'Sedona 2 nights, Page 2 nights, Springdale (Zion) 3 nights. Book early - limited winter rooms near the parks.', href: '' },
+      { id: 'doc-roadtrip-stays', title: 'Road-trip stays (Sedona, Page, Zion)', category: 'Lodging', status: 'Partly booked', note: 'Zion booked: AutoCamp Zion, 2 Airstream suites, 3 nights (29/12-01/01). Still to book: Sedona 2 nights, Page 2 nights - reserve early, limited winter rooms.', href: '' },
       { id: 'doc-vegas', title: 'Club Wyndham Grand Desert - Las Vegas', category: 'Lodging', status: 'Confirmed', note: '01/01 - 04/01, 3 nights, non-smoking two-bedroom suite with kitchen. 265 East Harmon Avenue. Confirmation number kept off the public site.', href: '' },
       { id: 'doc-car', title: 'Rental cars (Avis + Alamo)', category: 'Transport', status: 'Confirmed', note: 'Car 1 (Avis): LAX to San Diego Airport, 18/12 06:30 - 25/12 10:00. Car 2 (Alamo): fullsize van, Phoenix to Las Vegas, 25/12 13:30 - 04/01 07:00. Reservation numbers and name kept off the public site.', href: '' },
       { id: 'doc-insurance', title: 'Travel insurance - Harel', category: 'Documents', status: 'To update', note: 'Harel travel health insurance, Ganam family. The policy details for this trip are to be updated. 24h Harel emergency hotline.', href: '' }
@@ -328,7 +328,7 @@
       { name: 'Antelope Canyon', type: 'attraction', coords: [36.8619, -111.3743], maps: map('Antelope Canyon') },
       { name: 'Lake Powell / Glen Canyon Dam', type: 'attraction', coords: [36.9377, -111.4837], maps: map('Lake Powell') },
       { name: 'Kanab, UT', type: 'attraction', coords: [37.0475, -112.5263], maps: map('Kanab UT') },
-      { name: 'Zion / Springdale - overnight 29/12-01/01', type: 'hotel', coords: [37.1972, -112.9870], maps: map('Zion National Park Springdale') },
+      { name: 'AutoCamp Zion - overnight 29/12-01/01', type: 'hotel', coords: [37.2047, -113.0247], maps: map('AutoCamp Zion') },
       { name: 'Valley of Fire State Park', type: 'attraction', coords: [36.4817, -114.5281], maps: map('Valley of Fire State Park') },
       { name: 'Las Vegas - Club Wyndham', type: 'hotel', coords: [36.1147, -115.1728], maps: map('Club Wyndham Grand Desert Las Vegas') },
       { name: 'Sphere (Backstreet Boys 01/01)', type: 'attraction', coords: [36.1211, -115.1620], maps: map('Sphere Las Vegas') },
