@@ -197,8 +197,8 @@
 
       day(11, '28/12', 'Monday, 28/12/2026', 'Page: Antelope Canyon and Lake Powell', 'Page',
         'A full day in Page: a guided tour of the famous slot canyon, and the views over Lake Powell and Glen Canyon Dam.',
-        [['09:00', 'Antelope Canyon tour', 'A guided walk through the glowing slot canyon (book ahead).', '📸'], ['12:00', 'Lunch in Page', 'A warm break in town.', '🌮'], ['14:00', 'Lake Powell / Glen Canyon Dam', 'Overlooks of the lake and the dam.', '🏞️'], ['16:00', 'Easy evening', 'Rest before the drive to Zion.', '🌙']],
-        ['Antelope Canyon is guided-tour only and books out - reserve ahead and check holiday/winter hours. Upper is flatter and easier for the kids; Lower has stairs.', 'Winter light in the canyon is softer - no beams, but far fewer crowds.', 'Dress warm; mornings are cold in the canyon.'],
+        [['11:00', 'Lower Antelope Canyon tour', 'Booked guided walk through the glowing slot canyon (Prime, 11:00).', '📸'], ['12:30', 'Lunch in Page', 'A warm break in town.', '🌮'], ['14:00', 'Lake Powell / Glen Canyon Dam', 'Overlooks of the lake and the dam.', '🏞️'], ['16:00', 'Easy evening', 'Rest before the drive to Zion.', '🌙']],
+        ['Lower Antelope Canyon is booked for 11:00 (Prime) - guided tour, five flights of stairs, about an hour. Arrive early.', 'Winter light in the canyon is softer - no beams, but far fewer crowds.', 'Dress warm; mornings are cold in the canyon.'],
         ['Page AZ', 'Antelope Canyon', 'Lake Powell'], { duration: 'Full day', walking: 'Moderate', tone: 'clay', weather: { label: 'Page weather', href: wx.page }, places: ['Antelope Canyon', 'Lake Powell', 'Glen Canyon Dam'] }),
 
       day(12, '29/12', 'Tuesday, 29/12/2026', 'Page to Zion', 'Page > Kanab > Zion (Springdale)',
@@ -297,7 +297,7 @@
       { id: 'a-chapel', name: 'Chapel of the Holy Cross', category: 'Road trip', desc: 'A striking chapel built into the red rock in Sedona.', maps: map('Chapel of the Holy Cross Sedona') },
       { id: 'a-flagstaff', name: 'Flagstaff / Lowell Observatory', category: 'Road trip', desc: 'Route 66 mountain town; Lowell Observatory, where Pluto was discovered.', maps: map('Lowell Observatory Flagstaff') },
       { id: 'a-horseshoe', name: 'Horseshoe Bend', category: 'Road trip', desc: 'The famous horseshoe-shaped bend of the Colorado River near Page.', maps: map('Horseshoe Bend Page') },
-      { id: 'a-antelope', name: 'Antelope Canyon', category: 'Road trip', desc: 'A glowing slot canyon near Page - guided tours only, book ahead.', maps: map('Antelope Canyon') },
+      { id: 'a-antelope', name: 'Lower Antelope Canyon', category: 'Road trip', desc: 'A glowing slot canyon near Page - booked guided tour on 28/12 at 11:00.', maps: map('Lower Antelope Canyon') },
       { id: 'a-lakepowell', name: 'Lake Powell / Glen Canyon Dam', category: 'Road trip', desc: 'A huge desert reservoir and dam with sweeping overlooks.', maps: map('Lake Powell') },
       { id: 'a-kanab', name: 'Kanab, UT', category: 'Road trip', desc: 'A little western film town ("Little Hollywood") between Page and Zion.', maps: map('Kanab UT') },
       { id: 'a-zion', name: 'Zion National Park', category: 'Road trip', desc: 'Towering canyon walls and easy valley trails from Springdale.', maps: map('Zion National Park Springdale') },
