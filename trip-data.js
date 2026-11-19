@@ -90,20 +90,20 @@
         website: '', weather: wx.sd
       },
       {
-        id: 'sedona-stay', name: 'Sedona', nativeName: 'Road trip - 2 nights',
-        dates: '25/12 - 27/12/2026 - 2 nights', location: 'Sedona, AZ',
-        checkIn: 'Fri 25/12', checkOut: 'Sun 27/12', status: 'To book',
-        note: 'Two nights in Sedona among the red rocks, the first base of the road trip. To book.',
-        maps: map('Sedona AZ hotels'), waze: waze('Sedona AZ'),
-        website: '', weather: wx.sedona
+        id: 'sedona-stay', name: 'Sedona - tranquil retreat w/ views (Airbnb)', nativeName: 'Entire home, near Bell Rock - 2 nights',
+        dates: '25/12 - 27/12/2026 - 2 nights', location: '25 White Horse Way, Sedona, AZ 86351',
+        checkIn: 'Fri 25/12 - after 16:00', checkOut: 'Sun 27/12 - by 10:00', status: 'Booked',
+        note: 'Entire home with views, near trails and Bell Rock (host Brad). Both families. Free cancellation until 25/11 (partial refund until 18/12).',
+        maps: map('25 White Horse Way Sedona AZ 86351'), waze: waze('25 White Horse Way Sedona AZ 86351'),
+        website: 'https://www.airbnb.com/rooms/930827975367753866', weather: wx.sedona
       },
       {
-        id: 'page-stay', name: 'Page', nativeName: 'Road trip - 2 nights',
-        dates: '27/12 - 29/12/2026 - 2 nights', location: 'Page, AZ',
-        checkIn: 'Sun 27/12', checkOut: 'Tue 29/12', status: 'To book',
-        note: 'Two nights in Page for Horseshoe Bend, Antelope Canyon and Lake Powell. To book.',
-        maps: map('Page AZ hotels'), waze: waze('Page AZ'),
-        website: '', weather: wx.page
+        id: 'page-stay', name: 'Page - Lake Powell family home (Airbnb)', nativeName: 'Entire home, 4 bed / 2.5 bath + game room - 2 nights',
+        dates: '27/12 - 29/12/2026 - 2 nights', location: '52 Rock Reef Bay, Page, AZ 86040',
+        checkIn: 'Sun 27/12 - after 16:00 (keypad)', checkOut: 'Tue 29/12 - by 10:00', status: 'Booked',
+        note: 'Entire home sleeps 13: king master, 2 queen rooms, kids room with 6 singles. Game garage (pool table, ping-pong, basketball) and gas fire pit, no hot tub. About 15 min into Page, near Wahweap Marina. Host: Desert Vacation Rentals LLC, 435-979-5552. Bring a pack-n-play for the baby (no crib). Clean the BBQ after use or $25 fee.',
+        maps: map('52 Rock Reef Bay Page AZ 86040'), waze: waze('52 Rock Reef Bay Page AZ 86040'),
+        website: 'https://www.airbnb.com/rooms/1434380410833905232', weather: wx.page
       },
       {
         id: 'zion-stay', name: 'AutoCamp Zion', nativeName: 'Springdale area - 2 Airstream suites - 3 nights',
@@ -178,10 +178,10 @@
         ['San Diego CA'], { duration: 'Family day', walking: 'Optional', badge: 'Holiday', tone: 'gold' }),
 
       day(8, '25/12', 'Friday, 25/12/2026', 'Christmas Day: fly to Phoenix, drive to Sedona', 'San Diego > fly > Phoenix > Sedona',
-        'The road trip begins on Christmas Day: an early goodbye, return the first car, fly to Phoenix, pick up the van and drive to Sedona with a stop at the Montezuma Castle cliff dwellings.',
-        [['08:00', 'Return car in San Diego', 'Early start - drop the first rental before the flight.', '🚗'], ['10:55', 'Fly San Diego to Phoenix', 'Southwest WN 4452, nonstop, arrives 13:15. Pick up the van.', '✈️'], ['14:30', 'Montezuma Castle', 'A short, easy stop at well-preserved cliff dwellings off I-17.', '🏜️'], ['16:00', 'Drive to Sedona', 'Red Rock Scenic Byway into town.', '🌄'], ['17:00', 'Settle in Sedona', 'Check in and an easy first evening among the red rocks.', '🏨']],
-        ['The flight is Christmas morning (departs 10:55) - the family Christmas is really Christmas Eve the night before.', 'This swaps the San Diego car for the Phoenix van (one-way to Las Vegas).', 'Afternoon arrival (13:15) leaves time for Montezuma Castle plus the drive; Sedona is about 2 hours from the airport.'],
-        ['Phoenix Sky Harbor Airport', 'Montezuma Castle National Monument', 'Sedona AZ'], { duration: 'Fly & drive day', walking: 'Light', badge: 'Road trip', tone: 'clay', weather: { label: 'Sedona weather', href: wx.sedona }, places: ['Montezuma Castle National Monument'] }),
+        'The road trip begins on Christmas Day: an early goodbye, return the first car, fly to Phoenix, pick up the van, grab groceries and drive to Sedona.',
+        [['08:00', 'Return car in San Diego', 'Early start - drop the first rental before the flight.', '🚗'], ['10:55', 'Fly San Diego to Phoenix', 'Southwest WN 4452, nonstop, arrives 13:15. Pick up the van.', '✈️'], ['14:30', 'Grocery stop', 'Stock up on food and supplies on the way out of Phoenix (most attractions are closed on Christmas Day).', '🛒'], ['16:00', 'Drive to Sedona', 'Red Rock Scenic Byway into town.', '🌄'], ['17:00', 'Settle in Sedona', 'Check in (after 16:00) and an easy first evening among the red rocks.', '🏨']],
+        ['The flight is Christmas morning (departs 10:55) - the family Christmas is really Christmas Eve the night before.', 'This swaps the San Diego car for the Phoenix van (one-way to Las Vegas).', 'Montezuma Castle is closed on Christmas Day, so this is a travel-and-settle-in day - stock up on groceries since shops/attractions are mostly closed.'],
+        ['Phoenix Sky Harbor Airport', 'Sedona AZ'], { duration: 'Fly & drive day', walking: 'Light', badge: 'Road trip', tone: 'clay', weather: { label: 'Sedona weather', href: wx.sedona } }),
 
       day(9, '26/12', 'Saturday, 26/12/2026', 'Sedona red rocks', 'Sedona',
         'A full day among Sedona\'s red rocks: scenic drives, easy family trails and the Chapel of the Holy Cross built into the rock.',
@@ -274,7 +274,7 @@
       { id: 'doc-sdphx', title: 'San Diego to Phoenix flight (Southwest WN 4452)', category: 'Flights', status: 'Confirmed', note: '25/12, departs 10:55 SAN, arrives 13:15 PHX, nonstop. Confirmation code kept off the public site.', href: '' },
       { id: 'doc-parkplaza', title: 'Park Plaza Lodge - Los Angeles', category: 'Lodging', status: 'Confirmed', note: '18/12 - 20/12 - 2 nights in Los Angeles.', href: '' },
       { id: 'doc-romano', title: 'San Diego stay - Romano family', category: 'Lodging', status: 'Hosted', note: 'Staying with the Romano family in San Diego, roughly 20/12 - 25/12.', href: '' },
-      { id: 'doc-roadtrip-stays', title: 'Road-trip stays (Sedona, Page, Zion)', category: 'Lodging', status: 'Partly booked', note: 'Zion booked: AutoCamp Zion, 2 Airstream suites, 3 nights (29/12-01/01). Still to book: Sedona 2 nights, Page 2 nights - reserve early, limited winter rooms.', href: '' },
+      { id: 'doc-roadtrip-stays', title: 'Road-trip stays (Sedona, Page, Zion)', category: 'Lodging', status: 'Booked', note: 'All booked: Sedona Airbnb 2n (25-27/12), Page Airbnb 2n (27-29/12), AutoCamp Zion 3n (29/12-01/01). Confirmation codes kept off the public site.', href: '' },
       { id: 'doc-vegas', title: 'Club Wyndham Grand Desert - Las Vegas', category: 'Lodging', status: 'Confirmed', note: '01/01 - 04/01, 3 nights, non-smoking two-bedroom suite with kitchen. 265 East Harmon Avenue. Confirmation number kept off the public site.', href: '' },
       { id: 'doc-car', title: 'Rental cars (Avis + Alamo)', category: 'Transport', status: 'Confirmed', note: 'Car 1 (Avis): LAX to San Diego Airport, 18/12 06:30 - 25/12 10:00. Car 2 (Alamo): fullsize van, Phoenix to Las Vegas, 25/12 13:30 - 04/01 07:00. Reservation numbers and name kept off the public site.', href: '' },
       { id: 'doc-insurance', title: 'Travel insurance - Harel', category: 'Documents', status: 'To update', note: 'Harel travel health insurance, Ganam family. The policy details for this trip are to be updated. 24h Harel emergency hotline.', href: '' }
@@ -292,7 +292,6 @@
       { id: 'a-coronado', name: 'Coronado Beach', category: 'San Diego', desc: 'A wide beach with a historic hotel in San Diego.', maps: map('Coronado Beach San Diego') },
       { id: 'a-midway', name: 'USS Midway Museum', category: 'San Diego', desc: 'An aircraft-carrier museum in San Diego harbor.', maps: map('USS Midway Museum') },
       { id: 'a-oldtown', name: 'Old Town San Diego', category: 'San Diego', desc: 'The historic Mexican quarter, food and souvenirs.', maps: map('Old Town San Diego State Historic Park') },
-      { id: 'a-montezuma', name: 'Montezuma Castle National Monument', category: 'Road trip', desc: 'Well-preserved cliff dwellings off I-17, an easy stop between Phoenix and Sedona.', maps: map('Montezuma Castle National Monument') },
       { id: 'a-sedona', name: 'Sedona red rocks', category: 'Road trip', desc: 'Red-rock scenery, easy trails and the Red Rock Scenic Byway.', maps: map('Sedona AZ') },
       { id: 'a-chapel', name: 'Chapel of the Holy Cross', category: 'Road trip', desc: 'A striking chapel built into the red rock in Sedona.', maps: map('Chapel of the Holy Cross Sedona') },
       { id: 'a-flagstaff', name: 'Flagstaff / Lowell Observatory', category: 'Road trip', desc: 'Route 66 mountain town; Lowell Observatory, where Pluto was discovered.', maps: map('Lowell Observatory Flagstaff') },
@@ -328,7 +327,6 @@
       { name: 'Legoland California', type: 'attraction', coords: [33.1264, -117.3110], maps: map('Legoland California Carlsbad') },
       { name: 'USS Midway Museum', type: 'attraction', coords: [32.7137, -117.1751], maps: map('USS Midway Museum') },
       { name: 'Phoenix Sky Harbor Airport', type: 'attraction', coords: [33.4342, -112.0116], maps: map('Phoenix Sky Harbor Airport') },
-      { name: 'Montezuma Castle', type: 'attraction', coords: [34.6117, -111.8350], maps: map('Montezuma Castle National Monument') },
       { name: 'Sedona - overnight 25-27/12', type: 'hotel', coords: [34.8697, -111.7610], maps: map('Sedona AZ') },
       { name: 'Bell Rock (Sedona)', type: 'attraction', coords: [34.8003, -111.7665], maps: map('Bell Rock Sedona') },
       { name: 'Tlaquepaque (Sedona)', type: 'attraction', coords: [34.8585, -111.7628], maps: map('Tlaquepaque Arts Village Sedona') },
