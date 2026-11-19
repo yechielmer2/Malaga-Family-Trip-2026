@@ -360,8 +360,7 @@
     const iconByCategory = { 'Flights':'✈️','Car':'🚗','Transport':'🚐','Lodging':'🏨','Documents':'📄' };
     return appShell(`
       <section class="section" style="margin-top:0">
-        <div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">All in one place</div><h2>Documents & confirmations</h2><p>Redacted copies for publishing, booking links, and the documents still missing.</p></div><button class="btn btn-dark btn-small edit-only" data-action="open-editor-docs">Add link</button></div>
-        <div class="notice">Documents on the site have had confirmation codes and personal details removed. Do not upload passports, a full insurance policy, or any document with sensitive details while the site is public.</div>
+        <div class="section-head"><div><div class="eyebrow" style="color:var(--brand-2)">All in one place</div><h2>Documents & confirmations</h2><p>Booking links and the documents still to come.</p></div><button class="btn btn-dark btn-small edit-only" data-action="open-editor-docs">Add link</button></div>
         <div class="doc-list">${state.documents.map(doc => `<article class="doc-card"><div class="doc-icon">${iconByCategory[doc.category] || '📄'}</div><div><div class="mini-label">${esc(doc.category)}</div><h3>${esc(doc.title)}</h3><p>${esc(doc.note)}</p></div>${doc.href ? `<a class="btn btn-dark btn-small" href="${esc(doc.href)}" target="_blank" rel="noopener">Open</a>` : `<span class="status pending">${esc(doc.status)}</span>`}</article>`).join('')}</div>
       </section>
     `);
