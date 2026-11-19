@@ -270,13 +270,13 @@
       ]
     },
     documents: [
-      { id: 'doc-flight', title: 'EL AL flights (LY5 / LY4479 / LY6)', category: 'Flights', status: 'Confirmed', note: 'Outbound LY5 on 18/12 (TLV to LAX), internal LY4479 on 04/01 (LAS to LAX), return LY6 on 04/01 (LAX to TLV). The source document includes names and a confirmation code, so it is not published on the site.', href: '' },
-      { id: 'doc-sdphx', title: 'San Diego to Phoenix flight (Southwest WN 4452)', category: 'Flights', status: 'Confirmed', note: '25/12, departs 10:55 SAN, arrives 13:15 PHX, nonstop. Confirmation code kept off the public site.', href: '' },
+      { id: 'doc-flight', title: 'EL AL flights (LY5 / LY4479 / LY6)', category: 'Flights', status: 'Confirmed', note: 'Outbound LY5 on 18/12 (TLV to LAX), internal LY4479 on 04/01 (LAS to LAX), return LY6 on 04/01 (LAX to TLV).', href: '' },
+      { id: 'doc-sdphx', title: 'San Diego to Phoenix flight (Southwest WN 4452)', category: 'Flights', status: 'Confirmed', note: '25/12, departs 10:55 SAN, arrives 13:15 PHX, nonstop.', href: '' },
       { id: 'doc-parkplaza', title: 'Park Plaza Lodge - Los Angeles', category: 'Lodging', status: 'Confirmed', note: '18/12 - 20/12 - 2 nights in Los Angeles.', href: '' },
       { id: 'doc-romano', title: 'San Diego stay - Romano family', category: 'Lodging', status: 'Hosted', note: 'Staying with the Romano family in San Diego, roughly 20/12 - 25/12.', href: '' },
-      { id: 'doc-roadtrip-stays', title: 'Road-trip stays (Sedona, Page, Zion)', category: 'Lodging', status: 'Booked', note: 'All booked: Sedona Airbnb 2n (25-27/12), Page Airbnb 2n (27-29/12), AutoCamp Zion 3n (29/12-01/01). Confirmation codes kept off the public site.', href: '' },
-      { id: 'doc-vegas', title: 'Club Wyndham Grand Desert - Las Vegas', category: 'Lodging', status: 'Confirmed', note: '01/01 - 04/01, 3 nights, non-smoking two-bedroom suite with kitchen. 265 East Harmon Avenue. Confirmation number kept off the public site.', href: '' },
-      { id: 'doc-car', title: 'Rental cars (Avis + Alamo)', category: 'Transport', status: 'Confirmed', note: 'Car 1 (Avis): LAX to San Diego Airport, 18/12 06:30 - 25/12 10:00. Car 2 (Alamo): fullsize van, Phoenix to Las Vegas, 25/12 13:30 - 04/01 07:00. Reservation numbers and name kept off the public site.', href: '' },
+      { id: 'doc-roadtrip-stays', title: 'Road-trip stays (Sedona, Page, Zion)', category: 'Lodging', status: 'Booked', note: 'All booked: Sedona Airbnb 2n (25-27/12), Page Airbnb 2n (27-29/12), AutoCamp Zion 3n (29/12-01/01).', href: '' },
+      { id: 'doc-vegas', title: 'Club Wyndham Grand Desert - Las Vegas', category: 'Lodging', status: 'Confirmed', note: '01/01 - 04/01, 3 nights, non-smoking two-bedroom suite with kitchen. 265 East Harmon Avenue.', href: '' },
+      { id: 'doc-car', title: 'Rental cars (Avis + Alamo)', category: 'Transport', status: 'Confirmed', note: 'Car 1 (Avis): LAX to San Diego Airport, 18/12 06:30 - 25/12 10:00. Car 2 (Alamo): fullsize van, Phoenix to Las Vegas, 25/12 13:30 - 04/01 07:00.', href: '' },
       { id: 'doc-insurance', title: 'Travel insurance - Harel', category: 'Documents', status: 'To update', note: 'Harel travel health insurance, Ganam family. The policy details for this trip are to be updated. 24h Harel emergency hotline.', href: '' }
     ],
     attractions: [
