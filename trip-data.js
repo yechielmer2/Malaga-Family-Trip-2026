@@ -261,12 +261,12 @@
         document: ''
       },
       weather: [
-        { name: 'Los Angeles', dates: '18/12 - 20/12', note: 'Mild winter, cool nights', href: wx.la },
-        { name: 'San Diego', dates: '20/12 - 25/12', note: 'Pleasant by day, cool in the evening', href: wx.sd },
-        { name: 'Sedona', dates: '25/12 - 27/12', note: 'Cool days, freezing nights (~4,300 ft)', href: wx.sedona },
-        { name: 'Page', dates: '27/12 - 29/12', note: 'Cold high desert, chilly canyon mornings', href: wx.page },
-        { name: 'Zion', dates: '29/12 - 01/01', note: 'Cold winter days, icy shaded trails', href: wx.zion },
-        { name: 'Las Vegas', dates: '01/01 - 04/01', note: 'Cold in winter, especially at night', href: wx.lv }
+        { name: 'Los Angeles', dates: '18/12 - 20/12', note: 'Mild winter, cool nights', href: wx.la, coords: [34.05, -118.24], expHigh: 19, expLow: 9 },
+        { name: 'San Diego', dates: '20/12 - 25/12', note: 'Pleasant by day, cool in the evening', href: wx.sd, coords: [32.72, -117.16], expHigh: 18, expLow: 11 },
+        { name: 'Sedona', dates: '25/12 - 27/12', note: 'Cool days, freezing nights (~4,300 ft)', href: wx.sedona, coords: [34.87, -111.76], expHigh: 13, expLow: 2 },
+        { name: 'Page', dates: '27/12 - 29/12', note: 'Cold high desert, chilly canyon mornings', href: wx.page, coords: [36.91, -111.46], expHigh: 8, expLow: -2 },
+        { name: 'Zion', dates: '29/12 - 01/01', note: 'Cold winter days, icy shaded trails', href: wx.zion, coords: [37.20, -112.99], expHigh: 10, expLow: -1 },
+        { name: 'Las Vegas', dates: '01/01 - 04/01', note: 'Cold in winter, especially at night', href: wx.lv, coords: [36.11, -115.17], expHigh: 14, expLow: 4 }
       ]
     },
     documents: [

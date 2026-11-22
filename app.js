@@ -379,7 +379,7 @@
         <article class="card rental-card"><div><div class="card-top"><div><div class="mini-label">Transport · ${esc(rental.provider)}</div><h3>${esc(rental.title)}</h3></div><span class="status ${rental.status === 'Confirmed' ? 'ready' : 'pending'}">${esc(rental.status)}</span></div><div class="grid grid-2" style="margin-top:15px"><div class="soft-box"><div class="mini-label">Pick-up</div><b>${esc(rental.pickup)}</b></div><div class="soft-box"><div class="mini-label">Drop-off</div><b>${esc(rental.return)}</b></div></div><div class="info-row" style="margin-top:14px"><span><b>${esc(rental.vehicle)}</b></span><span>${esc(rental.deposit)}</span></div><p>${esc(rental.requirements)}</p>${rental.warning ? `<div class="warning-box">${esc(rental.warning)}</div>` : ''}</div>${rental.document ? `<a class="btn btn-dark btn-small" href="${esc(rental.document)}" target="_blank" rel="noopener">Open document</a>` : ''}</article>
       </section>
 
-      <section class="section"><div class="section-head"><div><h2>Weather by location</h2><p>Direct links to Meteoblue</p></div></div><div class="grid grid-2">${state.useful.weather.map(w => `<a class="card weather-card" href="${esc(w.href)}" target="_blank" rel="noopener"><div class="weather-icon">☁️</div><div><div class="mini-label">${esc(w.dates)}</div><h3>${esc(w.name)}</h3><p>${esc(w.note)}</p></div><span>↗</span></a>`).join('')}</div></section>
+      <section class="section"><div class="section-head"><div><h2>Weather by location</h2><p>Expected (December normals) with live conditions</p></div></div><div class="grid grid-2">${state.useful.weather.map((w, i) => `<div class="card weather-card"><div class="weather-icon" id="wx-icon-${i}">☁️</div><div style="flex:1"><div class="mini-label">${esc(w.dates)}</div><h3>${esc(w.name)}</h3><p>${esc(w.note)}</p><div class="wx-live" id="wx-live-${i}" data-lat="${w.coords ? w.coords[0] : ''}" data-lon="${w.coords ? w.coords[1] : ''}">${w.expHigh !== undefined ? `Expected: ${w.expHigh}&deg; / ${w.expLow}&deg;C` : ''}</div></div><a class="btn btn-ghost btn-small" href="${esc(w.href)}" target="_blank" rel="noopener" style="align-self:center">Meteoblue</a></div>`).join('')}</div></section>
 
       <section class="section"><div class="section-head"><div><h2>Emergency numbers</h2></div></div><div class="grid grid-3">${state.useful.emergency.map(e => `<a class="card" href="${esc(e.href)}" style="text-decoration:none"><div class="mini-label">${esc(e.label)}</div><div class="quick-value" style="margin-top:8px"><bdi>${esc(e.value)}</bdi></div><div class="quick-caption">${esc(e.caption || 'Tap to call')}</div></a>`).join('')}</div></section>
     `);
@@ -400,6 +400,41 @@
 
   function dataEditor() {
     return `<div class="form-grid"><div class="field full"><label>All app data</label><textarea id="json-data" class="json-area">${esc(JSON.stringify(state, null, 2))}</textarea></div></div><div class="modal-actions"><button class="btn btn-dark" data-action="import-json">Save from text</button><button class="btn btn-soft" data-action="download-json">Download backup</button><label class="btn btn-ghost" style="cursor:pointer">Load file<input id="import-file" type="file" accept="application/json" hidden></label><button class="btn btn-ghost" data-action="reset-data">Reset to original</button></div>`;
+  }
+
+  function initWeather() {
+    const codeIcon = c => {
+      if (c === 0) return '☀️';
+      if (c <= 2) return '🌤️';
+      if (c === 3) return '☁️';
+      if (c >= 45 && c <= 48) return '🌫️';
+      if (c >= 51 && c <= 67) return '🌧️';
+      if (c >= 71 && c <= 77) return '❄️';
+      if (c >= 80 && c <= 82) return '🌦️';
+      if (c >= 85 && c <= 86) return '🌨️';
+      if (c >= 95) return '⛈️';
+      return '☁️';
+    };
+    document.querySelectorAll('.wx-live').forEach(el => {
+      const lat = el.dataset.lat;
+      const lon = el.dataset.lon;
+      if (!lat || !lon || el.dataset.loaded) return;
+
+      el.dataset.loaded = '1';
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=auto&forecast_days=1`;
+      fetch(url)
+        .then(r => r.ok ? r.json() : Promise.reject())
+        .then(d => {
+          const now = Math.round(d.current.temperature_2m);
+          const hi = Math.round(d.daily.temperature_2m_max[0]);
+          const lo = Math.round(d.daily.temperature_2m_min[0]);
+          const expected = el.innerHTML;
+          el.innerHTML = `<b>Now ${now}&deg;C</b> &middot; today ${hi}&deg; / ${lo}&deg;C<br><small style="color:var(--muted)">${expected}</small>`;
+          const icon = document.getElementById(el.id.replace('wx-live', 'wx-icon'));
+          if (icon) icon.textContent = codeIcon(d.current.weather_code);
+        })
+        .catch(() => {});
+    });
   }
 
   function initRouteMap() {
@@ -492,6 +527,7 @@
     if (fileInput) fileInput.addEventListener('change', importFile);
 
     initRouteMap();
+    initWeather();
   }
 
   function handleAction(event) {

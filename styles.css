@@ -296,6 +296,7 @@ a.route-stop { text-decoration: none; color: inherit; display: block; }
 .weather-card { display: grid; grid-template-columns: 50px 1fr auto; gap: 13px; align-items: center; text-decoration: none; transition: .18s ease; }
 .weather-card:hover { transform: translateY(-2px); }
 .weather-card p { margin: 4px 0 0; }
+.wx-live { margin-top: 6px; font-size: 14px; }
 .weather-icon { width: 50px; height: 50px; border-radius: 16px; display: grid; place-items: center; background: #e6f0f2; font-size: 23px; }
 .caution-card { background: #fff8ed; border-color: #f1d7ab; }
 .doc-card[href] { text-decoration: none; transition: .18s ease; }
