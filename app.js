@@ -6,7 +6,9 @@
     { id: 'iphone-backup', label: 'iPhone backup' },
     { id: 'internet-sim', label: 'Data SIM / eSIM' },
     { id: 'travel-insurance', label: 'Travel insurance' },
-    { id: 'flight-netflix', label: 'Netflix for the flight', note: 'Download shows in advance' }
+    { id: 'flight-netflix', label: 'Netflix for the flight', note: 'Download shows in advance' },
+    { id: 'fully-packed', label: 'Be fully packed by 15/12' },
+    { id: 'leave-for-airport', label: 'Leave for the airport by 20:30 on 17/12', note: 'EL AL LY5 departs 00:45; be at BGN by ~21:45' }
   ];
   const clone = value => JSON.parse(JSON.stringify(value));
   let state = loadState();
